@@ -1,7 +1,27 @@
 @import "styles/_variables";
 
+.content {
+  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
+}
+
 .section {
   margin-bottom: map-get($spacing-sizes, "2");
+}
+
+.sidebar {
+  display: none;
+}
+
+@media only screen and (min-width: 1022px) {
+  .container {
+    display: grid;
+    grid-template-columns: 0.7fr 0.3fr;
+  }
+  .sidebar {
+    background-color: $accent-green;
+    display: flex;
+    width: 100%;
+  }
 }
 
 .lastText {
