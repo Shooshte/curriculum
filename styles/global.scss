@@ -1,5 +1,11 @@
 @import "styles/_variables";
 
+// This is here to disable Safari from change phone number colour
+a[href^="tel"] {
+  text-decoration: inherit;
+  color: inherit;
+}
+
 html {
   font-family: $font-family;
   font-size: $base-font-size;
