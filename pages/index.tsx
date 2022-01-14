@@ -16,17 +16,18 @@ const Home = () => (
         language is Slovene, but I have also been learning&nbsp;
         <span className="text-accent">English</span> since my pre-school days.
       </p>
+
       <p className="text">
-        I get excited about new technologies, business opportunities, products
-        and creative work easily and have a passion for learning new skills. I
+        I often get excited about new technologies, business opportunities,
+        products and creative work. I have a passion for learning new skills. I
         recently adopted two cats, and once I take a profile picture that I
         like, I stick with it for a very long time.
       </p>
       <p className="text">
         I prefer being contacted via my email address&nbsp;
-        <span className="text-accent">miha.sustersic.work@gmail.com</span>, but
-        I usually also pick up when someone calls personal mobile phone
-        number&nbsp;
+        <span className="text-accent">miha.sustersic.work@gmail.com</span>. That
+        being said, I usually also pick up when someone calls my personal mobile
+        phone number:&nbsp;
         <span className="text-accent">+386 31 535 919</span>.
       </p>
     </section>
