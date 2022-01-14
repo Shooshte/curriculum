@@ -178,19 +178,20 @@ const Home = () => (
         <span className="text-accent">Jul 2015 - Mar 2017</span>: Sportradar
       </h3>
       <p className="text">
-        My responsibilities at this&nbsp;
-        <span className="text-accent">large international company</span>&nbsp;
-        included <span className="text-accent">onboarding customers</span> and
-        supporting them when integrating various web-based solutions into their
-        technology stack.
+        Sportradar is a{" "}
+        <span className="text-accent">large international company</span>. My
+        responsibilities there included onboarding and supporting customers. I
+        was hired to provide <span className="text-accent">technical help</span>{" "}
+        with integration of various products. These were all web-based widgets,
+        XML feeds and SDKs.
       </p>
       <p className={`text ${styles.lastText}`}>
-        My main focus was on customer support and modifying existing ReactJS and
-        PhP widgets, as well as single-page-applications using SASS to fit
-        customer-specific needs. These were white label solutions that
-        required&nbsp;
-        <span className="text-accent">styling adjustments</span> according to
-        different style guides in order to fit the customer branding.
+        My main focus was customer support. I was also{" "}
+        <span className="text-accent">modifying ReactJS and PhP widgets</span>,
+        as well as single-page-applications. This was done using{" "}
+        <span className="text-accent">SASS</span> to fit customer-specific
+        needs. I worked on white label solutions that required styling
+        adjustments.
       </p>
     </section>
     <section className={styles.section}>
