@@ -60,7 +60,6 @@ const Home = () => (
         <span className="text-accent">end-to-end (integration)</span> tests
         using Cypress.
       </p>
-
       <h3 className="heading-3">Markup</h3>
       <p className={`text ${styles.lastText}`}>
         I use&nbsp;<span className="text-accent">styled-components</span>&nbsp;
@@ -72,25 +71,27 @@ const Home = () => (
         writing documentation inside <span className="text-accent">.md</span>
         &nbsp; files.
       </p>
-
       <h3 className="heading-3">UX/UI Design</h3>
       <p className="text">
         For the past <span className="text-accent">3 years</span>, I have
         designed <span className="text-accent">web app interfaces</span>. I am
-        adaptable within my creative process, I have worked using existing
-        design systems (Semantic UI, Material UI, Tailwind), using design
-        systems provided by graphical designers and creating a design system
-        from scratch. I follow&nbsp;
-        <span className="text-accent">Gestalt Principles</span>, and
-        conduct&nbsp;
-        <span className="text-accent">user interviews</span>, so I can design
-        interfaces that satisfy user needs.
+        adaptable within my creative process. I have worked using existing
+        design systems such as Semantic UI, Material UI and Tailwind. I know how
+        to adapt design systems and branding provided by graphical designers. I
+        was also a part of a team that created a in-house design system from
+        scratch.{" "}
+      </p>
+      <p className="text">
+        I follow&nbsp;
+        <span className="text-accent">Gestalt Principles</span>, always thinking
+        about how users will perceive my work. I conduct&nbsp;
+        <span className="text-accent">user interviews</span> to design
+        interfaces that meet user needs.
       </p>
       <p className={`text ${styles.lastText}`}>
         I have limited experience designing&nbsp;
         <span className="text-accent">static landing pages</span>.
       </p>
-
       <h3 className="heading-3">Project Management</h3>
       <p className="text">
         I have <span className="text-accent">2 years</span> of experience with
@@ -117,7 +118,6 @@ const Home = () => (
         <span className="text-accent">Asana</span>&nbsp; and&nbsp;
         <span className="text-accent">Trello</span>.
       </p>
-
       <h3 className="heading-3">Knowledge Sharing</h3>
       <p className="text">
         I am used to being a <span className="text-accent">mentor</span> to
