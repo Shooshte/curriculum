@@ -1,0 +1,60 @@
+@import "styles/_variables";
+
+.container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100vh;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.main {
+  background-color: $primary-color;
+  flex-grow: 1;
+  @include get-text-color($primary-color);
+  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
+  overflow: auto;
+  width: calc(
+    100% - map-get($spacing-sizes, "2") - map-get($spacing-sizes, "2")
+  );
+}
+
+.header {
+  align-items: center;
+  background-color: $light-text-color;
+  display: flex;
+  @include get-text-color($light-text-color);
+  justify-content: space-between;
+  padding: map-get($spacing-sizes, "2") map-get($spacing-sizes, "3");
+  position: sticky;
+  top: 0;
+  width: calc(
+    100% - map-get($spacing-sizes, "3") - map-get($spacing-sizes, "3")
+  );
+  h1 {
+    @include get-text-color($light-text-color);
+  }
+}
+
+.navigation {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  ul {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    li {
+      margin-left: map-get($spacing-sizes, "3");
+      a {
+        @include get-text-color($light-text-color);
+        text-decoration: none;
+      }
+    }
+    li:first-child {
+      margin-left: 0;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@import "styles/_variables";
+
+.section {
+  margin-bottom: map-get($spacing-sizes, "2");
+}
+
+.lastText {
+  margin-bottom: map-get($spacing-sizes, "3");
+}
