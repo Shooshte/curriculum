@@ -13,15 +13,16 @@ const Home = () => (
       <p className="text">
         I am a <span className="text-accent">32 year old</span> male from
         Škofljica, <span className="text-accent">Slovenia</span>. My native
-        language is Slovene, but I have also been learning&nbsp;
-        <span className="text-accent">English</span> since my pre-school days.
+        language is Slovene, but I am also proficient in&nbsp;
+        <span className="text-accent">English</span>.
       </p>
 
       <p className="text">
         I often get excited about new technologies, business opportunities,
         products and creative work. I have a passion for learning new skills. I
-        recently adopted two cats, and once I take a profile picture that I
-        like, I stick with it for a very long time.
+        recently adopted two cats, and instantly became a cat whisperer. Once I
+        take a profile picture that I like, I stick with it for a very long
+        time.
       </p>
       <p className="text">
         I prefer being contacted via my email address&nbsp;
@@ -109,7 +110,7 @@ const Home = () => (
       <p className={`text ${styles.lastText}`}>
         I have used many task management systems, including&nbsp;
         <span className="text-accent">JIRA</span>,&nbsp;
-        <span className="text-accent">Asana</span>&nbsp; and&nbsp;
+        <span className="text-accent">Asana</span>&nbsp;and&nbsp;
         <span className="text-accent">Trello</span>.
       </p>
 
@@ -133,8 +134,8 @@ const Home = () => (
     <section className={styles.section}>
       <h2 className="heading-2">Work experience</h2>
       <h3 className="heading-3">
-        <span className="text-accent">Oct 2020 - Feb 2022</span>: Taia
-        translations
+        <span className="text-accent">Senior front-end developer</span>&nbsp;Oct
+        2020 - Feb 2022 (1 year and 4 months)
       </h3>
       <p className={`text ${styles.lastText}`}>
         Taia translations is an&nbsp;
@@ -149,17 +150,18 @@ const Home = () => (
           mock-ups and UX/UI designs while mentoring interns
         </span>
         . I helped planning{" "}
-        <span className="text-accent">software architecture</span>. Very often
-        we were also designing new functionalities for the Taia web platform.
+        <span className="text-accent">software architecture</span>. I also
+        helped brainstorming and designing new functionalities for the Taia web
+        platform.
       </p>
       <h3 className="heading-3">
-        <span className="text-accent">Apr 2017 - Oct 2020</span>: Sinergise,
-        laboratorij za geografske informacijske sisteme
+        <span className="text-accent">Front-end developer</span> Apr 2017 - Oct
+        2020 (3 years and 7 months)
       </h3>
 
       <p className="text">
         Sinergise is a&nbsp;
-        <span className="text-accent">medium-sized software company</span>
+        <span className="text-accent">medium-sized software company</span>&nbsp;
         located in Ljubljana, Slovenia. I started by working alone on a
         proof-of-concept single page ReactJS application. I succeeded at
         developing and pitching the project to our customer. This resulted in
@@ -175,7 +177,8 @@ const Home = () => (
         <span className="text-accent">MobX, Redux and TypeScript</span>.
       </p>
       <h3 className="heading-3">
-        <span className="text-accent">Jul 2015 - Mar 2017</span>: Sportradar
+        <span className="text-accent">Integration engineer</span>&nbsp;Jul 2015
+        - Mar 2017(1 year and 9 months)
       </h3>
       <p className="text">
         Sportradar is a{" "}
@@ -197,7 +200,7 @@ const Home = () => (
     <section className={styles.section}>
       <h2 className="heading-2">Education</h2>
       <h3 className="heading-3">
-        <span className="text-accent">2010</span>: High school graduate
+        <span className="text-accent">High school graduate</span>&nbsp;(2010)
       </h3>
       <p className={`text ${styles.lastText}`}>
         Gimnazija Ledina, Ljubljana, Slovenia
