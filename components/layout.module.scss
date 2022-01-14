@@ -26,22 +26,27 @@
 
 .header {
   background-color: $light-text-color;
-  padding: map-get($spacing-sizes, "2") map-get($spacing-sizes, "2");
   position: sticky;
   top: 0;
-  width: calc(
-    100% - map-get($spacing-sizes, "2") - map-get($spacing-sizes, "2")
-  );
+  width: 100%;
 }
 
 .headerContent {
   align-items: center;
   @include get-text-color($light-text-color);
   display: flex;
+  font-weight: map-get($font-weights, "bold");
+  font-size: map-get($font-sizes, "4");
   justify-content: space-between;
   margin: 0 auto;
-  max-width: $max-content-width;
-  width: 100%;
+  max-width: calc(
+    $max-content-width - map-get($spacing-sizes, "2") -
+      map-get($spacing-sizes, "2")
+  );
+  padding: map-get($spacing-sizes, "2");
+  width: calc(
+    100% - map-get($spacing-sizes, "2") - map-get($spacing-sizes, "2")
+  );
   h1 {
     @include get-text-color($light-text-color);
   }
