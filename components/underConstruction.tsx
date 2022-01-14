@@ -24,7 +24,7 @@ const UnderConstruction = () => {
       />
       <h2 className="heading-2">Under Construction</h2>
       <p className="text">
-        Ugh, seems you have been clickbaited into clicking a link that leads to
+        Ugh, seems you have been click baited into clicking a link that leads to
         a dead end. This page is still in development and will be available
         later.
       </p>
