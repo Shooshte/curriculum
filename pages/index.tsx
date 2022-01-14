@@ -116,20 +116,20 @@ const Home = () => (
       <h3 className="heading-3">Knowledge Sharing</h3>
       <p className="text">
         I am used to being a <span className="text-accent">mentor</span> to
-        interns and new coworkers (both small groups and individuals), that
-        worked as part-time developers or designers. These mentorships typically
-        spanned over a couple of months and resulted in the mentees&nbsp;
-        <span className="text-accent">becoming independent employees</span>.
+        interns and new coworkers (both small groups and individuals). These
+        mentorships all lasted a few months and resulted in{" "}
+        <span className="text-accent">
+          new productive and satisfied employees.
+        </span>
       </p>
       <p className={`text ${styles.lastText}`}>
         I have experience creating and organising short&nbsp;
         <span className="text-accent">
-          (15-30min) presentations and workshops
+          (15-30min) presentations and workshops.
         </span>
-        &nbsp;centered on various code and software architecture related topics
-        for my colleagues.
       </p>
     </section>
+
     <section className={styles.section}>
       <h2 className="heading-2">Work experience</h2>
       <h3 className="heading-3">
@@ -139,17 +139,18 @@ const Home = () => (
       <p className={`text ${styles.lastText}`}>
         Taia translations is an&nbsp;
         <span className="text-accent">international startup</span> focusing on
-        the translations industry. I worked in a smaller team of&nbsp;
-        <span className="text-accent">6 developers</span>. My work here included
-        a wide range of tasks, including implementing features on the Taia app
-        web platform using <span className="text-accent">ReactJS</span>,
-        creating&nbsp;
+        the translations industry. I worked in a smaller team of 6 developers as
+        a&nbsp;
+        <span className="text-accent">senior front-end developer</span>. My work
+        was not focused only on development but included a wide range of tasks.
+        I was implementing features on the Taia app web platform using{" "}
+        <span className="text-accent">ReactJS</span>. I was also creating&nbsp;
         <span className="text-accent">
-          mock-ups and UX/UI designs, mentoring interns, planning software
-          architecture
+          mock-ups and UX/UI designs while mentoring interns
         </span>
-        &nbsp; and actively designing new functionalities for the Taia web
-        platform.
+        . I helped planning{" "}
+        <span className="text-accent">software architecture</span>. Very often
+        we were also designing new functionalities for the Taia web platform.
       </p>
       <h3 className="heading-3">
         <span className="text-accent">Apr 2017 - Oct 2020</span>: Sinergise,
