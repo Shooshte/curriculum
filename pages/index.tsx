@@ -95,29 +95,24 @@ const Home = () => (
       <h3 className="heading-3">Project Management</h3>
       <p className="text">
         I have <span className="text-accent">2 years</span> of experience with
-        project management, ranging from small-scale one-man bands to&nbsp;
-        <span className="text-accent">medium-sized teams</span>. I know when and
-        how to <span className="text-accent">delegate work</span>, set and&nbsp;
-        <span className="text-accent">meet deadlines</span> and&nbsp;
+        project management. I know when and how to{" "}
+        <span className="text-accent">delegate work</span>, set and&nbsp;
+        <span className="text-accent">meet deadlines.</span> I&nbsp;
         <span className="text-accent">prioritise work</span> according to user
         and business impact. I can&nbsp;
         <span className="text-accent">take ownership of features</span> or
-        products, including&nbsp;
-        <span className="text-accent">software architecture planning</span>,
-        customer (and stakeholder) meetings, designing the UI, and planning
-        implementation.
-      </p>
-      <p className="text">
-        I worked as project manager and product owner in a team of 7 people. We
-        built a <span className="text-accent">finished product</span> from a
-        proof-of-concept application.
+        products. I have experience with&nbsp;
+        <span className="text-accent">software architecture planning</span>. I
+        am accustomed to customer (and stakeholder) meetings and planning
+        software requirements.
       </p>
       <p className={`text ${styles.lastText}`}>
-        I have used multiple task management systems, including&nbsp;
+        I have used many task management systems, including&nbsp;
         <span className="text-accent">JIRA</span>,&nbsp;
         <span className="text-accent">Asana</span>&nbsp; and&nbsp;
         <span className="text-accent">Trello</span>.
       </p>
+
       <h3 className="heading-3">Knowledge Sharing</h3>
       <p className="text">
         I am used to being a <span className="text-accent">mentor</span> to
