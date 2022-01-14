@@ -25,18 +25,22 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>Miha Šušteršič</h1>
-        <nav data-testid="navigation-bar" className={styles.navigation}>
-          <ul>
-            {NAVIGATION_LINKS.map((linkData: navigationLinkType) => (
-              <li key={`nav-link-${linkData.id}`}>
-                <Link href={linkData.route}>{linkData.text}</Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className={styles.headerContent}>
+          <h1>Miha Šušteršič</h1>
+          <nav data-testid="navigation-bar" className={styles.navigation}>
+            <ul>
+              {NAVIGATION_LINKS.map((linkData: navigationLinkType) => (
+                <li key={`nav-link-${linkData.id}`}>
+                  <Link href={linkData.route}>{linkData.text}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
       </header>
-      <main className={styles.main}>{children}</main>
+      <main className={styles.main}>
+        <div className={styles.mainContent}>{children}</div>
+      </main>
     </div>
   );
 };

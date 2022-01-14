@@ -13,25 +13,39 @@
 .main {
   background-color: $primary-color;
   flex-grow: 1;
-  @include get-text-color($primary-color);
-  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
   overflow: auto;
-  width: calc(
-    100% - map-get($spacing-sizes, "2") - map-get($spacing-sizes, "2")
-  );
+  width: 100%;
+}
+
+.mainContent {
+  @include get-text-color($primary-color);
+  margin: 0 auto;
+  max-width: $max-content-width;
+  width: 100%;
 }
 
 .header {
-  align-items: center;
   background-color: $light-text-color;
-  display: flex;
-  @include get-text-color($light-text-color);
-  justify-content: space-between;
-  padding: map-get($spacing-sizes, "2") map-get($spacing-sizes, "3");
   position: sticky;
   top: 0;
+  width: 100%;
+}
+
+.headerContent {
+  align-items: center;
+  @include get-text-color($light-text-color);
+  display: flex;
+  font-weight: map-get($font-weights, "bold");
+  font-size: map-get($font-sizes, "4");
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: calc(
+    $max-content-width - map-get($spacing-sizes, "2") -
+      map-get($spacing-sizes, "2")
+  );
+  padding: map-get($spacing-sizes, "2");
   width: calc(
-    100% - map-get($spacing-sizes, "3") - map-get($spacing-sizes, "3")
+    100% - map-get($spacing-sizes, "2") - map-get($spacing-sizes, "2")
   );
   h1 {
     @include get-text-color($light-text-color);

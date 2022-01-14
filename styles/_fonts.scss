@@ -5,6 +5,9 @@ $base-font-size: 14px;
 $label-size: 0.786rem;
 $max-text-width: 80ch;
 
+// maximum content width, not sure where else to put this
+$max-content-width: 1024px;
+
 // Bold is used to distinguish important info in a sentence/table etc.
 $font-weights: (
   "normal": 400,
