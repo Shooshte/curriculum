@@ -13,19 +13,19 @@ const Home = () => (
       <p className="text">
         I am a <span className="text-accent">32 year old</span> male from
         Škofljica, <span className="text-accent">Slovenia</span>. My native
-        language is Slovene but I have also been learning&nbsp;
+        language is Slovene, but I have also been learning&nbsp;
         <span className="text-accent">English</span> since my pre-school days.
       </p>
       <p className="text">
         I get excited about new technologies, business opportunities, products
         and creative work easily and have a passion for learning new skills. I
-        recently adopted two cats, and once I take a profile picture I like I
-        usually stick with it for way too long.
+        recently adopted two cats, and once I take a profile picture that I
+        like, I stick with it for a very long time.
       </p>
       <p className="text">
-        I prefer being contancted via my email address&nbsp;
+        I prefer being contacted via my email address&nbsp;
         <span className="text-accent">miha.sustersic.work@gmail.com</span>, but
-        alternatively you can also call me at my personal mobile phone
+        I usually also pick up when someone calls personal mobile phone
         number&nbsp;
         <span className="text-accent">+386 31 535 919</span>.
       </p>
@@ -35,7 +35,7 @@ const Home = () => (
       <h2 className="heading-2">Skills</h2>
       <h3 className="heading-3">JavaScript</h3>
       <p className="text">
-        For the past 5 years I have been writing single-page-applications
+        For the past 5 years, I have been writing single-page-applications
         using&nbsp;
         <span className="text-accent">ReactJS.</span> I have used&nbsp;
         <span className="text-accent">Mobx</span>,&nbsp;
@@ -74,15 +74,15 @@ const Home = () => (
 
       <h3 className="heading-3">UX/UI Design</h3>
       <p className="text">
-        For the past <span className="text-accent">3 years</span> I have
+        For the past <span className="text-accent">3 years</span>, I have
         designed <span className="text-accent">web app interfaces</span>. I am
         adaptable within my creative process, I have worked using existing
-        design systems (SemanticUI, Material UI, Tailwind), using design systems
-        provided by graphical designers and creating a design system from
-        scratch. I follow&nbsp;
+        design systems (Semantic UI, Material UI, Tailwind), using design
+        systems provided by graphical designers and creating a design system
+        from scratch. I follow&nbsp;
         <span className="text-accent">Gestalt Principles</span>, and
         conduct&nbsp;
-        <span className="text-accent">user interviews</span> so I can design
+        <span className="text-accent">user interviews</span>, so I can design
         interfaces that satisfy user needs.
       </p>
       <p className={`text ${styles.lastText}`}>
@@ -112,7 +112,7 @@ const Home = () => (
       </p>
       <p className={`text ${styles.lastText}`}>
         I have used multiple task management systems, including&nbsp;
-        <span className="text-accent">JIRA</span> ,&nbsp;
+        <span className="text-accent">JIRA</span>,&nbsp;
         <span className="text-accent">Asana</span>&nbsp; and&nbsp;
         <span className="text-accent">Trello</span>.
       </p>
@@ -122,7 +122,7 @@ const Home = () => (
         I am used to being a <span className="text-accent">mentor</span> to
         interns and new coworkers (both small groups and individuals), that
         worked as part-time developers or designers. These mentorships typically
-        spanned over a couple of months and resulteed in the mentees&nbsp;
+        spanned over a couple of months and resulted in the mentees&nbsp;
         <span className="text-accent">becoming independent employees</span>.
       </p>
       <p className={`text ${styles.lastText}`}>
@@ -164,9 +164,9 @@ const Home = () => (
         <span className="text-accent">
           medium-sized software company in Ljubljana
         </span>
-        , Slovenia working alone on a proof-of-concept single page ReactJS
-        application. I developed and pitched the project succesfully to our
-        customer which resulted in extended cooperation with the client and the
+        , Slovenia, working alone on a proof-of-concept single page ReactJS
+        application. I developed and pitched the project successfully to our
+        customer, which resulted in extended cooperation with the client and the
         first large-scale production&nbsp;
         <span className="text-accent">ReactJS</span> application I had the
         pleasure of working on.
@@ -192,17 +192,17 @@ const Home = () => (
       </p>
       <p className={`text ${styles.lastText}`}>
         My main focus was on customer support and modifying existing ReactJS and
-        PhP widgets as well as single-page-applications using SASS to fit
-        customer-specific needs. These were whitelabel solutions that
-        needed&nbsp;
-        <span className="text-accent">styling adjustements</span> according to
-        different styleguides in order to fit the customer branding.
+        PhP widgets, as well as single-page-applications using SASS to fit
+        customer-specific needs. These were white label solutions that
+        required&nbsp;
+        <span className="text-accent">styling adjustments</span> according to
+        different style guides in order to fit the customer branding.
       </p>
     </section>
     <section className={styles.section}>
       <h2 className="heading-2">Education</h2>
       <h3 className="heading-3">
-        <span className="text-accent">2010</span>: High school graudate
+        <span className="text-accent">2010</span>: High school graduate
       </h3>
       <p className={`text ${styles.lastText}`}>
         Gimnazija Ledina, Ljubljana, Slovenia
