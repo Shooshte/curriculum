@@ -156,26 +156,23 @@ const Home = () => (
         <span className="text-accent">Apr 2017 - Oct 2020</span>: Sinergise,
         laboratorij za geografske informacijske sisteme
       </h3>
+
       <p className="text">
-        I started working for Sinergise, a&nbsp;
-        <span className="text-accent">
-          medium-sized software company in Ljubljana
-        </span>
-        , Slovenia, working alone on a proof-of-concept single page ReactJS
-        application. I developed and pitched the project successfully to our
-        customer, which resulted in extended cooperation with the client and the
-        first large-scale production&nbsp;
-        <span className="text-accent">ReactJS</span> application I had the
-        pleasure of working on.
+        Sinergise is a&nbsp;
+        <span className="text-accent">medium-sized software company</span>
+        located in Ljubljana, Slovenia. I started by working alone on a
+        proof-of-concept single page ReactJS application. I succeeded at
+        developing and pitching the project to our customer. This resulted in
+        extended cooperation with the client and a large-scale production&nbsp;
+        <span className="text-accent">ReactJS</span> application.
       </p>
       <p className={`text ${styles.lastText}`}>
-        After a year a larger team took over the initial project I worked on and
-        I joined a larger team in which my responsibilities included&nbsp;
-        <span className="text-accent">project management</span> for one of the
-        teams projects,&nbsp;
-        <span className="text-accent">creating UX and UI mock-ups</span> and
-        development of multiple ReactJS applications. These were developed using
-        a mix of ReactJS, MobX, Redux and TypeScript.
+        After a year I joined a larger team. There my responsibilities expanded
+        to <span className="text-accent">project management</span> and{" "}
+        <span className="text-accent">creating UX and UI mock-ups</span>. I also
+        continued with development of several ReactJS applications with my
+        colleagues. These were developed using a mix of ReactJS,{" "}
+        <span className="text-accent">MobX, Redux and TypeScript</span>.
       </p>
       <h3 className="heading-3">
         <span className="text-accent">Jul 2015 - Mar 2017</span>: Sportradar
