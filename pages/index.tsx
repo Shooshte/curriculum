@@ -134,7 +134,7 @@ const Home = () => (
     <section className={styles.section}>
       <h2 className="heading-2">Work experience</h2>
       <h3 className="heading-3">
-        <span className="text-accent">Senior front-end developer</span>&nbsp;Oct
+        <span className="text-accent">Senior Front-end Developer</span>&nbsp;Oct
         2020 - Feb 2022 (1 year and 4 months)
       </h3>
       <p className={`text ${styles.lastText}`}>
@@ -155,7 +155,7 @@ const Home = () => (
         platform.
       </p>
       <h3 className="heading-3">
-        <span className="text-accent">Front-end developer</span> Apr 2017 - Oct
+        <span className="text-accent">Front-end Developer</span> Apr 2017 - Oct
         2020 (3 years and 7 months)
       </h3>
 
@@ -177,8 +177,8 @@ const Home = () => (
         <span className="text-accent">MobX, Redux and TypeScript</span>.
       </p>
       <h3 className="heading-3">
-        <span className="text-accent">Integration engineer</span>&nbsp;Jul 2015
-        - Mar 2017(1 year and 9 months)
+        <span className="text-accent">Integration Engineer</span>&nbsp;Jul 2015
+        - Mar 2017 (1 year and 9 months)
       </h3>
       <p className="text">
         Sportradar is a{" "}
