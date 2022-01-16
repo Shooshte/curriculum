@@ -221,13 +221,7 @@ const Home = () => (
         </section>
       </div>
       <div className={styles.sidebar}>
-        <Image
-          height={2547}
-          src={sidebarSrc}
-          quality={100}
-          sizes={"307px"}
-          width={307}
-        />
+        <Image height={2547} src={sidebarSrc} quality={100} width={307} />
       </div>
     </div>
   </>
