@@ -47,7 +47,7 @@ const Home = () => (
             <span className="text-accent">ReactJS.</span> I have used&nbsp;
             <span className="text-accent">Mobx</span>,&nbsp;
             <span className="text-accent">Redux</span>
-            &nbsp; and&nbsp;
+            &nbsp;and&nbsp;
             <span className="text-accent">TypeScript</span> on several
             large-scale projects.
           </p>
