@@ -58,7 +58,7 @@ const Home = () => (
             <span className="text-accent">axios</span>. I have a limited
             understanding of how to use{" "}
             <span className="text-accent">GraphQL</span>
-            &nbsp; and&nbsp;
+            &nbsp;and&nbsp;
             <span className="text-accent">NodeJS</span>.
           </p>
           <p className={`text ${styles.lastText}`}>
@@ -70,14 +70,14 @@ const Home = () => (
           <h3 className="heading-3">Markup</h3>
           <p className={`text ${styles.lastText}`}>
             I use&nbsp;<span className="text-accent">styled-components</span>
-            &nbsp; and&nbsp;
+            &nbsp;and&nbsp;
             <span className="text-accent">framer-motion</span>. I know&nbsp;
             <span className="text-accent">CSS</span>,&nbsp;
             <span className="text-accent">SASS</span>
-            &nbsp; and <span className="text-accent">HTML</span>. I am used to
+            &nbsp;and <span className="text-accent">HTML</span>. I am used to
             writing documentation inside{" "}
             <span className="text-accent">.md</span>
-            &nbsp; files.
+            &nbsp;files.
           </p>
           <h3 className="heading-3">UX/UI Design</h3>
           <p className="text">
@@ -170,7 +170,7 @@ const Home = () => (
           <p className="text">
             Sinergise is a&nbsp;
             <span className="text-accent">medium-sized software company</span>
-            &nbsp; located in Ljubljana, Slovenia. I started by working alone on
+            &nbsp;located in Ljubljana, Slovenia. I started by working alone on
             a proof-of-concept single page ReactJS application. I succeeded at
             developing and pitching the project to our customer. This resulted
             in extended cooperation with the client and a large-scale
