@@ -1,6 +1,9 @@
 import Head from "next/head";
+import Image from "next/image";
 
 import styles from "./index.module.scss";
+
+import sidebarSrc from "../public/images/SidebarImage.png";
 
 const Home = () => (
   <>
@@ -217,7 +220,9 @@ const Home = () => (
           </p>
         </section>
       </div>
-      <div className={styles.sidebar}></div>
+      <div className={styles.sidebar}>
+        <Image height={2547} src={sidebarSrc} width={307} />
+      </div>
     </div>
   </>
 );
