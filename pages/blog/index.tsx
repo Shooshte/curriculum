@@ -4,6 +4,7 @@ import UnderConstruction from "~/components/underConstruction";
 import { getSortedPostsData } from "~/lib/posts";
 
 interface PostType {
+  categories: string;
   id: string;
   date: string;
   title: string;
@@ -19,6 +20,16 @@ const Blog = ({ allPostsData }: PropsType) => {
       <Head>
         <title>Blog - Miha Šušteršič</title>
       </Head>
+      <ul>
+        {allPostsData.map(({ categories, date, id, title }) => (
+          <li key={id}>
+            <h3>{title}</h3>
+            <p>{categories}</p>
+            <br />
+            {new Date(date).toLocaleDateString()}
+          </li>
+        ))}
+      </ul>
       <UnderConstruction></UnderConstruction>
     </>
   );
