@@ -9,6 +9,10 @@ const Home = () => (
   <>
     <Head>
       <title>Curriculum Vitae - Miha Šušteršič</title>
+      <meta
+        name="description"
+        content="Miha Šušteršič's personal CV page. An experienced ReactJS front-end developer that also works in project management and UX/UI design. The CV contains all the relevant work experience and skills. Will be available for employment from 10th Feb 2022."
+      ></meta>
     </Head>
 
     <div className={styles.container}>

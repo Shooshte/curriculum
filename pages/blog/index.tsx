@@ -18,6 +18,10 @@ const Blog = ({ allPostsData }: PropsType) => {
     <>
       <Head>
         <title>Blog - Miha Šušteršič</title>
+        <meta
+          name="description"
+          content="Miha Šušteršič's personal blog page. This page is still under construction so it does not include any content."
+        ></meta>
       </Head>
       <UnderConstruction></UnderConstruction>
     </>
