@@ -225,7 +225,13 @@ const Home = () => (
         </section>
       </div>
       <div className={styles.sidebar}>
-        <Image height={2547} src={sidebarSrc} quality={100} width={307} />
+        <Image
+          alt="A circuit board filled with icons representing different curriculum parts."
+          height={2547}
+          src={sidebarSrc}
+          quality={100}
+          width={307}
+        />
       </div>
     </div>
   </>
