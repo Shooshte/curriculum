@@ -92,6 +92,7 @@ const markdownOptions: MarkdownToJSX.Options = {
         objectFit: "contain",
         objectPosition: "left top",
         quality: 100,
+        width: 500,
         priority: true,
       },
     },

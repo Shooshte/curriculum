@@ -13,15 +13,9 @@
 
 @media only screen and (min-width: 768px) {
   .blogImageContainer {
+    margin: 0 auto;
     height: 460px;
     width: 460px;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .blogImageContainer {
-    height: 614px;
-    width: 614px;
   }
 }
 
@@ -56,5 +50,11 @@
   ul + h6,
   p + h6 {
     margin-top: map-get($spacing-sizes, "6");
+  }
+  p {
+    font-size: map-get($font-sizes, "5");
+    line-height: map-get($line-height-sizes, "5");
+    margin-bottom: map-get($spacing-sizes, "5");
+    max-width: $max-text-width;
   }
 }
