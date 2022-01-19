@@ -27,4 +27,34 @@
 
 .wrapper {
   padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
+  code + h2,
+  pre + h2,
+  ul + h2,
+  p + h2 {
+    margin-top: map-get($spacing-sizes, "2");
+  }
+  code + h3,
+  pre + h3,
+  ul + h3,
+  p + h3 {
+    margin-top: map-get($spacing-sizes, "3");
+  }
+  code + h4,
+  pre + h4,
+  ul + h4,
+  p + h4 {
+    margin-top: map-get($spacing-sizes, "4");
+  }
+  code + h5,
+  pre + h5,
+  ul + h5,
+  p + h5 {
+    margin-top: map-get($spacing-sizes, "5");
+  }
+  code + h6,
+  pre + h6,
+  ul + h6,
+  p + h6 {
+    margin-top: map-get($spacing-sizes, "6");
+  }
 }
