@@ -20,6 +20,14 @@ html {
   max-width: $max-text-width;
 }
 
+.list {
+  font-size: map-get($font-sizes, "5");
+  line-height: map-get($line-height-sizes, "5");
+  list-style: circle;
+  margin-bottom: map-get($spacing-sizes, "3");
+  margin-inline-start: map-get($spacing-sizes, "3");
+}
+
 .text-accent {
   color: $accent-orange;
 }

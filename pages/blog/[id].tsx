@@ -100,6 +100,11 @@ const markdownOptions: MarkdownToJSX.Options = {
         className: "text",
       },
     },
+    ul: {
+      props: {
+        className: "list",
+      },
+    },
   },
   wrapper: PostWrapper,
 };
