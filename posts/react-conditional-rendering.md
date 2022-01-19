@@ -7,8 +7,6 @@ title: "Clean-er ReactJS Code - Conditional Rendering"
 
 # Clean-er ReactJS Code - Conditional Rendering
 
-![A browser window containing a star supported by 3 question marks.](https://i.imgur.com/TbNgr8P.png)
-
 ## TL;DR
 
 Move render conditions into appropriately named variables. Abstract the condition logic into a function. This makes the render function code a lot easier to understand, refactor, reuse, test, and think about.
