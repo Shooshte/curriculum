@@ -135,7 +135,7 @@ const OptionsPanel = ({ user }) => {
 };
 ```
 
-We have documented every know user role and admin role in our system. We have abstracted checking if a user has admin permissions into a separate function. We have further reduced the intrinsic cognitive load of our reader. It is now clear what the initial software requirements were. The admin options panel should only be available for users with admin permissions. We can now check our four points of failure in isolation:
+We have documented every known user role and admin role in our system. We have abstracted checking if a user has admin permissions into a separate function. We have further reduced the intrinsic cognitive load of our reader. It is now clear what the initial software requirements were. The admin options panel should only be available for users with admin permissions. We can now check our four points of failure in isolation:
 
 - Are the roles defined correctly?
 - Is the function that checks the user roles working as expected?
