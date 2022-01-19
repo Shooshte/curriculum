@@ -4,6 +4,7 @@ import Layout from "~/components/layout";
 // Styles
 import "../styles/reset.scss";
 import "../styles/global.scss";
+import "../styles/code.scss";
 
 // Types
 import { AppProps } from "next/app";

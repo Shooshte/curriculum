@@ -1,7 +1,6 @@
 import Image from "next/image";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
-import "highlight.js/styles/night-owl.css";
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
 import React, { useEffect } from "react";
 
