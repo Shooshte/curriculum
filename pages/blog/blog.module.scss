@@ -1,0 +1,9 @@
+@import "styles/_variables";
+
+.blogItem {
+  margin-bottom: map-get($spacing-sizes, "2");
+}
+
+.container {
+  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
+}

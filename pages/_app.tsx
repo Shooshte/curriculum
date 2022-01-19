@@ -9,6 +9,7 @@ import * as gtag from "../lib/gtag";
 // Styles
 import "../styles/reset.scss";
 import "../styles/global.scss";
+import "../styles/code.scss";
 
 // Types
 import { AppProps } from "next/app";
