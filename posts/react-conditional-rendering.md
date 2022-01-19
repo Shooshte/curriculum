@@ -35,12 +35,7 @@ ReactDOM.render(
 );
 ```
 
-I am talking about these two conditions:
-
-- `unreadMessages.length > 0 &&`
-- `unreadMessages.length`
-
-I believe it would be better to write these as functions outside the scope of the Component. This improves code readability and code reusability. It also makes the code easier to test and optimize. But the biggest benefit this provides is lessening the cognitive load of programmers.
+I believe it would be better to write this as a function outside the scope of the Component. This improves code readability and code reusability. It also makes the code easier to test and optimize. But the biggest benefit this provides is lessening the cognitive load of programmers.
 
 ## Multiple conditions
 

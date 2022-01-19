@@ -1,6 +1,9 @@
 import Image from "next/image";
+import hljs from "highlight.js/lib/core";
+import javascript from "highlight.js/lib/languages/javascript";
+import "highlight.js/styles/night-owl.css";
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
-import React from "react";
+import React, { useEffect } from "react";
 
 import styles from "./post.module.scss";
 
@@ -103,6 +106,11 @@ const markdownOptions: MarkdownToJSX.Options = {
 };
 
 const Post = ({ postData }: PropsType) => {
+  useEffect(() => {
+    hljs.registerLanguage("javascript", javascript);
+    hljs.highlightAll();
+  }, []);
+
   return <Markdown options={markdownOptions}>{postData.content}</Markdown>;
 };
 

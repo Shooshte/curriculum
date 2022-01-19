@@ -1,3 +1,5 @@
+@import "styles/_variables";
+
 .blogImageContainer {
   position: relative;
 }
@@ -20,5 +22,14 @@
   .blogImageContainer {
     height: 614px;
     width: 614px;
+  }
+}
+
+.wrapper {
+  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
+  code {
+    background-color: $dark-text-color;
+    @include get-text-color($dark-text-color);
+    line-height: 1.857;
   }
 }
