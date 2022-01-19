@@ -6,6 +6,7 @@ pre code.hljs {
   line-height: map-get($line-height-sizes, "5");
   font-size: map-get($font-sizes, "5");
   padding: map-get($spacing-sizes, "3");
+  margin-bottom: map-get($spacing-sizes, "3");
   overflow-x: auto;
 }
 code.hljs {
