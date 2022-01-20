@@ -6,10 +6,11 @@ import styles from "./blog.module.scss";
 import { getSortedPostsData } from "~/lib/posts";
 
 interface PostType {
-  categories: string;
+  categories?: string;
+  date?: string;
+  description?: string;
   id: string;
-  date: string;
-  title: string;
+  title?: string;
 }
 
 interface PropsType {
@@ -33,7 +34,7 @@ const Blog = ({ allPostsData }: PropsType) => {
       <section className={styles.container}>
         <h2 className="heading-2">Recent blog posts</h2>
         <ul>
-          {allPostsData.map(({ categories, date, id, title }) => {
+          {allPostsData.map(({ categories, date, description, id, title }) => {
             const categoriesArray = parseCategories(categories);
 
             return (
@@ -50,6 +51,7 @@ const Blog = ({ allPostsData }: PropsType) => {
                     return index === 0 ? category : `${acc}, ${category}`;
                   }, "")}
                 </p>
+                <p className="text">{description}</p>
               </li>
             );
           })}
