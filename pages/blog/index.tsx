@@ -42,15 +42,11 @@ const Blog = ({ allPostsData }: PropsType) => {
                 <Link href={`blog/${id}`}>
                   <h3 className="heading-3 link">{title}</h3>
                 </Link>
-                <span className="label">
-                  {new Date(date).toLocaleDateString()}
-                </span>
-                <br />
-                <p className="text">
-                  {categoriesArray.reduce((acc, category, index): string => {
-                    return index === 0 ? category : `${acc}, ${category}`;
-                  }, "")}
-                </p>
+                <div className={styles.categories}>
+                  {categoriesArray.map((category) => (
+                    <div className="pill">{category}</div>
+                  ))}
+                </div>
                 <p className="text">{description}</p>
               </li>
             );

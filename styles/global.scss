@@ -36,6 +36,19 @@ html {
   margin-inline-start: map-get($spacing-sizes, "3");
 }
 
+.pill {
+  background-color: $accent-yellow;
+  border-radius: 30px;
+  display: inline-block;
+  font-weight: map-get($font-weights, "bold");
+  font-size: map-get($font-sizes, "6");
+  @include get-text-color($accent-yellow);
+  line-height: 1.2;
+  margin-right: map-get($spacing-sizes, "6");
+  padding: map-get($spacing-sizes, "6") map-get($spacing-sizes, "4");
+  text-transform: uppercase;
+}
+
 .text-accent {
   color: $accent-orange;
 }
