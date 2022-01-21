@@ -1,8 +1,11 @@
 @import "styles/_variables";
 
 .blogItem {
-  cursor: pointer;
   margin-bottom: map-get($spacing-sizes, "2");
+}
+
+.categories {
+  margin-bottom: map-get($spacing-sizes, "3");
 }
 
 .container {

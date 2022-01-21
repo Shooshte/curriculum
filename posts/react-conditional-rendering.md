@@ -1,7 +1,7 @@
 '''
-categories: "ReactJS;CleanCode"
+categories: "ReactJS;Clean Code"
 date: "2022-01-07"
-description: "How to write cleaner, more extendable and easier to test ReactJS Component render functions by exctracting rendering conditions into functions."
+description: "How to write cleaner, extendable and testable ReactJS component render functions."
 title: "Clean-er ReactJS Code - Conditional Rendering"
 '''
 

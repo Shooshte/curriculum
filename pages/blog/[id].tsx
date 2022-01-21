@@ -1,4 +1,5 @@
-import Image from "next/image";
+import Head from "next/head";
+import Image, { ImageProps } from "next/image";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
@@ -28,20 +29,25 @@ export const getStaticProps = async ({ params }) => {
 interface PostDataType {
   content: string;
   data: {
-    categories: string;
-    date: string;
-    title: string;
+    categories?: string;
+    date?: string;
+    description?: string;
+    title?: string;
   };
-  excerpt: string;
+  excerpt?: string;
   id: string;
-  isEmpty: false;
+  isEmpty: boolean;
 }
 
 interface PropsType {
   postData: PostDataType;
 }
 
-const PostImage = (props) => {
+interface ImagePropsType extends ImageProps {
+  alt: string;
+}
+
+const PostImage = (props: ImagePropsType) => {
   return (
     <div className={styles.blogImageContainer}>
       <Image {...props} />
@@ -110,13 +116,26 @@ const markdownOptions: MarkdownToJSX.Options = {
   wrapper: PostWrapper,
 };
 
-const Post = ({ postData }: PropsType) => {
+const Post = ({
+  postData: {
+    content,
+    data: { description, title },
+  },
+}: PropsType) => {
   useEffect(() => {
     hljs.registerLanguage("javascript", javascript);
     hljs.highlightAll();
   }, []);
 
-  return <Markdown options={markdownOptions}>{postData.content}</Markdown>;
+  return (
+    <>
+      <Head>
+        <title>Miha Šušteršič: {title}</title>
+        <meta name="description" content={description}></meta>
+      </Head>
+      <Markdown options={markdownOptions}>{content}</Markdown>
+    </>
+  );
 };
 
 export default Post;
