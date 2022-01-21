@@ -49,6 +49,10 @@ html {
   text-transform: uppercase;
 }
 
+.pill:last-child {
+  margin-right: 0;
+}
+
 .text-accent {
   color: $accent-orange;
 }
