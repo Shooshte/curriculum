@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
@@ -43,7 +43,7 @@ interface PropsType {
   postData: PostDataType;
 }
 
-const PostImage = (props) => {
+const PostImage = (props: ImageProps) => {
   return (
     <div className={styles.blogImageContainer}>
       <Image {...props} />
