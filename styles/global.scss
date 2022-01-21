@@ -44,7 +44,7 @@ html {
   font-size: map-get($font-sizes, "6");
   @include get-text-color($accent-yellow);
   line-height: 1.2;
-  margin-right: map-get($spacing-sizes, "6");
+  margin-right: map-get($spacing-sizes, "5");
   padding: map-get($spacing-sizes, "6") map-get($spacing-sizes, "4");
   text-transform: uppercase;
 }
