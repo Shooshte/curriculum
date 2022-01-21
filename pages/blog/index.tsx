@@ -39,7 +39,7 @@ const Blog = ({ allPostsData }: PropsType) => {
 
             return (
               <li className={styles.blogItem} key={id}>
-                <Link href={`blog/${id}`} passHref={true}>
+                <Link href={`blog/${id}`} passHref={false}>
                   <h3 className="heading-3 link">{title}</h3>
                 </Link>
                 <div className={styles.categories}>
