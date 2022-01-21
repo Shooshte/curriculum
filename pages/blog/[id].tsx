@@ -43,7 +43,11 @@ interface PropsType {
   postData: PostDataType;
 }
 
-const PostImage = (props: ImageProps) => {
+interface ImagePropsType extends ImageProps {
+  alt: string;
+}
+
+const PostImage = (props: ImagePropsType) => {
   return (
     <div className={styles.blogImageContainer}>
       <Image {...props} />

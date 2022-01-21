@@ -39,12 +39,14 @@ const Blog = ({ allPostsData }: PropsType) => {
 
             return (
               <li className={styles.blogItem} key={id}>
-                <Link href={`blog/${id}`}>
+                <Link href={`blog/${id}`} passHref={true}>
                   <h3 className="heading-3 link">{title}</h3>
                 </Link>
                 <div className={styles.categories}>
-                  {categoriesArray.map((category) => (
-                    <div className="pill">{category}</div>
+                  {categoriesArray.map((category, index) => (
+                    <div key={`${category}-${index}`} className="pill">
+                      {category}
+                    </div>
                   ))}
                 </div>
                 <p className="text">{description}</p>
