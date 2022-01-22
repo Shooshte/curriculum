@@ -143,6 +143,7 @@ const Post = ({ postData }: PropsType) => {
         <title>Miha Šušteršič: {title}</title>
         <meta name="description" content={description}></meta>
       </Head>
+
       <article className={styles.container}>
         <TableOfContents headings={headings} />
         <Markdown options={markdownOptions}>{content}</Markdown>
