@@ -17,7 +17,7 @@ const Home = () => (
 
     <div className={styles.container}>
       <div className={styles.content}>
-        <section className={styles.section}>
+        <section className={styles.section} data-testid="personal-information">
           <h2 className="heading-2">Personal Information</h2>
           <p className="text">
             I am a <span className="text-accent">32 year old</span> male from
@@ -42,7 +42,7 @@ const Home = () => (
           </p>
         </section>
 
-        <section className={styles.section}>
+        <section className={styles.section} data-testid="skills">
           <h2 className="heading-2">Skills</h2>
           <h3 className="heading-3">JavaScript</h3>
           <p className="text">
@@ -85,13 +85,13 @@ const Home = () => (
           </p>
           <h3 className="heading-3">UX/UI Design</h3>
           <p className="text">
-            For the past <span className="text-accent">3 years</span>, I have
-            designed <span className="text-accent">web app interfaces</span>. I
-            am adaptable within my creative process. I have worked using
-            existing design systems such as Semantic UI, Material UI and
-            Tailwind. I know how to adapt design systems and branding provided
-            by graphical designers. I was also a part of a team that created a
-            in-house design system from scratch.{" "}
+            For the past 3 years, I have designed{" "}
+            <span className="text-accent">web app interfaces</span>. I am
+            adaptable within my creative process. I have worked using existing
+            design systems such as Semantic UI, Material UI and Tailwind. I know
+            how to adapt design systems and branding provided by graphical
+            designers. I was also a part of a team that created a in-house
+            design system from scratch.{" "}
           </p>
           <p className="text">
             I follow&nbsp;
@@ -106,9 +106,9 @@ const Home = () => (
           </p>
           <h3 className="heading-3">Project Management</h3>
           <p className="text">
-            I have <span className="text-accent">2 years</span> of experience
-            with project management. I know when and how to{" "}
-            <span className="text-accent">delegate work</span>, set and&nbsp;
+            I have 2 years of experience with project management. I know when
+            and how to <span className="text-accent">delegate work</span>, set
+            and&nbsp;
             <span className="text-accent">meet deadlines.</span> I&nbsp;
             <span className="text-accent">prioritise work</span> according to
             user and business impact. I can&nbsp;
@@ -142,7 +142,7 @@ const Home = () => (
           </p>
         </section>
 
-        <section className={styles.section}>
+        <section className={styles.section} data-testid="work-experience">
           <h2 className="heading-2">Work experience</h2>
           <h3 className="heading-3">
             <span className="text-accent">Senior Front-end Developer</span>
@@ -184,7 +184,7 @@ const Home = () => (
           <p className={`text ${styles.lastText}`}>
             After a year I joined a larger team. There my responsibilities
             expanded to <span className="text-accent">project management</span>{" "}
-            and <span className="text-accent">creating UX and UI mock-ups</span>
+            and creating <span className="text-accent">UX and UI mock-ups</span>
             . I also continued with development of several ReactJS applications
             with my colleagues. These were developed using a mix of ReactJS,{" "}
             <span className="text-accent">MobX, Redux and TypeScript</span>.
@@ -213,7 +213,7 @@ const Home = () => (
             adjustments.
           </p>
         </section>
-        <section className={styles.section}>
+        <section className={styles.section} data-testid="education">
           <h2 className="heading-2">Education</h2>
           <h3 className="heading-3">
             <span className="text-accent">High school graduate</span>
