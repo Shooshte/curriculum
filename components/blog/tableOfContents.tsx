@@ -1,6 +1,6 @@
 import { slugifyPostId } from "../../lib/string";
 
-import styles from "./tableOfCOntents.module.scss";
+import styles from "./tableOfContents.module.scss";
 
 interface PropsType {
   headings: string[];

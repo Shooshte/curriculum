@@ -18,6 +18,10 @@
 # misc
 .DS_Store
 
+# test outputs
+/cypress/screenshots
+/cypress/videos
+
 # debug
 npm-debug.log*
 yarn-debug.log*
