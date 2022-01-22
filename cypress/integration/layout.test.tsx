@@ -21,3 +21,5 @@ describe("Navigation bar", () => {
     cy.url().should("eq", "http://localhost:3000/blog");
   });
 });
+
+export {};
