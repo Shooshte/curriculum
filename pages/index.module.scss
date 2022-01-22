@@ -1,5 +1,10 @@
 @import "styles/_variables";
 
+.container {
+  max-width: $max-content-width;
+  margin: 0 auto;
+}
+
 .content {
   padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
 }

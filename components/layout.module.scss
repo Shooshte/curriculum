@@ -20,7 +20,6 @@
 .mainContent {
   @include get-text-color($primary-color);
   margin: 0 auto;
-  max-width: $max-content-width;
   width: 100%;
 }
 

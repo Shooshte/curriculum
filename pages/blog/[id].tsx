@@ -5,9 +5,12 @@ import javascript from "highlight.js/lib/languages/javascript";
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
 import React, { useEffect } from "react";
 
+import TableOfContents from "../../components/blog/tableOfContents";
+
 import styles from "./post.module.scss";
 
 import { getAllPostIds, getPostData } from "../../lib/posts";
+import { slugifyPostId } from "../../lib/string";
 
 export const getStaticPaths = async () => {
   const paths = getAllPostIds();
@@ -56,7 +59,7 @@ const PostImage = (props: ImagePropsType) => {
 };
 
 const PostWrapper = ({ children }) => (
-  <article className={styles.wrapper}>{children}</article>
+  <section className={styles.wrapper}>{children}</section>
 );
 
 const markdownOptions: MarkdownToJSX.Options = {
@@ -113,19 +116,26 @@ const markdownOptions: MarkdownToJSX.Options = {
       },
     },
   },
+  slugify: (str) => slugifyPostId(str),
   wrapper: PostWrapper,
 };
 
-const Post = ({
-  postData: {
-    content,
-    data: { description, title },
-  },
-}: PropsType) => {
+const Post = ({ postData }: PropsType) => {
   useEffect(() => {
     hljs.registerLanguage("javascript", javascript);
     hljs.highlightAll();
   }, []);
+
+  const {
+    content,
+    data: { description, title },
+  } = postData;
+
+  // extract all headings except for h1 from the post text
+  const HEADINGS_REGEX = /#{2}.+/g;
+  const headings = content.match(HEADINGS_REGEX).map((heading, index) => {
+    return heading.replace(/##\s/, "");
+  });
 
   return (
     <>
@@ -133,7 +143,11 @@ const Post = ({
         <title>Miha Šušteršič: {title}</title>
         <meta name="description" content={description}></meta>
       </Head>
-      <Markdown options={markdownOptions}>{content}</Markdown>
+
+      <article className={styles.container}>
+        <TableOfContents headings={headings} />
+        <Markdown options={markdownOptions}>{content}</Markdown>
+      </article>
     </>
   );
 };
