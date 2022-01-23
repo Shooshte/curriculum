@@ -9,7 +9,32 @@ interface TestParameterType {
   testId: string;
 }
 
-const runContentTest = (testParams: TestParameterType) => {
+type ViewportPresetType =
+  | "macbook-16"
+  | "macbook-15"
+  | "macbook-13"
+  | "macbook-11"
+  | "ipad-2"
+  | "ipad-mini"
+  | "iphone-xr"
+  | "iphone-x"
+  | "iphone-6+"
+  | "iphone-se2"
+  | "iphone-8"
+  | "iphone-7"
+  | "iphone-6"
+  | "iphone-5"
+  | "iphone-4"
+  | "iphone-3"
+  | "samsung-s10"
+  | "samsung-note9";
+
+interface RunContentTestArgsType {
+  testParams: TestParameterType;
+  viewport?: ViewportPresetType;
+}
+
+const runContentTest = ({ testParams, viewport }: RunContentTestArgsType) => {
   const { contains, description, next, selector, should, testId } = testParams;
   const testDescription = !!description
     ? description
@@ -17,6 +42,9 @@ const runContentTest = (testParams: TestParameterType) => {
   const testSelector = `article section[data-testid="${testId}"] ${selector}`;
 
   it(testDescription, () => {
+    if (!!viewport) {
+      cy.viewport(viewport);
+    }
     if (!!contains && !!should && !!next) {
       cy.get(testSelector)
         .contains(contains)
@@ -149,8 +177,31 @@ describe("Blog post", () => {
         },
       ];
 
-      TOC_TEST_PARAMETERS.forEach((testCase) => {
-        runContentTest(testCase);
+      describe("mobile", () => {
+        it("phone", () => {
+          // Table of contents should not render on mobile phones
+          runContentTest({
+            testParams: {
+              description: "Table of contents should not be displayed",
+              selector: "section",
+              should: ["have.css", "display", "none"],
+              testId: "table-of-contents",
+            },
+            viewport: "iphone-6",
+          });
+        });
+      });
+
+      describe("tablet", () => {
+        TOC_TEST_PARAMETERS.forEach((testParams) => {
+          runContentTest({ testParams, viewport: "ipad-2" });
+        });
+      });
+
+      describe("laptop", () => {
+        TOC_TEST_PARAMETERS.forEach((testParams) => {
+          runContentTest({ testParams, viewport: "macbook-13" });
+        });
       });
     });
     describe("Content", () => {
@@ -224,8 +275,8 @@ describe("Blog post", () => {
           },
         ];
 
-        HEADING_TEST_PARAMS.forEach((testCase) => {
-          runContentTest(testCase);
+        HEADING_TEST_PARAMS.forEach((testParams) => {
+          runContentTest({ testParams });
         });
       });
       describe("Chapters content", () => {
@@ -307,8 +358,8 @@ describe("Blog post", () => {
           },
         ];
 
-        PARAGRAPH_TEST_PARAMS.forEach((testParam) => {
-          runContentTest(testParam);
+        PARAGRAPH_TEST_PARAMS.forEach((testParams) => {
+          runContentTest({ testParams });
         });
       });
     });
