@@ -3,7 +3,7 @@
 interface TestParameterType {
   contains?: string;
   description?: string;
-  next?: string;
+  next?: boolean;
   selector: string;
   should?: string[];
   testId: string;
@@ -19,8 +19,8 @@ const runContentTest = (testParams: TestParameterType) => {
   it(testDescription, () => {
     if (!!contains && !!should && !!next) {
       cy.get(testSelector)
-        .next(next)
         .contains(contains)
+        .next()
         // @ts-ignore
         .should(...should);
       return;
@@ -33,12 +33,12 @@ const runContentTest = (testParams: TestParameterType) => {
       return;
     }
     if (!!contains && !!next) {
-      cy.get(testSelector).next(next).contains(contains);
+      cy.get(testSelector).contains(contains).next();
       return;
     }
     if (!!should && !!next) {
       cy.get(testSelector)
-        .next(next)
+        .next()
         // @ts-ignore
         .should(...should);
       return;
@@ -53,7 +53,7 @@ const runContentTest = (testParams: TestParameterType) => {
       return;
     }
     if (!contains && !should && !!next) {
-      cy.get(testSelector).next(next);
+      cy.get(testSelector).next();
       return;
     }
     cy.get(testSelector);
@@ -228,7 +228,43 @@ describe("Blog post", () => {
           runContentTest(testCase);
         });
       });
-      describe("Paragraphs", () => {});
+      describe("Chapters content", () => {
+        const PARAGRAPH_TEST_PARAMS: TestParameterType[] = [
+          {
+            contains: "TL;DR",
+            description: "TL;DR paragraph",
+            next: true,
+            selector: "h2",
+            should: [
+              "have.text",
+              "Move render conditions into appropriately named variables. Abstract the condition logic into a function. This makes the render function code a lot easier to understand, refactor, reuse, test, and think about.",
+            ],
+            testId: "post-content",
+          },
+          {
+            contains: "Introduction",
+            description: "Introduction first paragraph",
+            next: true,
+            selector: "h2",
+            should: [
+              "have.text",
+              "Conditional rendering is when a logical operator determines what will be rendered. The following code is from the examples in the official ReactJS documentation. It is one of the simplest examples of conditional rendering that I can think of.",
+            ],
+            testId: "post-content",
+          },
+          {
+            contains:
+              "I believe it would be better to write this as a function outside the scope of the Component. This improves code readability and code reusability. It also makes the code easier to test and optimize. But the biggest benefit this provides is lessening the cognitive load of programmers.",
+            description: "Introduction last paragraph",
+            selector: "p",
+            testId: "post-content",
+          },
+        ];
+
+        PARAGRAPH_TEST_PARAMS.forEach((testParam) => {
+          runContentTest(testParam);
+        });
+      });
     });
   });
 });
