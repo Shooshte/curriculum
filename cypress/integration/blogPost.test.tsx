@@ -3,10 +3,62 @@
 interface TestParameterType {
   contains?: string;
   description?: string;
+  next?: string;
   selector: string;
   should?: string[];
   testId: string;
 }
+
+const runContentTest = (testParams: TestParameterType) => {
+  const { contains, description, next, selector, should, testId } = testParams;
+  const testDescription = !!description
+    ? description
+    : `${testId} ${selector} ${contains}`;
+  const testSelector = `article section[data-testid="${testId}"] ${selector}`;
+
+  it(testDescription, () => {
+    if (!!contains && !!should && !!next) {
+      cy.get(testSelector)
+        .next(next)
+        .contains(contains)
+        // @ts-ignore
+        .should(...should);
+      return;
+    }
+    if (!!contains && !!should) {
+      cy.get(testSelector)
+        .contains(contains)
+        // @ts-ignore
+        .should(...should);
+      return;
+    }
+    if (!!contains && !!next) {
+      cy.get(testSelector).next(next).contains(contains);
+      return;
+    }
+    if (!!should && !!next) {
+      cy.get(testSelector)
+        .next(next)
+        // @ts-ignore
+        .should(...should);
+      return;
+    }
+    if (!!contains && !should && !next) {
+      cy.get(testSelector).contains(contains);
+      return;
+    }
+    if (!contains && !!should && !next) {
+      // @ts-ignore
+      cy.get(testSelector).should(...should);
+      return;
+    }
+    if (!contains && !should && !!next) {
+      cy.get(testSelector).next(next);
+      return;
+    }
+    cy.get(testSelector);
+  });
+};
 
 // Hardcoded tests for the first blog psot for now
 describe("Blog post", () => {
@@ -98,32 +150,85 @@ describe("Blog post", () => {
       ];
 
       TOC_TEST_PARAMETERS.forEach((testCase) => {
-        const { contains, description, selector, should, testId } = testCase;
-        const testDescription = !!description
-          ? description
-          : `${testId} ${selector}`;
-        const testSelector = `article section[data-testid="${testId}"] ${selector}`;
+        runContentTest(testCase);
+      });
+    });
+    describe("Content", () => {
+      describe("headings", () => {
+        const HEADING_TEST_PARAMS: TestParameterType[] = [
+          {
+            contains: "Clean-er ReactJS Code - Conditional Rendering",
+            selector: "h1",
+            should: [
+              "have.attr",
+              "id",
+              "Clean-er_ReactJS_Code_-_Conditional_Rendering",
+            ],
+            testId: "post-content",
+          },
+          {
+            contains: "TL;DR",
+            selector: "h2",
+            should: ["have.attr", "id", "TL;DR"],
+            testId: "post-content",
+          },
+          {
+            contains: "Introduction",
+            selector: "h2",
+            should: ["have.attr", "id", "Introduction"],
+            testId: "post-content",
+          },
+          {
+            contains: "Multiple conditions",
+            selector: "h2",
+            should: ["have.attr", "id", "Multiple_conditions"],
+            testId: "post-content",
+          },
+          {
+            contains: "Intrinsic cognitive load",
+            selector: "h2",
+            should: ["have.attr", "id", "Intrinsic_cognitive_load"],
+            testId: "post-content",
+          },
+          {
+            contains: "The hidden cost of software requirements",
+            selector: "h2",
+            should: [
+              "have.attr",
+              "id",
+              "The_hidden_cost_of_software_requirements",
+            ],
+            testId: "post-content",
+          },
+          {
+            contains: "Don't repeat yourself",
+            selector: "h2",
+            should: ["have.attr", "id", "Don't_repeat_yourself"],
+            testId: "post-content",
+          },
+          {
+            contains: "Error reporting, debugging, and testing",
+            selector: "h2",
+            should: [
+              "have.attr",
+              "id",
+              "Error_reporting,_debugging,_and_testing",
+            ],
+            testId: "post-content",
+          },
+          {
+            contains: "Conclusion",
+            selector: "h2",
+            should: ["have.attr", "id", "Conclusion"],
+            testId: "post-content",
+          },
+        ];
 
-        it(testDescription, () => {
-          if (!!contains && should) {
-            cy.get(testSelector)
-              .contains(contains)
-              // @ts-ignore
-              .should(...should);
-            return;
-          }
-          if (!!contains && !should) {
-            cy.get(testSelector).contains(contains);
-            return;
-          }
-          if (!contains && !!should) {
-            // @ts-ignore
-            cy.get(testSelector).should(...should);
-            return;
-          }
-          cy.get(testSelector);
+        HEADING_TEST_PARAMS.forEach((testCase) => {
+          runContentTest(testCase);
         });
       });
+      describe("Paragraphs", () => {});
     });
   });
 });

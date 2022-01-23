@@ -59,7 +59,9 @@ const PostImage = (props: ImagePropsType) => {
 };
 
 const PostWrapper = ({ children }) => (
-  <section className={styles.wrapper}>{children}</section>
+  <section className={styles.wrapper} data-testid="post-content">
+    {children}
+  </section>
 );
 
 const markdownOptions: MarkdownToJSX.Options = {
