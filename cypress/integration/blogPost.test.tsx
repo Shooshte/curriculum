@@ -102,7 +102,7 @@ describe("Blog post", () => {
         const testDescription = !!description
           ? description
           : `${testId} ${selector}`;
-        const testSelector = `[data-testid="${testId}"] ${selector}`;
+        const testSelector = `article section[data-testid="${testId}"] ${selector}`;
 
         it(testDescription, () => {
           if (!!contains && should) {
