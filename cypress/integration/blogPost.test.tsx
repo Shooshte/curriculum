@@ -71,11 +71,11 @@ describe("Blog post", () => {
           ],
         },
         {
-          contains: "6. Don't Repeat Yourself",
+          contains: "6. Don't repeat yourself",
           description: "Sixth chapter link",
           selector: "ul li a",
           testId: "table-of-contents",
-          should: ["have.attr", "href", "#Don't_Repeat_Yourself"],
+          should: ["have.attr", "href", "#Don't_repeat_yourself"],
         },
         {
           contains: "7. Error reporting, debugging, and testing",

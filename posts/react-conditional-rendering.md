@@ -144,7 +144,7 @@ We have documented every known user role and admin role in our system. We have a
 
 The reader no longer has to know why only certain roles are able to use the admin options panel. The code provides this information. This also simplifies communication between coworkers by making questions more specific. It also makes certain question (why does the code work this way type of questions) unnecessary.
 
-## Don't Repeat Yourself
+## Don't repeat yourself
 
 There is another benefit to moving the business logic into a separate function. Business logic is often repeated. If we follow our example, users with admin permissions might be able to see other parts of the interface. They might be able to access certain confidential data. They might be able to edit certain information. In that case, having a reusable function for checking user role permissions is very handy. It provides a single point of failure and debugging for the whole codebase. Once we validated it works as specified it will work that way everywhere. We no longer have to do a global search for this condition to add an admin role or to remove an existing one. These are all great benefits that improve productivity and confidence in our codebase.
 
