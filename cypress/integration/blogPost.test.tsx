@@ -259,6 +259,52 @@ describe("Blog post", () => {
             selector: "p",
             testId: "post-content",
           },
+          {
+            contains: "Multiple conditions",
+            description: "Multiple conditions first paragraph",
+            next: true,
+            selector: "h2",
+            should: [
+              "have.text",
+              "This is an example of conditional rendering that I come across often. Instead of a single condition, we now have many conditions inside the render function.",
+            ],
+            testId: "post-content",
+          },
+          {
+            contains:
+              "If the user role is 29, 21, 11 or 30 we return the AdminOptionsPanel Component. If the user role is anything else we return the UserOptionsPanel. These are the main issues I have with the approach:",
+            description: "Multiple conditions second paragraph",
+            selector: "p",
+            testId: "post-content",
+          },
+          {
+            contains:
+              "The business logic is paired with the render logic. This makes it harder to think about the render logic in isolation.",
+            description: "Multiple conditions first bullet point",
+            selector: "ul li",
+            testId: "post-content",
+          },
+          {
+            contains:
+              "The business logic is not communicated at all. Without knowing what roles 29, 21, 11, and 30 stand for the reader does not know why this decision is made.",
+            description: "Multiple conditions second bullet point",
+            selector: "ul li",
+            testId: "post-content",
+          },
+          {
+            contains:
+              "The condition is not exportable. We need to repeat it if we have the same render condition for different elements inside our codebase.",
+            description: "Multiple conditions third bullet point",
+            selector: "ul li",
+            testId: "post-content",
+          },
+          {
+            contains:
+              "The condition is hard to test in isolation. Render functions are seldom this simple. Testing the final output of the Component will not determine if the render condition is causing issues.",
+            description: "Multiple conditions fourth bullet point",
+            selector: "ul li",
+            testId: "post-content",
+          },
         ];
 
         PARAGRAPH_TEST_PARAMS.forEach((testParam) => {
