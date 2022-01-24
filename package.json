@@ -22,7 +22,7 @@
   "devDependencies": {
     "@types/node": "^17.0.8",
     "@types/react": "^17.0.38",
-    "cypress": "^9.2.1",
+    "cypress": "^9.3.1",
     "eslint": "8.6.0",
     "eslint-config-next": "^0.2.4",
     "start-server-and-test": "^1.14.0",

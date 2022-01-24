@@ -8,8 +8,8 @@ interface PropsType {
 
 const TableOfContents = ({ headings = [] }: PropsType) => {
   return !!headings.length ? (
-    <section className={styles.container}>
-      <h4 className="heading-4">Table of contents</h4>
+    <section className={styles.container} data-testid="table-of-contents">
+      <h4 className="heading-4">Table of contents:</h4>
       <ul>
         {headings.map((heading, index) => {
           const href = slugifyPostId(heading);
