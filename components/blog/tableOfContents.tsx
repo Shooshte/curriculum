@@ -23,7 +23,9 @@ const TableOfContents = ({ headings = [] }: PropsType) => {
         })}
       </ul>
     </section>
-  ) : null;
+  ) : (
+    <div />
+  );
 };
 
 export default TableOfContents;

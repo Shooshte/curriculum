@@ -135,7 +135,7 @@ const Post = ({ postData }: PropsType) => {
 
   // extract all headings except for h1 from the post text
   const HEADINGS_REGEX = /#{2}.+/g;
-  const headings = content.match(HEADINGS_REGEX).map((heading, index) => {
+  const headings = content.match(HEADINGS_REGEX)?.map((heading, index) => {
     return heading.replace(/##\s/, "");
   });
 
