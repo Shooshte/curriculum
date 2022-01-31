@@ -11,7 +11,7 @@ interface navigationLinkType {
 export const NAVIGATION_LINKS: navigationLinkType[] = [
   {
     id: 0,
-    route: "/",
+    route: "/curriculum",
     text: "CV",
   },
   {
