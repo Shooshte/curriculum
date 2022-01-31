@@ -1,4 +1,6 @@
+import { ReactNode } from "react";
 import Link from "next/link";
+import CookieBanner from "./cookieBanner";
 
 import styles from "./layout.module.scss";
 
@@ -6,6 +8,17 @@ interface navigationLinkType {
   id: number;
   route: string;
   text: string;
+}
+
+interface SetAcceptedCookiesArgs {
+  acceptedCookies: boolean;
+  storeToLocalstorage: boolean;
+}
+
+interface LayoutProps {
+  acceptedCookies: boolean;
+  children: ReactNode;
+  setAcceptedCookies: ({}: SetAcceptedCookiesArgs) => void;
 }
 
 export const NAVIGATION_LINKS: navigationLinkType[] = [
@@ -19,9 +32,18 @@ export const NAVIGATION_LINKS: navigationLinkType[] = [
     route: "/blog",
     text: "Blog",
   },
+  {
+    id: 2,
+    route: "/cookies",
+    text: "Cookies",
+  },
 ];
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({
+  acceptedCookies,
+  children,
+  setAcceptedCookies,
+}: LayoutProps) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -41,6 +63,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <main className={styles.main}>
         <div className={styles.mainContent}>{children}</div>
       </main>
+      <footer className={styles.footer}>
+        <CookieBanner
+          acceptedCookies={acceptedCookies}
+          setAcceptedCookies={setAcceptedCookies}
+        />
+      </footer>
     </div>
   );
 };

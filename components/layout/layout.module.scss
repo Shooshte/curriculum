@@ -71,3 +71,11 @@
     }
   }
 }
+
+.footer {
+  background-color: $light-text-color;
+  @include get-text-color($light-text-color);
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}
