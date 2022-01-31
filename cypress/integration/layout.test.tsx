@@ -10,7 +10,9 @@ describe("Navigation bar", () => {
   });
 
   it("should contain a working CV link", () => {
-    cy.get('[data-testid="navigation-bar"] a[href="/"]').contains("CV").click();
+    cy.get('[data-testid="navigation-bar"] a[href="/curriculum"]')
+      .contains("CV")
+      .click();
     cy.url().should("include", "/curriculum");
   });
 
@@ -19,6 +21,13 @@ describe("Navigation bar", () => {
       .contains("Blog")
       .click();
     cy.url().should("include", "/blog");
+  });
+
+  it("should contain a working Cookies link", () => {
+    cy.get('[data-testid="navigation-bar"] a[href="/cookies"]')
+      .contains("Cookies")
+      .click();
+    cy.url().should("include", "/cookies");
   });
 });
 
