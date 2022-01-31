@@ -45,7 +45,6 @@
   height: calc(
     100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
   );
-
   overflow: auto;
   code + h2,
   pre + h2,
