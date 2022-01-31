@@ -10,7 +10,7 @@ interface SectionType {
 describe("Curriculum page", () => {
   // Page head element test, checking for page title and description
   it("<head> content", () => {
-    cy.visit("/");
+    cy.visit("/curriculum");
     cy.get("head title").contains("Miha Šušteršič: Curriculum Vitae");
     cy.get('head meta[name="description"]').should(
       "have.attr",

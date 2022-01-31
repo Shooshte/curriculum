@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 
-import styles from "./index.module.scss";
+import styles from "./curriculum.module.scss";
 
-import sidebarSrc from "../public/images/SidebarImage.png";
+import sidebarSrc from "../../public/images/SidebarImage.png";
 
 const Home = () => (
   <>
