@@ -45,13 +45,13 @@ describe("Layout", () => {
     });
 
     it("when page loads don't show the cookies banner when localStorage contains CookiesConsent : accepted", () => {
-      window.localStorage.setItem("CookiesConsent", "accepted");
+      localStorage.setItem("CookiesConsent", "accepted");
       cy.visit("/curriculum");
       cy.get("[data-testid='cookies-banner']").should("not.exist");
     });
 
     it("when page loads don't show the cookies banner when localStorage contains CookiesConsent : declined", () => {
-      window.localStorage.setItem("CookiesConsent", "declined");
+      localStorage.setItem("CookiesConsent", "declined");
       cy.visit("/curriculum");
       cy.get("[data-testid='cookies-banner']").should("not.exist");
     });
