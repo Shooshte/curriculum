@@ -13,10 +13,7 @@ import "~/styles/code.scss";
 
 const COOKIES_LOCALSTORAGE_ITEM = "CookiesConsent";
 
-interface SetAcceptedCookiesArgs {
-  acceptedCookies: boolean;
-  storeToLocalstorage: boolean;
-}
+type CookiesConsent = "accepted" | "declined";
 
 // Types
 import { AppProps } from "next/app";
@@ -25,7 +22,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
   useEffect(() => {
     const handleRouteChange = (url) => {
-      if (acceptedCookies) {
+      if (cookiesConsent === "accepted") {
         gtag.pageview(url);
       }
     };
@@ -37,34 +34,29 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   useEffect(() => {
     const consent = localStorage.getItem(COOKIES_LOCALSTORAGE_ITEM);
-    console.log("consent: ", consent);
-    setAcceptedCookies(consent ? true : false);
+    if (consent) {
+      setCookiesConsent(consent);
+    }
   }, []);
 
-  const [acceptedCookies, setAcceptedCookies] = useState<boolean>(false);
+  const [cookiesConsent, setCookiesConsent] = useState<string>();
 
-  const handleSetAcceptedCookies = ({
-    acceptedCookies,
-    storeToLocalstorage,
-  }: SetAcceptedCookiesArgs) => {
-    setAcceptedCookies(acceptedCookies);
-    if (storeToLocalstorage) {
-      localStorage.setItem(
-        COOKIES_LOCALSTORAGE_ITEM,
-        JSON.stringify(acceptedCookies)
-      );
-    }
+  const handleSetAcceptedCookies = (cookiesConsent: CookiesConsent) => {
+    setCookiesConsent(cookiesConsent);
+    localStorage.setItem(COOKIES_LOCALSTORAGE_ITEM, cookiesConsent);
   };
 
   return (
     <>
-      {acceptedCookies ? (
+      {cookiesConsent === "accepted" ? (
         <>
           <Script
+            data-testid="gtag-track"
             strategy="afterInteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
           />
           <Script
+            data-testid="gtag-init"
             id="gtag-init"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
@@ -81,7 +73,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         </>
       ) : null}
       <Layout
-        acceptedCookies={acceptedCookies}
+        cookiesConsent={cookiesConsent}
         setAcceptedCookies={handleSetAcceptedCookies}
       >
         <Component {...pageProps} />

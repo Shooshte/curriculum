@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import { MouseEvent } from "react";
 import Image from "next/image";
@@ -7,48 +7,47 @@ import Link from "next/link";
 import closeSVGSrc from "../../../public/images/CloseIcon.svg";
 import styles from "./cookieBanner.module.scss";
 
-interface SetAcceptedCookiesArgs {
-  acceptedCookies: boolean;
-  storeToLocalstorage: boolean;
-}
+type CookiesConsent = "accepted" | "declined";
 
 interface CookieBannerProps {
-  acceptedCookies: boolean;
-  setAcceptedCookies: ({}: SetAcceptedCookiesArgs) => void;
+  cookiesConsent?: string;
+  setAcceptedCookies: (cookiesContent: CookiesConsent) => void;
 }
 
 const CookieBanner = ({
-  acceptedCookies,
+  cookiesConsent,
   setAcceptedCookies,
 }: CookieBannerProps) => {
-  const [showBanner, setShowBanner] = useState<boolean>(!acceptedCookies);
+  const [closedBanner, setClosedBanner] = useState<boolean>(false);
 
   const onCloseClick = (e: MouseEvent) => {
     e.preventDefault();
-    setAcceptedCookies({ acceptedCookies: false, storeToLocalstorage: false });
-    setShowBanner(false);
+    setClosedBanner(true);
   };
 
   const onAcceptClick = (e: MouseEvent) => {
     e.preventDefault();
-    setAcceptedCookies({ acceptedCookies: false, storeToLocalstorage: true });
-    setShowBanner(false);
+    setAcceptedCookies("accepted");
   };
 
   const onDeclineClick = (e: MouseEvent) => {
     e.preventDefault();
-    setAcceptedCookies({ acceptedCookies: false, storeToLocalstorage: true });
-    setShowBanner(false);
+    setAcceptedCookies("declined");
   };
 
-  console.log("acceptedCookies: ", acceptedCookies);
-  console.log("showBanner: ", showBanner);
+  const showBanner = useMemo(() => {
+    return !closedBanner && !cookiesConsent;
+  }, [cookiesConsent, closedBanner]);
 
   return showBanner ? (
-    <section className={styles.container}>
+    <section className={styles.container} data-testid="cookies-banner">
       <div className={styles.headerContainer}>
         <h4 className="heading-4">Cookies consent</h4>
-        <div className={styles.close} onClick={onCloseClick}>
+        <div
+          className={styles.close}
+          data-testid="cookies-close"
+          onClick={onCloseClick}
+        >
           <Image alt="close button" layout="fill" src={closeSVGSrc} />
         </div>
       </div>

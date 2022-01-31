@@ -10,15 +10,12 @@ interface navigationLinkType {
   text: string;
 }
 
-interface SetAcceptedCookiesArgs {
-  acceptedCookies: boolean;
-  storeToLocalstorage: boolean;
-}
+type CookiesConsent = "accepted" | "declined";
 
 interface LayoutProps {
-  acceptedCookies: boolean;
+  cookiesConsent?: string;
   children: ReactNode;
-  setAcceptedCookies: ({}: SetAcceptedCookiesArgs) => void;
+  setAcceptedCookies: (cookiesConsent: CookiesConsent) => void;
 }
 
 export const NAVIGATION_LINKS: navigationLinkType[] = [
@@ -40,8 +37,8 @@ export const NAVIGATION_LINKS: navigationLinkType[] = [
 ];
 
 const Layout = ({
-  acceptedCookies,
   children,
+  cookiesConsent,
   setAcceptedCookies,
 }: LayoutProps) => {
   return (
@@ -65,7 +62,7 @@ const Layout = ({
       </main>
       <footer className={styles.footer}>
         <CookieBanner
-          acceptedCookies={acceptedCookies}
+          cookiesConsent={cookiesConsent}
           setAcceptedCookies={setAcceptedCookies}
         />
       </footer>
