@@ -86,7 +86,7 @@ const Cookies = () => {
   };
 
   return (
-    <section className={styles.container}>
+    <section className={styles.container} data-testid="cookies-section">
       <h1 className="heading-2">Tracking cookies</h1>
       <h2 className="heading-3">List of tracking cookies</h2>
       <p className="text margin-bottom-3">
@@ -94,7 +94,7 @@ const Cookies = () => {
         like to save. All of these are optional and will not be saved unless you
         allow it. You can review and change your settings below the table.
       </p>
-      <table className={`${styles.table} text`} data-testId="cookies-table">
+      <table className={`${styles.table} text`} data-testid="cookies-table">
         <thead>
           <tr>
             <th>Name</th>
@@ -117,7 +117,10 @@ const Cookies = () => {
         </tbody>
       </table>
       <h2 className="heading-3">Your settings</h2>
-      <p className="text">{`${settingsString}`}</p>
+      <p
+        className="text"
+        data-testid="cookies-settings-text"
+      >{`${settingsString}`}</p>
       <p className="text">
         You can change your current settings by using the buttons below. In case
         you have previously accepted cookies and would like to revoke your
