@@ -1,6 +1,6 @@
 // npm packages
 import Script from "next/script";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/router";
 // Components
 import Layout from "~/components/layout";
@@ -11,15 +11,18 @@ import "~/styles/reset.scss";
 import "~/styles/global.scss";
 import "~/styles/code.scss";
 
-const COOKIES_LOCALSTORAGE_ITEM = "CookiesConsent";
+import CookiesContext, { CookiesConsent } from "~/context/cookies";
 
-type CookiesConsent = "accepted" | "declined";
+const COOKIES_LOCALSTORAGE_ITEM = "CookiesConsent";
+const COOKIES_LOCALSTORAGE_DATE = "CookiesConsentDate";
 
 // Types
 import { AppProps } from "next/app";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
+
+  // use Effect that handles sending analytics data if cookies consent was given on every route change
   useEffect(() => {
     const handleRouteChange = (url) => {
       if (cookiesConsent === "accepted") {
@@ -32,19 +35,37 @@ const App = ({ Component, pageProps }: AppProps) => {
     };
   }, [router.events]);
 
+  // Local state for setting the cookies consent string
+  const [cookiesConsent, setCookiesConsent] = useState<CookiesConsent>();
+  const [cookiesConsentDate, setCookiesConsentDate] = useState<string>();
+
+  // use Effect that handles retrieving cookies consent status and date from localStorage
   useEffect(() => {
     const consent = localStorage.getItem(COOKIES_LOCALSTORAGE_ITEM);
     if (consent) {
-      setCookiesConsent(consent);
+      setCookiesConsent(consent as CookiesConsent);
+    }
+    const consentDate = localStorage.getItem(COOKIES_LOCALSTORAGE_DATE);
+    if (consentDate) {
+      setCookiesConsentDate(consentDate);
     }
   }, []);
 
-  const [cookiesConsent, setCookiesConsent] = useState<string>();
+  const cookiesContextValue = useMemo(() => {
+    const handleSetCookiesConsent = (cookiesConsent: CookiesConsent) => {
+      const consentDate = new Date().valueOf().toString();
+      setCookiesConsent(cookiesConsent);
+      setCookiesConsentDate(consentDate);
+      localStorage.setItem(COOKIES_LOCALSTORAGE_ITEM, cookiesConsent);
+      localStorage.setItem(COOKIES_LOCALSTORAGE_DATE, consentDate);
+    };
 
-  const handleSetAcceptedCookies = (cookiesConsent: CookiesConsent) => {
-    setCookiesConsent(cookiesConsent);
-    localStorage.setItem(COOKIES_LOCALSTORAGE_ITEM, cookiesConsent);
-  };
+    return {
+      cookiesConsent,
+      cookiesConsentDate,
+      setCookiesConsent: handleSetCookiesConsent,
+    };
+  }, [cookiesConsent, cookiesConsentDate]);
 
   return (
     <>
@@ -73,12 +94,11 @@ const App = ({ Component, pageProps }: AppProps) => {
           />
         </>
       ) : null}
-      <Layout
-        cookiesConsent={cookiesConsent}
-        setAcceptedCookies={handleSetAcceptedCookies}
-      >
-        <Component {...pageProps} />
-      </Layout>
+      <CookiesContext.Provider value={cookiesContextValue}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </CookiesContext.Provider>
     </>
   );
 };

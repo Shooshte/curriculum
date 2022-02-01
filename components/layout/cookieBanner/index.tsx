@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 
 import { MouseEvent } from "react";
 import Image from "next/image";
@@ -7,18 +7,11 @@ import Link from "next/link";
 import closeSVGSrc from "../../../public/images/CloseIcon.svg";
 import styles from "./cookieBanner.module.scss";
 
-type CookiesConsent = "accepted" | "declined";
+import CookiesContext from "~/context/cookies";
 
-interface CookieBannerProps {
-  cookiesConsent?: string;
-  setAcceptedCookies: (cookiesContent: CookiesConsent) => void;
-}
-
-const CookieBanner = ({
-  cookiesConsent,
-  setAcceptedCookies,
-}: CookieBannerProps) => {
+const CookieBanner = () => {
   const [closedBanner, setClosedBanner] = useState<boolean>(false);
+  const { cookiesConsent, setCookiesConsent } = useContext(CookiesContext);
 
   const onCloseClick = (e: MouseEvent) => {
     e.preventDefault();
@@ -27,12 +20,12 @@ const CookieBanner = ({
 
   const onAcceptClick = (e: MouseEvent) => {
     e.preventDefault();
-    setAcceptedCookies("accepted");
+    setCookiesConsent("accepted");
   };
 
   const onDeclineClick = (e: MouseEvent) => {
     e.preventDefault();
-    setAcceptedCookies("declined");
+    setCookiesConsent("declined");
   };
 
   const showBanner = useMemo(() => {

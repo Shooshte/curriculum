@@ -10,14 +10,6 @@ interface navigationLinkType {
   text: string;
 }
 
-type CookiesConsent = "accepted" | "declined";
-
-interface LayoutProps {
-  cookiesConsent?: string;
-  children: ReactNode;
-  setAcceptedCookies: (cookiesConsent: CookiesConsent) => void;
-}
-
 export const NAVIGATION_LINKS: navigationLinkType[] = [
   {
     id: 0,
@@ -36,11 +28,7 @@ export const NAVIGATION_LINKS: navigationLinkType[] = [
   },
 ];
 
-const Layout = ({
-  children,
-  cookiesConsent,
-  setAcceptedCookies,
-}: LayoutProps) => {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -61,10 +49,7 @@ const Layout = ({
         <div className={styles.mainContent}>{children}</div>
       </main>
       <footer className={styles.footer}>
-        <CookieBanner
-          cookiesConsent={cookiesConsent}
-          setAcceptedCookies={setAcceptedCookies}
-        />
+        <CookieBanner />
       </footer>
     </div>
   );
