@@ -1,4 +1,6 @@
+import { ReactNode } from "react";
 import Link from "next/link";
+import CookieBanner from "./cookieBanner";
 
 import styles from "./layout.module.scss";
 
@@ -11,7 +13,7 @@ interface navigationLinkType {
 export const NAVIGATION_LINKS: navigationLinkType[] = [
   {
     id: 0,
-    route: "/",
+    route: "/curriculum",
     text: "CV",
   },
   {
@@ -19,9 +21,14 @@ export const NAVIGATION_LINKS: navigationLinkType[] = [
     route: "/blog",
     text: "Blog",
   },
+  {
+    id: 2,
+    route: "/cookies",
+    text: "Cookies",
+  },
 ];
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -41,6 +48,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <main className={styles.main}>
         <div className={styles.mainContent}>{children}</div>
       </main>
+      <footer className={styles.footer}>
+        <CookieBanner />
+      </footer>
     </div>
   );
 };

@@ -1,0 +1,77 @@
+@import "styles/_variables";
+
+.buttonsContainer {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: map-get($spacing-sizes, "4");
+}
+
+.close {
+  cursor: pointer;
+  margin-top: map-get($spacing-sizes, "6");
+  height: 18px;
+  width: 18px;
+  position: relative;
+}
+
+.contentContainer {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  a {
+    color: $primary-color;
+    cursor: pointer;
+    font-weight: map-get($font-weights, "bold");
+    text-decoration: underline;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .buttonsContainer {
+    margin-bottom: map-get($spacing-sizes, "4");
+    margin-left: auto;
+  }
+  .contentContainer {
+    flex-direction: row;
+  }
+}
+
+.headerContainer {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  background-color: $accent-yellow;
+  cursor: pointer;
+  @include get-text-color($accent-yellow);
+  font-weight: map-get($font-weights, "bold");
+  text-transform: uppercase;
+  margin: 0 !important;
+  margin-right: map-get($spacing-sizes, "4") !important;
+  padding: map-get($spacing-sizes, "5") map-get($spacing-sizes, "4");
+  width: 80px;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: $accent-orange;
+  @include get-text-color($accent-orange);
+}
+
+.button:last-child {
+  margin-right: 0 !important;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $max-content-width;
+  padding: map-get($spacing-sizes, "4") map-get($spacing-sizes, "3");
+  position: relative;
+  width: calc(
+    100% - map-get($spacing-sizes, "3") - map-get($spacing-sizes, "3")
+  );
+}
