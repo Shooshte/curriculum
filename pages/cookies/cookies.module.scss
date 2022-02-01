@@ -1,5 +1,53 @@
 @import "styles/variables";
 
+.button {
+  background-color: $accent-yellow;
+  cursor: pointer;
+  @include get-text-color($accent-yellow);
+  display: inline-block;
+  font-weight: map-get($font-weights, "bold");
+  text-transform: uppercase;
+  margin-right: map-get($spacing-sizes, "4") !important;
+  margin-top: map-get($spacing-sizes, "3");
+  max-width: 200px;
+  padding: map-get($spacing-sizes, "5") map-get($spacing-sizes, "4");
+  width: calc(
+    50% - map-get($spacing-sizes, "4") - map-get($spacing-sizes, "4") -
+      map-get($spacing-sizes, "4")
+  );
+  text-align: center;
+}
+
+.button:hover {
+  background-color: $accent-orange;
+  @include get-text-color($accent-orange);
+}
+
+.button:last-child {
+  margin-right: 0 !important;
+}
+
 .container {
-  padding: map-get($spacing-sizes, "4");
+  margin: 0 auto;
+  max-width: calc(
+    $max-content-width - map-get($spacing-sizes, "2") -
+      map-get($spacing-sizes, "2")
+  );
+  width: 100%;
+  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
+}
+
+.table {
+  max-width: $max-text-width;
+  margin-bottom: map-get($spacing-sizes, "2");
+  overflow: auto;
+  width: 100%;
+  thead tr {
+    border-bottom: 1px solid $accent-blue;
+    font-weight: map-get($font-weights, "bold");
+  }
+  th,
+  td {
+    padding: map-get($spacing-sizes, "4");
+  }
 }
