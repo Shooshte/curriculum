@@ -1,6 +1,6 @@
 // npm packages
 import Script from "next/script";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useReducer, useState } from "react";
 import { useRouter } from "next/router";
 // Components
 import Layout from "~/components/layout";
@@ -15,6 +15,14 @@ import CookiesContext, { CookiesConsent } from "~/context/cookies";
 
 const COOKIES_LOCALSTORAGE_ITEM = "CookiesConsent";
 const COOKIES_LOCALSTORAGE_DATE = "CookiesConsentDate";
+
+const consentReducer = (state, cookiesConsent: CookiesConsent) => {
+  return cookiesConsent;
+};
+
+const consentDateReducer = (state, consentDate: string) => {
+  return consentDate;
+};
 
 // Types
 import { AppProps } from "next/app";
@@ -36,8 +44,14 @@ const App = ({ Component, pageProps }: AppProps) => {
   }, [router.events]);
 
   // Local state for setting the cookies consent string
-  const [cookiesConsent, setCookiesConsent] = useState<CookiesConsent>();
-  const [cookiesConsentDate, setCookiesConsentDate] = useState<string>();
+  const [cookiesConsent, setCookiesConsent] = useReducer(
+    consentReducer,
+    undefined
+  );
+  const [cookiesConsentDate, setCookiesConsentDate] = useReducer(
+    consentDateReducer,
+    undefined
+  );
 
   // use Effect that handles retrieving cookies consent status and date from localStorage
   useEffect(() => {
