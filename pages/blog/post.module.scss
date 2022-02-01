@@ -1,51 +1,14 @@
 @import "styles/_variables";
 
-.blogImageContainer {
-  position: relative;
-}
-
-@media only screen and (max-width: 767px) {
-  .blogImageContainer {
-    height: 268px;
-    width: 268px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .blogImageContainer {
-    margin: 0 auto;
-    height: 460px;
-    width: 460px;
-  }
-  .container {
-    align-items: flex-start;
-    display: grid;
-    justify-content: flex-start;
-    grid-template-columns: 0.3fr 0.7fr;
-    grid-column-gap: map-get($spacing-sizes, "2");
-    margin: 0 auto;
-    max-width: $max-content-width;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .wrapper {
-    padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .wrapper {
-    padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2")
-      map-get($spacing-sizes, "1") 0;
-  }
-}
-
 .wrapper {
   height: calc(
     100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
   );
-
+  img {
+    height: 223px;
+    width: 372px;
+  }
+  // highlight.js theme overrides
   overflow: auto;
   code + h2,
   pre + h2,
@@ -82,5 +45,46 @@
     line-height: map-get($line-height-sizes, "5");
     margin-bottom: map-get($spacing-sizes, "5");
     max-width: $max-text-width;
+  }
+}
+
+@media only screen and (max-width: 424px) {
+  .wrapper img {
+    height: 194px;
+    width: 323px;
+  }
+}
+
+@media only screen and (min-width: 424px) and (max-width: 767px) {
+  .wrapper {
+    padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
+    img {
+      height: 223px;
+      width: 372px;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    align-items: flex-start;
+    display: grid;
+    justify-content: flex-start;
+    grid-template-columns: 0.3fr 0.7fr;
+    grid-column-gap: map-get($spacing-sizes, "2");
+    margin: 0 auto;
+    max-width: $max-content-width;
+  }
+  .wrapper {
+    padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2")
+      map-get($spacing-sizes, "1") 0;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .wrapper img {
+    margin: 0 auto;
+    height: 390px;
+    width: 650px;
   }
 }
