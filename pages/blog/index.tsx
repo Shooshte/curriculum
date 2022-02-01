@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 
 import styles from "./blog.module.scss";
 
@@ -10,6 +11,7 @@ interface PostType {
   date?: string;
   description?: string;
   id: string;
+  imageUrl?: string;
   title?: string;
 }
 
@@ -34,25 +36,38 @@ const Blog = ({ allPostsData }: PropsType) => {
       <section className={styles.container}>
         <h2 className="heading-2">Recent blog posts</h2>
         <ul>
-          {allPostsData.map(({ categories, date, description, id, title }) => {
-            const categoriesArray = parseCategories(categories);
+          {allPostsData.map(
+            ({ categories, description, id, imageUrl, title }) => {
+              const categoriesArray = parseCategories(categories);
 
-            return (
-              <li className={styles.blogItem} key={id}>
-                <Link href={`blog/${id}`} passHref={false}>
-                  <h3 className="heading-3 link">{title}</h3>
-                </Link>
-                <div className={styles.categories}>
-                  {categoriesArray.map((category, index) => (
-                    <div key={`${category}-${index}`} className="pill">
-                      {category}
+              return (
+                <li className={styles.blogItem} key={id}>
+                  {imageUrl ? (
+                    <div className={styles.imageContainer}>
+                      <Image
+                        alt={`blog post header`}
+                        height={334}
+                        layout="responsive"
+                        width={556}
+                        src={imageUrl}
+                      />
                     </div>
-                  ))}
-                </div>
-                <p className="text">{description}</p>
-              </li>
-            );
-          })}
+                  ) : null}
+                  <Link href={`blog/${id}`} passHref={false}>
+                    <h3 className="heading-3 link">{title}</h3>
+                  </Link>
+                  <div className={styles.categories}>
+                    {categoriesArray.map((category, index) => (
+                      <div key={`${category}-${index}`} className="pill">
+                        {category}
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text">{description}</p>
+                </li>
+              );
+            }
+          )}
         </ul>
       </section>
     </>

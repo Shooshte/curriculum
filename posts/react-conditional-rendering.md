@@ -2,10 +2,13 @@
 categories: "ReactJS;Clean Code"
 date: "2022-01-07"
 description: "How to write cleaner, extendable and testable ReactJS component render functions."
+imageUrl: "https://images.unsplash.com/photo-1559394452-087c19c260ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80"
 title: "Clean-er ReactJS Code - Conditional Rendering"
 '''
 
 # Clean-er ReactJS Code - Conditional Rendering
+
+![A lot of spaghetti](https://images.unsplash.com/photo-1559394452-087c19c260ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80)
 
 ## TL;DR
 

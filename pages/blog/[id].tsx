@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image, { ImageProps } from "next/image";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
@@ -46,18 +45,6 @@ interface PropsType {
   postData: PostDataType;
 }
 
-interface ImagePropsType extends ImageProps {
-  alt: string;
-}
-
-const PostImage = (props: ImagePropsType) => {
-  return (
-    <div className={styles.blogImageContainer}>
-      <Image {...props} />
-    </div>
-  );
-};
-
 const PostWrapper = ({ children }) => (
   <section className={styles.wrapper} data-testid="post-content">
     {children}
@@ -94,17 +81,6 @@ const markdownOptions: MarkdownToJSX.Options = {
     h6: {
       props: {
         className: "heading-6",
-      },
-    },
-    img: {
-      component: PostImage,
-      props: {
-        layout: "fill",
-        objectFit: "contain",
-        objectPosition: "left top",
-        quality: 100,
-        width: 500,
-        priority: true,
       },
     },
     p: {

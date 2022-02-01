@@ -94,7 +94,7 @@ const Cookies = () => {
         like to save. All of these are optional and will not be saved unless you
         allow it. You can review and change your settings below the table.
       </p>
-      <table className={`${styles.table} text`} data-testid="cookies-table">
+      <table className={`${styles.table}`} data-testid="cookies-table">
         <thead>
           <tr>
             <th>Name</th>
