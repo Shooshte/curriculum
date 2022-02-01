@@ -38,8 +38,13 @@
 }
 
 .table {
-  max-width: $max-text-width;
+  max-width: calc(
+    $max-text-width - map-get($spacing-sizes, "4") -
+      map-get($spacing-sizes, "4")
+  );
   margin-bottom: map-get($spacing-sizes, "2");
+  font-size: map-get($font-sizes, "6");
+  line-height: map-get($line-height-sizes, "6");
   overflow: auto;
   width: 100%;
   thead tr {
