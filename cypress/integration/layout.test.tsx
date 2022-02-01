@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 
-describe("Layout", () => {
-  describe("Navigation bar", () => {
+describe("Layout Component", () => {
+  describe("Navigation", () => {
     beforeEach(() => {
       cy.visit("/curriculum");
     });
@@ -32,7 +32,7 @@ describe("Layout", () => {
     });
   });
 
-  describe("Cookies banner", () => {
+  describe("Footer", () => {
     it("when page loads show the cookies banner when localStorage does not contain CookiesConsent", () => {
       cy.visit("/curriculum");
       cy.get("[data-testid='cookies-banner'] h4").contains("Cookies consent");

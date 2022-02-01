@@ -89,7 +89,7 @@ const runContentTest = ({ testParams, viewport }: RunContentTestArgsType) => {
 };
 
 // Hardcoded tests for the first blog psot for now
-describe("Clean-er ReactJS Code - Conditional Rendering blog post test", () => {
+describe("/blog/react-conditional-rendering", () => {
   it("<head> content", () => {
     cy.visit("/blog/react-conditional-rendering");
     cy.get("head title").contains(

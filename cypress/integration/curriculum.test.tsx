@@ -7,7 +7,7 @@ interface SectionType {
   testId: string;
 }
 
-describe("Curriculum page", () => {
+describe("/curriculum", () => {
   // Page head element test, checking for page title and description
   it("<head> content", () => {
     cy.visit("/curriculum");
