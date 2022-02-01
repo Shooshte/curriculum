@@ -13,3 +13,9 @@
   max-width: $max-content-width;
   padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
 }
+
+.imageContainer {
+  margin-bottom: map-get($spacing-sizes, "4");
+  max-width: 278px;
+  width: 100%;
+}
