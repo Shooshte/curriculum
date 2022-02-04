@@ -4,6 +4,7 @@ import javascript from "highlight.js/lib/languages/javascript";
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
 import React, { useEffect } from "react";
 
+import TwitterFooter from "../../components/blog/twitterFooter";
 import TableOfContents from "../../components/blog/tableOfContents";
 
 import styles from "./post.module.scss";
@@ -51,6 +52,7 @@ const PostWrapper = ({ children }) => (
     data-testid="post-content"
   >
     {children}
+    <TwitterFooter />
   </section>
 );
 
