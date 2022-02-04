@@ -62,17 +62,22 @@
     align-items: flex-start;
     display: grid;
     justify-content: flex-start;
-    grid-template-columns: 0.3fr 0.7fr;
-    grid-column-gap: map-get($spacing-sizes, "2");
+    grid-template-columns: 324px auto;
     margin: 0 auto;
     max-width: $max-content-width;
   }
+  .wrapper {
+    img {
+      height: 231px;
+      width: 370px;
+    }
+  }
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1024px) {
   .wrapper img {
     margin: 0 auto;
-    height: 390px;
-    width: 650px;
+    height: 375px;
+    width: 600px;
   }
 }

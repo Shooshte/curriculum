@@ -3,7 +3,7 @@
 import fs from "fs";
 import path from "path";
 
-import { getSortedPostsData } from "../../lib/posts";
+import { getPostData } from "../../lib/posts";
 
 /**
  * @type {Cypress.PluginConfig}
@@ -12,9 +12,14 @@ import { getSortedPostsData } from "../../lib/posts";
 module.exports = (on) => {
   on("before:run", () => {
     // This writes all current posts data into fixtures to be used inside the blogPost.test.tsx file
-    const postsData = getSortedPostsData();
-    const fixturesDirectory = path.join(process.cwd(), "cypress/fixtures");
+    const postsDirectory = path.join(process.cwd(), "posts");
+    const fileNames = fs.readdirSync(postsDirectory);
 
+    const postsData = fileNames.map((fileName) => {
+      const id = fileName.replace(/\.md$/, "");
+      return getPostData(id);
+    });
+    const fixturesDirectory = path.join(process.cwd(), "cypress/fixtures");
     return fs.writeFileSync(
       `${fixturesDirectory}/posts.json`,
       JSON.stringify(postsData)

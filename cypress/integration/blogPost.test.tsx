@@ -3,15 +3,20 @@
 import postsData from "../fixtures/posts.json";
 
 interface PostDataType {
+  content: string;
+  data: {
+    categories?: string;
+    date?: string;
+    description?: string;
+    title?: string;
+  };
+  excerpt?: string;
   id: string;
-  categories: string;
-  date: string;
-  description: string;
-  imageUrl: string;
-  title: string;
+  isEmpty: boolean;
+  subheadings: string[];
 }
 
-const checkPostHead = ({ id, description, title }: PostDataType) => {
+const checkPostHead = ({ id, data: { description, title } }: PostDataType) => {
   cy.visit(`blog/${id}`);
   cy.get("head title").contains(title);
   cy.get('head meta[name="description"]').should(
@@ -21,9 +26,27 @@ const checkPostHead = ({ id, description, title }: PostDataType) => {
   );
 };
 
-const checkPostTitle = ({ id, title }: PostDataType) => {
+const checkPostTitle = ({ id, data: { title } }: PostDataType) => {
   cy.visit(`blog/${id}`);
   cy.get('article section[data-testid="post-content"] h1').contains(title);
+};
+
+const checkPostTOS = ({ id, subheadings }: PostDataType) => {
+  cy.visit(`blog/${id}`);
+  cy.viewport("iphone-6");
+  cy.get('[data-testid="blog-sidebar"]').should("have.css", "display", "none");
+  cy.viewport("ipad-2");
+  cy.get('[data-testid="blog-sidebar"]').should("have.css", "display", "flex");
+  cy.get('[data-testid="blog-sidebar"] [data-testid="blog-sidebar-TOS"] h3')
+    .contains("Table of contents")
+    .next()
+    .should("match", "hr");
+
+  subheadings.forEach((title, index) => {
+    cy.get(
+      '[data-testid="blog-sidebar"] [data-testid="blog-sidebar-TOS"] ul li a'
+    ).contains(`${index + 1}. ${title}`);
+  });
 };
 
 const checkPostFooter = (pathName: string) => {
@@ -41,13 +64,16 @@ const checkPostFooter = (pathName: string) => {
 describe("Blog post", () => {
   postsData.forEach((postData) => {
     describe(postData.id, () => {
-      it("post head", () => {
+      it("<head>", () => {
         checkPostHead(postData);
       });
-      it("post title", () => {
+      it("Table of contents", () => {
+        checkPostTOS(postData);
+      });
+      it("Title", () => {
         checkPostTitle(postData);
       });
-      it("post footer", () => {
+      it("<footer>", () => {
         checkPostFooter(postData.id);
       });
     });
