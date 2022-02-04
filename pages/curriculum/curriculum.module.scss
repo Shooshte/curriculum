@@ -5,10 +5,6 @@
   margin: 0 auto;
 }
 
-.content {
-  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
-}
-
 .section {
   margin-bottom: map-get($spacing-sizes, "2");
 }
@@ -17,10 +13,10 @@
   display: none;
 }
 
-@media only screen and (min-width: 1022px) {
+@media only screen and (min-width: 1024px) {
   .container {
     display: grid;
-    grid-template-columns: 0.7fr 0.3fr;
+    grid-template-columns: auto 307px;
   }
   .sidebar {
     background-color: $accent-dark-green;

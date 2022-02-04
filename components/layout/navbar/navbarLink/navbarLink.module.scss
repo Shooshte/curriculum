@@ -1,0 +1,27 @@
+@import "styles/_variables";
+
+.activeNavbarLink {
+  a {
+    margin-left: map-get($spacing-sizes, "2");
+    @include get-text-color($light-text-color);
+    font-size: map-get($font-sizes, "4");
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
+
+.navbarLink {
+  @include get-text-color($light-text-color);
+  cursor: pointer;
+  font-size: map-get($font-sizes, "4");
+  margin-left: map-get($spacing-sizes, "2");
+  text-decoration: none;
+  text-transform: uppercase;
+  a {
+    @include get-text-color($accent-orange);
+    cursor: pointer;
+    font-size: map-get($font-sizes, "4");
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+}

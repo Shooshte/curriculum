@@ -1,6 +1,9 @@
 import { useContext, useMemo } from "react";
+import Image from "next/image";
 import styles from "./cookies.module.scss";
 import CookiesContext, { CookiesConsent } from "~/context/cookies";
+
+import CookiesImgSrc from "../../public/images/cookies/Cookies.png";
 
 interface CookieData {
   name: string;
@@ -86,9 +89,18 @@ const Cookies = () => {
   };
 
   return (
-    <section className={styles.container} data-testid="cookies-section">
-      <h1 className="heading-2">Tracking cookies</h1>
-      <h2 className="heading-3">List of tracking cookies</h2>
+    <section
+      className={`content-container ${styles.container}`}
+      data-testid="cookies-section"
+    >
+      <h1 className="heading-1">Tracking cookies</h1>
+      <Image
+        alt="a lot of colorful cookies"
+        height={390}
+        width={650}
+        src={CookiesImgSrc}
+      />
+      <h2 className="heading-3 margin-top-3">List of tracking cookies</h2>
       <p className="text margin-bottom-3">
         A list of all the google analytics tracking cookies that this page would
         like to save. All of these are optional and will not be saved unless you

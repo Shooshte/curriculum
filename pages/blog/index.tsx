@@ -33,7 +33,7 @@ const Blog = ({ allPostsData }: PropsType) => {
           content="Miha Šušteršič's personal blog page. Focused on ReactJS and front-end development but may also include other topics and cat pictures."
         ></meta>
       </Head>
-      <section className={styles.container}>
+      <section className={`content-container ${styles.container}`}>
         <h2 className="heading-2">Recent blog posts</h2>
         <ul>
           {allPostsData.map(

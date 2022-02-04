@@ -15,8 +15,8 @@ const Home = () => (
       ></meta>
     </Head>
 
-    <div className={styles.container}>
-      <div className={styles.content}>
+    <div className={`${styles.container}`}>
+      <div className="content-container">
         <section className={styles.section} data-testid="personal-information">
           <h2 className="heading-2">Personal Information</h2>
           <p className="text">

@@ -61,10 +61,9 @@ const COOKIES_DATA: CookieData[] = [
 describe("/cookies", () => {
   it("should render all the static data correctly", () => {
     cy.visit("/cookies");
-    cy.get('[data-testid="cookies-section"] h1')
-      .contains("Tracking cookies")
-      .next()
-      .should("match", "h2")
+    cy.get('[data-testid="cookies-section"] h1').contains("Tracking cookies");
+
+    cy.get('[data-testid="cookies-section"] h2')
       .contains("List of tracking cookies")
       .next()
       .should("match", "p")

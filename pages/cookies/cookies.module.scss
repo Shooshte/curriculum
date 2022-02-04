@@ -28,13 +28,7 @@
 }
 
 .container {
-  margin: 0 auto;
-  max-width: calc(
-    $max-content-width - map-get($spacing-sizes, "2") -
-      map-get($spacing-sizes, "2")
-  );
-  width: 100%;
-  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
+  max-width: $max-text-width;
 }
 
 .table {

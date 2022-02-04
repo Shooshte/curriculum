@@ -4,14 +4,12 @@
   margin-bottom: map-get($spacing-sizes, "2");
 }
 
-.categories {
-  margin-bottom: map-get($spacing-sizes, "3");
+.container {
+  max-width: $max-text-width;
 }
 
-.container {
-  margin: 0 auto;
-  max-width: $max-content-width;
-  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
+.categories {
+  margin-bottom: map-get($spacing-sizes, "3");
 }
 
 .imageContainer {
