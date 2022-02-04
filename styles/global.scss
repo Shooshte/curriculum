@@ -90,6 +90,18 @@ html {
     margin: 0;
     margin-bottom: $margin;
   }
+  .margin-top-#{$number} {
+    margin-top: $margin;
+  }
+  .margin-bottom-#{$number} {
+    margin-bottom: $margin;
+  }
+  .margin-left-#{$number} {
+    margin-left: $margin;
+  }
+  .margin-right-#{$number} {
+    margin-right: $margin;
+  }
   .margin-#{$number} {
     margin: $margin;
   }
