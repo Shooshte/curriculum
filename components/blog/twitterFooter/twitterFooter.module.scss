@@ -1,0 +1,32 @@
+@import "styles/_variables";
+
+.footerText {
+  margin-bottom: map-get($spacing-sizes, "3") !important;
+}
+
+.horizontalRule {
+  border: none;
+  background-color: rgba(#d1cac2, 0.4);
+  height: 1px;
+  margin: map-get($spacing-sizes, "3") 0;
+  width: 100%;
+}
+
+.twitterLink {
+  align-items: center;
+  cursor: pointer;
+  color: #cde6f5;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.twitterText {
+  line-height: 1 !important;
+  margin-bottom: 0 !important;
+}
+
+.twitterLogo {
+  height: 19.5px !important;
+  margin: 0 map-get($spacing-sizes, "5") 0 0 !important;
+  width: 24px !important;
+}
