@@ -4,6 +4,10 @@ const Document = () => {
   return (
     <Html lang="en">
       <Head>
+        <meta
+          name="google-site-verification"
+          content="fqQbZsKvnSMxXQBpgDJE3hO_nS5ObNIDZquyED3n6OM"
+        />
         <link rel="preconnect" href="https://fonts.gstatic.com/" />
         <link rel="preconnect" href="https://fonts.gstatic.com/" />
         <link
