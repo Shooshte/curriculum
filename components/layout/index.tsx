@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
-import Link from "next/link";
+
 import CookieBanner from "./cookieBanner";
+import Navbar from "./navbar";
 
 import styles from "./layout.module.scss";
 
@@ -32,18 +33,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <div className={styles.headerContent}>
-          <h1>Miha Šušteršič</h1>
-          <nav data-testid="navigation-bar" className={styles.navigation}>
-            <ul>
-              {NAVIGATION_LINKS.map((linkData: navigationLinkType) => (
-                <li key={`nav-link-${linkData.id}`}>
-                  <Link href={linkData.route}>{linkData.text}</Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
+        <Navbar />
       </header>
       <main className={styles.main}>
         <div className={styles.mainContent}>{children}</div>

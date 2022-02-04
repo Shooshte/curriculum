@@ -30,48 +30,6 @@
   width: 100%;
 }
 
-.headerContent {
-  align-items: center;
-  @include get-text-color($light-text-color);
-  display: flex;
-  font-weight: map-get($font-weights, "bold");
-  font-size: map-get($font-sizes, "4");
-  justify-content: space-between;
-  margin: 0 auto;
-  max-width: calc(
-    $max-content-width - map-get($spacing-sizes, "2") -
-      map-get($spacing-sizes, "2")
-  );
-  padding: map-get($spacing-sizes, "2");
-  width: calc(
-    100% - map-get($spacing-sizes, "2") - map-get($spacing-sizes, "2")
-  );
-  h1 {
-    @include get-text-color($light-text-color);
-  }
-}
-
-.navigation {
-  align-items: center;
-  display: flex;
-  justify-content: flex-end;
-  ul {
-    align-items: center;
-    display: flex;
-    justify-content: flex-end;
-    li {
-      margin-left: map-get($spacing-sizes, "3");
-      a {
-        @include get-text-color($light-text-color);
-        text-decoration: none;
-      }
-    }
-    li:first-child {
-      margin-left: 0;
-    }
-  }
-}
-
 .footer {
   background-color: $light-text-color;
   @include get-text-color($light-text-color);
