@@ -5,8 +5,8 @@
     100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
   );
   img {
-    height: 223px;
-    width: 372px;
+    height: 194px;
+    width: 323px;
   }
   // highlight.js theme overrides
   overflow: auto;
@@ -48,16 +48,8 @@
   }
 }
 
-@media only screen and (max-width: 424px) {
-  .wrapper img {
-    height: 194px;
-    width: 323px;
-  }
-}
-
 @media only screen and (min-width: 424px) and (max-width: 767px) {
   .wrapper {
-    padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
     img {
       height: 223px;
       width: 372px;
@@ -74,10 +66,6 @@
     grid-column-gap: map-get($spacing-sizes, "2");
     margin: 0 auto;
     max-width: $max-content-width;
-  }
-  .wrapper {
-    padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2")
-      map-get($spacing-sizes, "1") 0;
   }
 }
 

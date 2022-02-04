@@ -46,7 +46,10 @@ interface PropsType {
 }
 
 const PostWrapper = ({ children }) => (
-  <section className={styles.wrapper} data-testid="post-content">
+  <section
+    className={`${styles.wrapper} content-container`}
+    data-testid="post-content"
+  >
     {children}
   </section>
 );

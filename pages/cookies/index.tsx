@@ -86,7 +86,7 @@ const Cookies = () => {
   };
 
   return (
-    <section className={styles.container} data-testid="cookies-section">
+    <section className="content-container" data-testid="cookies-section">
       <h1 className="heading-2">Tracking cookies</h1>
       <h2 className="heading-3">List of tracking cookies</h2>
       <p className="text margin-bottom-3">
