@@ -4,6 +4,10 @@
   margin-bottom: map-get($spacing-sizes, "2");
 }
 
+.container {
+  max-width: $max-text-width;
+}
+
 .categories {
   margin-bottom: map-get($spacing-sizes, "3");
 }
