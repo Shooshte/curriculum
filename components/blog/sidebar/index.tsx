@@ -28,7 +28,11 @@ const BlogSidebar = ({ headings = [] }: PropsType) => {
           })}
         </ul>
       </section>
-      <section className={styles.authorContainer} title="About the author">
+      <section
+        className={styles.authorContainer}
+        data-testid="blog-sidebar-author-info"
+        title="Author info"
+      >
         <Image
           alt="Author photo next to about the author title"
           height={160}
