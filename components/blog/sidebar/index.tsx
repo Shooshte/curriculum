@@ -32,6 +32,7 @@ const BlogSidebar = ({ headings = [] }: PropsType) => {
         <Image
           alt="Author photo next to about the author title"
           height={160}
+          layout="intrinsic"
           src={AboutHeader}
           quality={100}
           width={295}

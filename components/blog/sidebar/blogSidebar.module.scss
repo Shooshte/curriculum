@@ -9,13 +9,13 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+    height: 369px;
     justify-content: center;
-    padding: map-get($spacing-sizes, "3");
+    width: 100%;
   }
 
   .authorText {
-    padding: map-get($spacing-sizes, "3") map-get($spacing-sizes, "3") 0
-      map-get($spacing-sizes, "3");
+    padding: 12px 26px 0 26px;
   }
 
   .container {
@@ -32,7 +32,7 @@
 
   .tosContainer {
     background-color: $accent-dark-green;
-    padding: 26px 26px 26px 26px;
+    padding: 26px;
     .tosHorizontalRule {
       border: none;
       background-color: rgba(#d1cac2, 0.4);
