@@ -4,8 +4,8 @@ import javascript from "highlight.js/lib/languages/javascript";
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
 import React, { useEffect } from "react";
 
+import BlogSidebar from "../../components/blog/sidebar";
 import TwitterFooter from "../../components/blog/twitterFooter";
-import TableOfContents from "../../components/blog/tableOfContents";
 
 import styles from "./post.module.scss";
 
@@ -40,6 +40,7 @@ interface PostDataType {
   excerpt?: string;
   id: string;
   isEmpty: boolean;
+  subheadings: string[];
 }
 
 interface PropsType {
@@ -112,13 +113,8 @@ const Post = ({ postData }: PropsType) => {
   const {
     content,
     data: { description, title },
+    subheadings,
   } = postData;
-
-  // extract all headings except for h1 from the post text
-  const HEADINGS_REGEX = /#{2}.+/g;
-  const headings = content.match(HEADINGS_REGEX).map((heading, index) => {
-    return heading.replace(/##\s/, "");
-  });
 
   return (
     <>
@@ -128,7 +124,7 @@ const Post = ({ postData }: PropsType) => {
       </Head>
 
       <article className={styles.container}>
-        <TableOfContents headings={headings} />
+        <BlogSidebar headings={subheadings} />
         <Markdown options={markdownOptions}>{content}</Markdown>
       </article>
     </>
