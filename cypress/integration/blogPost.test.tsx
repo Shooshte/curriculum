@@ -8,6 +8,7 @@ interface PostDataType {
     categories?: string;
     date?: string;
     description?: string;
+    imageUrl?: string;
     title?: string;
   };
   excerpt?: string;
@@ -16,13 +17,64 @@ interface PostDataType {
   subheadings: string[];
 }
 
-const checkPostHead = ({ id, data: { description, title } }: PostDataType) => {
+const checkPostHead = ({
+  id,
+  data: { description, imageUrl, title },
+}: PostDataType) => {
   cy.visit(`blog/${id}`);
   cy.get("head title").contains(title);
   cy.get('head meta[name="description"]').should(
     "have.attr",
     "content",
     description
+  );
+  // facebook card meta tags
+  cy.get('head meta[property="og:description"]').should(
+    "have.attr",
+    "content",
+    description
+  );
+  cy.get('head meta[property="og:locale"]').should(
+    "have.attr",
+    "content",
+    "en_GB"
+  );
+  cy.get('head meta[property="og:type"]').should(
+    "have.attr",
+    "content",
+    "article"
+  );
+  cy.get('head meta[property="og:url"]').should(
+    "have.attr",
+    "content",
+    `https://www.shooshte.com/blog/${id}`
+  );
+  cy.get('head meta[property="og:image"]').should(
+    "have.attr",
+    "content",
+    imageUrl
+  );
+
+  // twitter card meta tags
+  cy.get('head meta[name="twitter:title"]').should(
+    "have.attr",
+    "content",
+    title
+  );
+  cy.get('head meta[name="twitter:description"]').should(
+    "have.attr",
+    "content",
+    description
+  );
+  cy.get('head meta[name="twitter:image"]').should(
+    "have.attr",
+    "content",
+    imageUrl
+  );
+  cy.get('head meta[name="twitter:card"]').should(
+    "have.attr",
+    "content",
+    "summary_large_image"
   );
 };
 

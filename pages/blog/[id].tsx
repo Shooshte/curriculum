@@ -2,7 +2,7 @@ import Head from "next/head";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 
 import BlogSidebar from "../../components/blog/sidebar";
 import TwitterFooter from "../../components/blog/twitterFooter";
@@ -35,6 +35,7 @@ interface PostDataType {
     categories?: string;
     date?: string;
     description?: string;
+    imageUrl?: string;
     title?: string;
   };
   excerpt?: string;
@@ -112,7 +113,7 @@ const Post = ({ postData }: PropsType) => {
 
   const {
     content,
-    data: { description, title },
+    data: { description, imageUrl, title },
     subheadings,
   } = postData;
 
@@ -121,6 +122,20 @@ const Post = ({ postData }: PropsType) => {
       <Head>
         <title>Miha Šušteršič: {title}</title>
         <meta name="description" content={description}></meta>
+
+        <meta property="og:description" content={description} />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:url"
+          content={`https://www.shooshte.com/blog/${postData.id}`}
+        />
+        <meta property="og:image" content={imageUrl} />
+
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={imageUrl} />
+        <meta name="twitter:card" content="summary_large_image"></meta>
       </Head>
 
       <article className={styles.container}>
