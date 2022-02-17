@@ -122,6 +122,7 @@ const Post = ({ postData }: PropsType) => {
       <Head>
         <title>Miha Šušteršič: {title}</title>
         <meta name="description" content={description}></meta>
+
         <meta property="og:description" content={description} />
         <meta property="og:locale" content="en_GB" />
         <meta property="og:type" content="article" />
@@ -130,6 +131,7 @@ const Post = ({ postData }: PropsType) => {
           content={`https://www.shooshte.com/blog/${postData.id}`}
         />
         <meta property="og:image" content={imageUrl} />
+
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={imageUrl} />
