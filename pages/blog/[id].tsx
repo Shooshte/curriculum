@@ -111,10 +111,6 @@ const Post = ({ postData }: PropsType) => {
     hljs.highlightAll();
   }, []);
 
-  const postSlug = useMemo(() => {
-    return slugifyPostId(postData.id);
-  }, [postData.id]);
-
   const {
     content,
     data: { description, imageUrl, title },
@@ -131,7 +127,7 @@ const Post = ({ postData }: PropsType) => {
         <meta property="og:type" content="article" />
         <meta
           property="og:url"
-          content={`https://www.shooshte.com/blog/${postSlug}`}
+          content={`https://www.shooshte.com/blog/${postData.id}`}
         />
         <meta property="og:image" content={imageUrl} />
         <meta name="twitter:title" content={title} />
