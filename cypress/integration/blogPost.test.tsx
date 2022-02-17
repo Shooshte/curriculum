@@ -88,27 +88,19 @@ const checkPostTOS = ({ id, subheadings }: PostDataType) => {
   cy.viewport("iphone-6");
   cy.get('[data-testid="blog-sidebar"]').should("have.css", "display", "none");
   cy.viewport("ipad-2");
+  cy.get('[data-testid="blog-sidebar"]').should("have.css", "display", "none");
+  cy.viewport("macbook-11");
   cy.get('[data-testid="blog-sidebar"]').should("have.css", "display", "flex");
-  cy.get('[data-testid="blog-sidebar"] [data-testid="blog-sidebar-TOS"] h3')
+  cy.get('[data-testid="blog-sidebar"] h3')
     .contains("Table of contents")
     .next()
     .should("match", "hr");
 
   subheadings.forEach((title, index) => {
-    cy.get(
-      '[data-testid="blog-sidebar"] [data-testid="blog-sidebar-TOS"] ul li a'
-    ).contains(`${index + 1}. ${title}`);
+    cy.get('[data-testid="blog-sidebar"] ul li a').contains(
+      `${index + 1}. ${title}`
+    );
   });
-};
-
-const checkPostAuthorInfo = ({ id }: PostDataType) => {
-  cy.visit(`blog/${id}`);
-  cy.viewport("iphone-6");
-  cy.get('[data-testid="blog-sidebar"]').should("have.css", "display", "none");
-  cy.viewport("ipad-2");
-  cy.get('[data-testid="blog-sidebar-author-info"] p').contains(
-    "Miha Šušteršič is a JavaScript developer, UX and UI designer, and a cat whisperer. Living behind a keyboard in Škofljica, Slovenia he refuses to get a life because it feels as though he's trying to lead three already."
-  );
 };
 
 const checkPostFooter = (pathName: string) => {
@@ -131,9 +123,6 @@ describe("Blog post", () => {
       });
       it("Table of contents", () => {
         checkPostTOS(postData);
-      });
-      it("Author info", () => {
-        checkPostAuthorInfo(postData);
       });
       it("Title", () => {
         checkPostTitle(postData);
