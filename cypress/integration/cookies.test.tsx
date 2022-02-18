@@ -29,14 +29,15 @@ const COOKIES_DATA: CookieData[] = [
     name: "_ga_#",
     provider: "Google Tag Manager",
     purpose:
-      "Used by Google Analytics to collect data on the number of times a user has visited the website as well as dates for the first and most recent visit.",
+      "Used by Google Analytics to collect data on the number of times a user has visited the website, as well as dates of the first and most recent visits.",
     expiry: "2 years",
     type: "HTTP",
   },
   {
     name: "gat",
     provider: "Google",
-    purpose: "Used by Google Analytics to throttle request rate.",
+    purpose:
+      "Used by Google Analytics to reduce the number of network requests made to external sites.",
     expiry: "1 day",
     type: "HTTP",
   },
@@ -52,7 +53,7 @@ const COOKIES_DATA: CookieData[] = [
     name: "collect",
     provider: "Google",
     purpose:
-      "Used to send data to Google Analytics about the visitor's device and behavior. Tracks the visitor across devices and marketing channels.",
+      "Used to send data to Google Analytics about the visitor's device and behaviour. This tracks the visitor across devices and marketing channels.",
     expiry: "1 day",
     type: "HTTP",
   },
@@ -68,7 +69,7 @@ describe("/cookies", () => {
       .next()
       .should("match", "p")
       .contains(
-        "A list of all the google analytics tracking cookies that this page would like to save. All of these are optional and will not be saved unless you allow it. You can review and change your settings below the table."
+        "The following is a list of all the Google Analytics tracking cookies that this page would like to save. All of these are optional and will not be stored without your permission. You can review and change your settings above."
       )
       .next()
       .should("match", "table")
@@ -81,14 +82,14 @@ describe("/cookies", () => {
       .next()
       .should("match", "p")
       .contains(
-        "You can change your current settings by using the buttons below. In case you have previously accepted cookies and would like to revoke your permission, delete the cookies from your browser after clicking decline, and refresh the page window. This will make sure that the tracking script is no longer running."
+        "You can change your current settings by using the buttons below. In case you have previously accepted cookies and would like to revoke your permission, delete the cookies from your browser after clicking ‘Decline’, and refresh the page window. This will make sure that the tracking script is no longer running."
       )
       .next()
       .should("match", "h5")
-      .contains("Decline storing cookies")
+      .contains("Decline cookies")
       .next()
       .should("match", "h5")
-      .contains("Accept storing cookies");
+      .contains("Accept cookies");
 
     cy.get('[data-testid="cookies-table"] thead').contains("Name");
     cy.get('[data-testid="cookies-table"] thead').contains("Provider");
@@ -114,7 +115,7 @@ describe("/cookies", () => {
 
     cy.visit("/cookies");
     cy.get('[data-testid="cookies-settings-text"]').contains(
-      `You accepted saving cookies on ${localisedDate}. The page will store all the google analytics cookies listed above.`
+      `You accepted cookies on ${localisedDate}. The page will store all the google analytics cookies listed above.`
     );
   });
 
@@ -127,7 +128,7 @@ describe("/cookies", () => {
 
     cy.visit("/cookies");
     cy.get('[data-testid="cookies-settings-text"]').contains(
-      `You declined saving cookies on ${localisedDate}. No cookies will be stored by this page.`
+      `You declined cookies on ${localisedDate}. No cookies will be stored by this page.`
     );
   });
 });
