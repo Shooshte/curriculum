@@ -13,8 +13,7 @@
     justify-content: flex-start;
     left: 0;
     height: calc(
-      100vh - 69.97px - map-get($spacing-sizes, "1") -
-        map-get($spacing-sizes, "1")
+      100vh - 87px - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
     );
     padding: map-get($spacing-sizes, "1");
     position: sticky;

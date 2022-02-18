@@ -46,9 +46,8 @@ const Blog = ({ allPostsData }: PropsType) => {
                     <div className={styles.imageContainer}>
                       <Image
                         alt={`blog post header`}
-                        height={334}
-                        layout="responsive"
-                        width={556}
+                        layout="fill"
+                        objectFit="cover"
                         src={imageUrl}
                       />
                     </div>

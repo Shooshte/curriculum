@@ -1,12 +1,12 @@
 $font-family: "Quicksand", sans-serif;
 
 // Base font size defines the font-size of the html elrement. Chaging this should scale the rest of the elrements for the whole app.
-$base-font-size: 14px;
-$label-size: 0.786rem;
-$max-text-width: 650px;
+$base-font-size: 16px;
+$label-size: 0.8125rem;
+$max-text-width: 40rem;
 
 // maximum content width, not sure where else to put this
-$max-content-width: 1024px;
+$max-content-width: 1240px;
 
 // Bold is used to distinguish important info in a sentence/table etc.
 $font-weights: (
@@ -16,31 +16,31 @@ $font-weights: (
 
 // 1 is the biggest heading, 5 is for base fonts and 6 is for labels
 $font-sizes: (
-  "1": 2.643rem,
-  "2": 2.071rem,
-  "3": 1.643rem,
-  "4": 1.286rem,
+  "1": 2.625rem,
+  "2": 2.0625rem,
+  "3": 1.625rem,
+  "4": 1.25rem,
   "5": 1rem,
-  "6": 0.886rem,
+  "6": 0.8125rem,
 );
 
 $line-height-sizes: (
-  "1": 1.5,
-  "2": 1.621,
-  "3": 1.696,
-  "4": 1.722,
-  "5": 1.857,
-  "6": 1.909,
+  "1": 1.547,
+  "2": 1.575,
+  "3": 1.615,
+  "4": 1.65,
+  "5": 1.6875,
+  "6": 1.7692,
 );
 
 // These should also be used for spacing between different elrements on the page. They are inside font variables since they are relative to the base font-size
 $spacing-sizes: (
-  "1": 3rem,
-  "2": 1.857rem,
-  "3": 1.143rem,
-  "4": 0.714rem,
-  "5": 0.429rem,
-  "6": 0.286rem,
+  "1": 2.75rem,
+  "2": 1.6875rem,
+  "3": 1.0625rem,
+  "4": 0.6875rem,
+  "5": 0.4375rem,
+  "6": 0.25rem,
 );
 
 @mixin get-text-color($background-color) {

@@ -70,7 +70,7 @@ describe("Layout Component", () => {
       cy.get("[data-testid='cookies-banner'] h4").contains("Cookies consent");
       cy.get("[data-testid='cookies-banner'] [data-testid='cookies-close']");
       cy.get("[data-testid='cookies-banner'] p").contains(
-        "I would like to store and use analytics cookies in order to improve this site's performace. You can read more about this and review your settings at the "
+        "By clicking “Accept”, you agree to the storage and use of Google Analytics cookies in order to improve this site's performance. You can read more about this and review your settings at any time on the cookies subpage."
       );
       cy.get("[data-testid='cookies-banner']").contains("Accept");
       cy.get("[data-testid='cookies-banner']").contains("Decline");
@@ -88,7 +88,7 @@ describe("Layout Component", () => {
 
     it("After clicking the cookies consent banner decline button the banner should not show the next time the page loads and the gtag track and gtag init should not be inside DOM.", () => {
       cy.visit("/curriculum");
-      cy.get("[data-testid='cookies-banner']").contains("Decline").click();
+      cy.get("[data-testid='cookies-banner'] h5").contains("Decline").click();
       cy.get("[data-testid='cookies-banner']").should("not.exist");
       cy.reload();
       cy.get("[data-testid='cookies-banner']").should("not.exist");
@@ -98,7 +98,7 @@ describe("Layout Component", () => {
 
     it("After clicking the cookies consent banner accept button the banner should not show the next time the page loads and the gtag track and gtag init should be present inside DOM.", () => {
       cy.visit("/curriculum");
-      cy.get("[data-testid='cookies-banner']").contains("Accept").click();
+      cy.get("[data-testid='cookies-banner'] h5").contains("Accept").click();
       cy.get("[data-testid='cookies-banner']").should("not.exist");
       cy.reload();
       cy.get("[data-testid='cookies-banner']").should("not.exist");

@@ -28,7 +28,13 @@
 }
 
 .container {
-  max-width: $max-text-width;
+  max-width: $max-content-width;
+}
+
+.imageContainer {
+  aspect-ratio: 7/3;
+  position: relative;
+  width: 100%;
 }
 
 .table {
@@ -48,5 +54,11 @@
   th,
   td {
     padding: map-get($spacing-sizes, "4");
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .imageContainer {
+    aspect-ratio: 8/2;
   }
 }

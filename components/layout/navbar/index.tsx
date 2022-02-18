@@ -27,7 +27,7 @@ export const NAVIGATION_LINKS: NavigationLinkData[] = [
 
 const Navbar = () => (
   <div className={styles.headerContent} data-testid="navigation-bar">
-    <h1>Miha Šušteršič</h1>
+    <h1 className={`${styles.brand}`}>Miha Šušteršič</h1>
     <nav className={styles.navigation}>
       <ul>
         {NAVIGATION_LINKS.map((linkData: NavigationLinkData) => (
