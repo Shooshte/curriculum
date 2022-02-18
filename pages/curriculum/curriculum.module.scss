@@ -1,7 +1,7 @@
 @import "styles/_variables";
 
 .container {
-  max-width: $max-content-width;
+  max-width: 1024px;
   margin: 0 auto;
 }
 
@@ -19,9 +19,14 @@
     grid-template-columns: auto 307px;
   }
   .sidebar {
+    align-items: flex-start;
     background-color: $accent-dark-green;
     display: flex;
-    width: 100%;
+    justify-content: center;
+    padding: map-get($spacing-sizes, "1");
+    width: calc(
+      100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
+    );
   }
 }
 

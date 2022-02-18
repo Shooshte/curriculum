@@ -3,7 +3,8 @@ import Image from "next/image";
 
 import styles from "./curriculum.module.scss";
 
-import sidebarSrc from "../../public/images/SidebarImage.png";
+import profileSrc from "../../public/images/CV/ProfilePicture.png";
+// import sidebarSrc from "../../public/images/SidebarImage.png";
 
 const Home = () => (
   <>
@@ -225,12 +226,21 @@ const Home = () => (
         </section>
       </div>
       <div className={styles.sidebar}>
-        <Image
+        {/* <Image
           alt="A circuit board filled with icons representing different curriculum parts."
           height={2547}
+          layout="fixed"
           src={sidebarSrc}
           quality={100}
           width={307}
+        /> */}
+        <Image
+          alt="Portrait photo of Miha Šušteršič"
+          height={179.12}
+          layout="fixed"
+          src={profileSrc}
+          quality={100}
+          width={214.9}
         />
       </div>
     </div>
