@@ -95,12 +95,14 @@ const Cookies = () => {
       data-testid="cookies-section"
     >
       <h1 className="heading-1">Tracking cookies</h1>
-      <Image
-        alt="a lot of colorful cookies"
-        height={390}
-        width={650}
-        src={CookiesImgSrc}
-      />
+      <div className={styles.imageContainer}>
+        <Image
+          alt="a lot of colorful cookies"
+          layout="fill"
+          objectFit="cover"
+          src={CookiesImgSrc}
+        />
+      </div>
       <h2 className="heading-3 margin-top-3">List of tracking cookies</h2>
       <p className="text margin-bottom-3">
         The following is a list of all the Google Analytics tracking cookies
