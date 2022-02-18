@@ -46,9 +46,10 @@ const CookieBanner = () => {
       </div>
       <div className={styles.contentContainer}>
         <p className="text">
-          I would like to store and use analytics cookies in order to improve
-          this site's performace. You can read more about this and review your
-          settings at the <Link href="/cookies">cookies sub page</Link>.
+          By clicking “Accept”, you agree to the storage and use of Google
+          Analytics cookies in order to improve this site's performance. You can
+          read more about this and review your settings at any time on the&nbsp;
+          <Link href="/cookies">cookies</Link>&nbsp;subpage.
         </p>
         <div className={styles.buttonsContainer}>
           <h5
