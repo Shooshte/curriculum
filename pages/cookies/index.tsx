@@ -34,14 +34,15 @@ const COOKIES_DATA: CookieData[] = [
     name: "_ga_#",
     provider: "Google Tag Manager",
     purpose:
-      "Used by Google Analytics to collect data on the number of times a user has visited the website as well as dates for the first and most recent visit.",
+      "Used by Google Analytics to collect data on the number of times a user has visited the website, as well as dates of the first and most recent visits.",
     expiry: "2 years",
     type: "HTTP",
   },
   {
     name: "gat",
     provider: "Google",
-    purpose: "Used by Google Analytics to throttle request rate.",
+    purpose:
+      "Used by Google Analytics to reduce the number of network requests made to external sites.",
     expiry: "1 day",
     type: "HTTP",
   },
@@ -57,7 +58,7 @@ const COOKIES_DATA: CookieData[] = [
     name: "collect",
     provider: "Google",
     purpose:
-      "Used to send data to Google Analytics about the visitor's device and behavior. Tracks the visitor across devices and marketing channels.",
+      "Used to send data to Google Analytics about the visitor's device and behaviour. This tracks the visitor across devices and marketing channels.",
     expiry: "1 day",
     type: "HTTP",
   },
@@ -76,10 +77,10 @@ const Cookies = () => {
       const consentDateString = new Date(dateTimeStamp).toLocaleDateString();
 
       if (cookiesConsent === "declined") {
-        return `You declined saving cookies on ${consentDateString}. No cookies will be stored by this page.`;
+        return `You declined cookies on ${consentDateString}. No cookies will be stored by this page.`;
       }
       if (cookiesConsent === "accepted") {
-        return `You accepted saving cookies on ${consentDateString}. The page will store all the google analytics cookies listed above.`;
+        return `You accepted cookies on ${consentDateString}. The page will store all the google analytics cookies listed above.`;
       }
     }
   }, [cookiesConsent, cookiesConsentDate]);
@@ -102,9 +103,10 @@ const Cookies = () => {
       />
       <h2 className="heading-3 margin-top-3">List of tracking cookies</h2>
       <p className="text margin-bottom-3">
-        A list of all the google analytics tracking cookies that this page would
-        like to save. All of these are optional and will not be saved unless you
-        allow it. You can review and change your settings below the table.
+        The following is a list of all the Google Analytics tracking cookies
+        that this page would like to save. All of these are optional and will
+        not be stored without your permission. You can review and change your
+        settings above.
       </p>
       <table className={`${styles.table}`} data-testid="cookies-table">
         <thead>
@@ -136,21 +138,21 @@ const Cookies = () => {
       <p className="text">
         You can change your current settings by using the buttons below. In case
         you have previously accepted cookies and would like to revoke your
-        permission, delete the cookies from your browser after clicking decline,
-        and refresh the page window. This will make sure that the tracking
-        script is no longer running.
+        permission, delete the cookies from your browser after clicking
+        ‘Decline’, and refresh the page window. This will make sure that the
+        tracking script is no longer running.
       </p>
       <h5
         className={`heading-5 ${styles.button}`}
         onClick={() => onConsentButtonClick("declined")}
       >
-        Decline storing cookies
+        Decline cookies
       </h5>
       <h5
         className={`heading-5 ${styles.button}`}
         onClick={() => onConsentButtonClick("accepted")}
       >
-        Accept storing cookies
+        Accept cookies
       </h5>
     </section>
   );
