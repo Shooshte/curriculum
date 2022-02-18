@@ -10,7 +10,8 @@
     100% - map-get($spacing-sizes, "2") - map-get($spacing-sizes, "2")
   );
   img {
-    aspect-ratio: 40%;
+    aspect-ratio: 70/30;
+    object-fit: cover;
     width: 100%;
   }
   // highlight.js theme overrides
