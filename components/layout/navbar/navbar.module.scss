@@ -1,5 +1,10 @@
 @import "styles/_variables";
 
+.brand {
+  color: $light-text-color;
+  width: 0px;
+}
+
 .headerContent {
   align-items: center;
   @include get-text-color($light-text-color);
@@ -16,9 +21,6 @@
   width: calc(
     100% - map-get($spacing-sizes, "2") - map-get($spacing-sizes, "2")
   );
-  h1 {
-    @include get-text-color($light-text-color);
-  }
 }
 
 .navigation {
@@ -29,5 +31,14 @@
     align-items: center;
     display: flex;
     justify-content: flex-end;
+  }
+}
+
+@media only screen and (min-width: 374px) {
+  .brand {
+    @include get-text-color($light-text-color);
+    width: auto;
+    font-size: map-get($font-sizes, "4");
+    line-height: map-get($line-height-sizes, "4");
   }
 }
