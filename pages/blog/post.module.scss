@@ -4,9 +4,14 @@
   height: calc(
     100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
   );
+  margin: 0 auto;
+  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
+  width: calc(
+    100% - map-get($spacing-sizes, "2") - map-get($spacing-sizes, "2")
+  );
   img {
-    height: 194px;
-    width: 323px;
+    aspect-ratio: 40%;
+    width: 100%;
   }
   // highlight.js theme overrides
   overflow: auto;
@@ -48,36 +53,23 @@
   }
 }
 
-@media only screen and (min-width: 424px) and (max-width: 767px) {
+@media only screen and (min-width: 767px) {
   .wrapper {
-    img {
-      height: 223px;
-      width: 372px;
-    }
+    padding: map-get($spacing-sizes, "1");
+    width: calc(
+      100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
+    );
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1023px) {
   .container {
     align-items: flex-start;
     display: grid;
     justify-content: flex-start;
-    grid-template-columns: 324px auto;
+    grid-template-columns: 0.29fr 0.71fr;
     margin: 0 auto;
-    max-width: $max-content-width;
-  }
-  .wrapper {
-    img {
-      height: 231px;
-      width: 370px;
-    }
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .wrapper img {
-    margin: 0 auto;
-    height: 375px;
-    width: 600px;
+    // TODO replace this with a global variable
+    max-width: 1280px;
   }
 }

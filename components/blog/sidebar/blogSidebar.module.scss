@@ -4,66 +4,51 @@
   display: none;
 }
 
-@media only screen and (min-width: 768px) {
-  .authorContainer {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    height: 369px;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .authorText {
-    padding: 12px 26px 0 26px;
-  }
-
+@media only screen and (min-width: 1023px) {
   .container {
+    align-items: flex-start;
     background-color: $accent-dark-olive;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     left: 0;
-    height: calc(100vh - 69.97px);
+    height: calc(
+      100vh - 69.97px - map-get($spacing-sizes, "1") -
+        map-get($spacing-sizes, "1")
+    );
+    padding: map-get($spacing-sizes, "1");
     position: sticky;
     top: 0;
-    width: 324px;
   }
 
-  .tosContainer {
+  .tosHorizontalRule {
+    border: none;
+    background-color: rgba(#d1cac2, 0.4);
+    height: 1px;
+    margin: 0;
+    width: 100%;
+  }
+
+  .tosList {
+    margin-top: map-get($spacing-sizes, "2");
+    overflow: auto;
+    .tosLink {
+      @include get-text-color($accent-dark-green);
+      text-decoration: underline;
+    }
+  }
+  .tosList::-webkit-scrollbar {
+    width: map-get($spacing-sizes, "4");
+  }
+  .tosList::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba($dark-text-color, 0.3);
+  }
+  .tosList::-webkit-scrollbar-thumb {
     background-color: $accent-dark-green;
-    padding: 26px;
-    .tosHorizontalRule {
-      border: none;
-      background-color: rgba(#d1cac2, 0.4);
-      height: 1px;
-      margin: 0;
-    }
-    .tosList {
-      margin-top: map-get($spacing-sizes, "3");
-      height: calc(100vh - 562.55px);
-      overflow: auto;
-      padding-right: map-get($spacing-sizes, "6");
-      scrollbar-color: red yellow !important;
-      scrollbar-width: map-get($spacing-sizes, "4") !important;
-      .tosLink {
-        @include get-text-color($accent-dark-green);
-        text-decoration: underline;
-      }
-    }
-    .tosList::-webkit-scrollbar {
-      width: map-get($spacing-sizes, "4");
-    }
-    .tosList::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 6px rgba($dark-text-color, 0.3);
-    }
-    .tosList::-webkit-scrollbar-thumb {
-      background-color: $accent-dark-olive;
-      outline: none;
-    }
-    .tosList::-webkit-scrollbar-thumb {
-      height: 15px;
-      border-radius: map-get($spacing-sizes, "3");
-    }
+    outline: none;
+  }
+  .tosList::-webkit-scrollbar-thumb {
+    height: 15px;
+    border-radius: map-get($spacing-sizes, "3");
   }
 }

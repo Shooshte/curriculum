@@ -2,7 +2,7 @@ import Head from "next/head";
 import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript";
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 
 import BlogSidebar from "../../components/blog/sidebar";
 import TwitterFooter from "../../components/blog/twitterFooter";
@@ -49,10 +49,7 @@ interface PropsType {
 }
 
 const PostWrapper = ({ children }) => (
-  <section
-    className={`${styles.wrapper} content-container`}
-    data-testid="post-content"
-  >
+  <section className={styles.wrapper} data-testid="post-content">
     {children}
     <TwitterFooter />
   </section>
@@ -114,6 +111,7 @@ const Post = ({ postData }: PropsType) => {
   const {
     content,
     data: { description, imageUrl, title },
+    id,
     subheadings,
   } = postData;
 
@@ -128,7 +126,7 @@ const Post = ({ postData }: PropsType) => {
         <meta property="og:type" content="article" />
         <meta
           property="og:url"
-          content={`https://www.shooshte.com/blog/${postData.id}`}
+          content={`https://www.shooshte.com/blog/${id}`}
         />
         <meta property="og:image" content={imageUrl} />
 
