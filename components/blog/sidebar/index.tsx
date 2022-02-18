@@ -3,8 +3,6 @@ import styles from "./blogSidebar.module.scss";
 
 import { slugifyPostId } from "../../../lib/string";
 
-import AboutHeader from "../../../public/images/blog/AuthorHeading.png";
-
 interface PropsType {
   headings?: string[];
 }
