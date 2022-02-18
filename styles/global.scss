@@ -40,6 +40,9 @@ html {
   list-style: circle;
   margin-bottom: map-get($spacing-sizes, "3");
   margin-inline-start: map-get($spacing-sizes, "3");
+  li {
+    max-width: $max-text-width;
+  }
 }
 
 .pill {
