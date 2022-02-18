@@ -1,11 +1,11 @@
 @import "styles/_variables";
 
 .blogItem {
-  margin-bottom: map-get($spacing-sizes, "2");
+  margin-bottom: map-get($spacing-sizes, "1");
 }
 
 .container {
-  max-width: $max-text-width;
+  max-width: $max-content-width;
 }
 
 .categories {
@@ -13,7 +13,9 @@
 }
 
 .imageContainer {
+  aspect-ratio: 70/30;
   margin-bottom: map-get($spacing-sizes, "4");
-  max-width: 278px;
+  max-width: $max-text-width;
+  position: relative;
   width: 100%;
 }
