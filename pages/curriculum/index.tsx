@@ -16,8 +16,8 @@ const Home = () => (
       ></meta>
     </Head>
 
-    <div className={`${styles.container}`}>
-      <div className="content-container">
+    <div className={styles.container}>
+      <div className={styles.cvContent}>
         <section className={styles.section} data-testid="personal-information">
           <h2 className="heading-2">Personal Information</h2>
           <p className="text">
@@ -236,11 +236,9 @@ const Home = () => (
         /> */}
         <Image
           alt="Portrait photo of Miha Šušteršič"
-          height={179.12}
-          layout="fixed"
+          layout="intrinsic"
           src={profileSrc}
           quality={100}
-          width={214.9}
         />
       </div>
     </div>

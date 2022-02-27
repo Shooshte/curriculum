@@ -1,8 +1,17 @@
 @import "styles/_variables";
 
 .container {
-  max-width: 1024px;
+  max-width: $max-content-width;
+  width: 100%;
+}
+
+.cvContent {
   margin: 0 auto;
+  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
+}
+
+.lastText {
+  margin-bottom: map-get($spacing-sizes, "3");
 }
 
 .section {
@@ -13,23 +22,25 @@
   display: none;
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1023px) {
   .container {
     display: grid;
-    grid-template-columns: auto 307px;
+    grid-template-columns: 0.7002fr 0.2998fr;
   }
   .sidebar {
     align-items: flex-start;
     background-color: $accent-dark-green;
     display: flex;
+    height: calc(
+      100vh - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1") - 87px
+    );
     justify-content: center;
     padding: map-get($spacing-sizes, "1");
+    position: sticky;
+    right: 0;
+    top: 0;
     width: calc(
       100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
     );
   }
-}
-
-.lastText {
-  margin-bottom: map-get($spacing-sizes, "3");
 }
