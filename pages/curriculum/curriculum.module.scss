@@ -1,12 +1,12 @@
 @import "styles/_variables";
 
 .container {
+  margin: 0 auto;
   max-width: $max-content-width;
   width: 100%;
 }
 
 .cvContent {
-  margin: 0 auto;
   padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
 }
 
