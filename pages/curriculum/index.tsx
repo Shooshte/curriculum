@@ -6,13 +6,15 @@ import styles from "./curriculum.module.scss";
 import profileSrc from "../../public/images/CV/ProfilePicture.png";
 // import sidebarSrc from "../../public/images/SidebarImage.png";
 
+import { PAGE_TITLE } from "../../constants";
+
 const Home = () => (
   <>
     <Head>
-      <title>Miha Šušteršič: Curriculum Vitae</title>
+      <title>{`${PAGE_TITLE}: CV`}</title>
       <meta
         name="description"
-        content="Miha Šušteršič's personal CV page. An experienced ReactJS front-end developer that also works in project management and UX/UI design. The CV contains all the relevant work experience and skills. Will be available for employment from 10th Feb 2022."
+        content="Miha 'shooshte' Šušteršič's personal CV page. An experienced ReactJS front-end developer, project manager and UX/UI designer."
       ></meta>
     </Head>
 
