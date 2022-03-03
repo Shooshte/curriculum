@@ -12,6 +12,8 @@ import styles from "./post.module.scss";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import { slugifyPostId } from "../../lib/string";
 
+import { PAGE_TITLE } from "../../constants";
+
 export const getStaticPaths = async () => {
   const paths = getAllPostIds();
   return {
@@ -118,7 +120,7 @@ const Post = ({ postData }: PropsType) => {
   return (
     <>
       <Head>
-        <title>Miha Šušteršič: {title}</title>
+        <title>{`${PAGE_TITLE}: ${title}`}</title>
         <meta name="description" content={description}></meta>
 
         <meta property="og:description" content={description} />

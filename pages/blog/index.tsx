@@ -8,6 +8,8 @@ import styles from "./blog.module.scss";
 
 import { getSortedPostsData } from "~/lib/posts";
 
+import { PAGE_TITLE } from "../../constants";
+
 interface PostType {
   categories?: string;
   date?: string;
@@ -49,10 +51,10 @@ const Blog = ({ allPostsData }: PropsType) => {
   return (
     <>
       <Head>
-        <title>Miha Šušteršič: Blog</title>
+        <title>{`${PAGE_TITLE}: Blog home`}</title>
         <meta
           name="description"
-          content="Miha Šušteršič's personal blog page. Focused on ReactJS, front-end, and software development but may also include other topics and cat pictures."
+          content="Miha 'shooshte' Šušteršič's personal blog page. Focused on ReactJS, front-end, and software development, but may also include other topics and cat pictures."
         ></meta>
       </Head>
       <section className={styles.container}>

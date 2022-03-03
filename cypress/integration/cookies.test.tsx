@@ -62,6 +62,14 @@ const COOKIES_DATA: CookieData[] = [
 describe("/cookies", () => {
   it("should render all the static data correctly", () => {
     cy.visit("/cookies");
+
+    cy.get("head title").contains("Shooshte: Cookies");
+    cy.get('head meta[name="description"]').should(
+      "have.attr",
+      "content",
+      "Cookies page that includes a list of cookies, stored user preferences and user preference controls."
+    );
+
     cy.get('[data-testid="cookies-section"] h1').contains("Tracking cookies");
 
     cy.get('[data-testid="cookies-section"] h2')

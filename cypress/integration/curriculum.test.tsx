@@ -11,11 +11,11 @@ describe("/curriculum", () => {
   // Page head element test, checking for page title and description
   it("<head> content", () => {
     cy.visit("/curriculum");
-    cy.get("head title").contains("Miha Šušteršič: Curriculum Vitae");
+    cy.get("head title").contains("Shooshte: CV");
     cy.get('head meta[name="description"]').should(
       "have.attr",
       "content",
-      "Miha Šušteršič's personal CV page. An experienced ReactJS front-end developer that also works in project management and UX/UI design. The CV contains all the relevant work experience and skills. Will be available for employment from 10th Feb 2022."
+      "Miha 'shooshte' Šušteršič's personal CV page. An experienced ReactJS front-end developer, project manager and UX/UI designer."
     );
   });
 

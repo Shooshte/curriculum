@@ -1,9 +1,12 @@
 import { useContext, useMemo } from "react";
+import Head from "next/head";
 import Image from "next/image";
 import styles from "./cookies.module.scss";
 import CookiesContext, { CookiesConsent } from "~/context/cookies";
 
 import CookiesImgSrc from "../../public/images/cookies/Cookies.png";
+
+import { PAGE_TITLE } from "../../constants";
 
 interface CookieData {
   name: string;
@@ -90,73 +93,82 @@ const Cookies = () => {
   };
 
   return (
-    <section
-      className={`content-container ${styles.container}`}
-      data-testid="cookies-section"
-    >
-      <h1 className="heading-1">Tracking cookies</h1>
-      <div className={styles.imageContainer}>
-        <Image
-          alt="a lot of colorful cookies"
-          layout="fill"
-          objectFit="cover"
-          src={CookiesImgSrc}
-        />
-      </div>
-      <h2 className="heading-3 margin-top-3">List of tracking cookies</h2>
-      <p className="text margin-bottom-3">
-        The following is a list of all the Google Analytics tracking cookies
-        that this page would like to save. All of these are optional and will
-        not be stored without your permission. You can review and change your
-        settings above.
-      </p>
-      <table className={`${styles.table}`} data-testid="cookies-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Provider</th>
-            <th>Purpose</th>
-            <th>Expiry</th>
-            <th>Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          {COOKIES_DATA.map(({ name, provider, purpose, expiry, type }) => (
-            <tr key={`cookie-${name}-row`}>
-              <td>{name}</td>
-              <td>{provider}</td>
-              <td>{purpose}</td>
-              <td>{expiry}</td>
-              <td>{type}</td>
+    <>
+      <Head>
+        <title>{`${PAGE_TITLE}: Cookies`}</title>
+        <meta
+          name="description"
+          content="Cookies page that includes a list of cookies, stored user preferences and user preference controls."
+        ></meta>
+      </Head>
+      <section
+        className={`content-container ${styles.container}`}
+        data-testid="cookies-section"
+      >
+        <h1 className="heading-1">Tracking cookies</h1>
+        <div className={styles.imageContainer}>
+          <Image
+            alt="a lot of colorful cookies"
+            layout="fill"
+            objectFit="cover"
+            src={CookiesImgSrc}
+          />
+        </div>
+        <h2 className="heading-3 margin-top-3">List of tracking cookies</h2>
+        <p className="text margin-bottom-3">
+          The following is a list of all the Google Analytics tracking cookies
+          that this page would like to save. All of these are optional and will
+          not be stored without your permission. You can review and change your
+          settings above.
+        </p>
+        <table className={`${styles.table}`} data-testid="cookies-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Provider</th>
+              <th>Purpose</th>
+              <th>Expiry</th>
+              <th>Type</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      <h2 className="heading-3">Your settings</h2>
-      <p
-        className="text"
-        data-testid="cookies-settings-text"
-      >{`${settingsString}`}</p>
-      <p className="text">
-        You can change your current settings by using the buttons below. In case
-        you have previously accepted cookies and would like to revoke your
-        permission, delete the cookies from your browser after clicking
-        ‘Decline’, and refresh the page window. This will make sure that the
-        tracking script is no longer running.
-      </p>
-      <h5
-        className={`heading-5 ${styles.button}`}
-        onClick={() => onConsentButtonClick("declined")}
-      >
-        Decline cookies
-      </h5>
-      <h5
-        className={`heading-5 ${styles.button}`}
-        onClick={() => onConsentButtonClick("accepted")}
-      >
-        Accept cookies
-      </h5>
-    </section>
+          </thead>
+          <tbody>
+            {COOKIES_DATA.map(({ name, provider, purpose, expiry, type }) => (
+              <tr key={`cookie-${name}-row`}>
+                <td>{name}</td>
+                <td>{provider}</td>
+                <td>{purpose}</td>
+                <td>{expiry}</td>
+                <td>{type}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <h2 className="heading-3">Your settings</h2>
+        <p
+          className="text"
+          data-testid="cookies-settings-text"
+        >{`${settingsString}`}</p>
+        <p className="text">
+          You can change your current settings by using the buttons below. In
+          case you have previously accepted cookies and would like to revoke
+          your permission, delete the cookies from your browser after clicking
+          ‘Decline’, and refresh the page window. This will make sure that the
+          tracking script is no longer running.
+        </p>
+        <h5
+          className={`heading-5 ${styles.button}`}
+          onClick={() => onConsentButtonClick("declined")}
+        >
+          Decline cookies
+        </h5>
+        <h5
+          className={`heading-5 ${styles.button}`}
+          onClick={() => onConsentButtonClick("accepted")}
+        >
+          Accept cookies
+        </h5>
+      </section>
+    </>
   );
 };
 
