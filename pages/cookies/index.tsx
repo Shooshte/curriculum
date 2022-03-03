@@ -98,7 +98,7 @@ const Cookies = () => {
         <title>{`${PAGE_TITLE}: Cookies`}</title>
         <meta
           name="description"
-          content="Cookies page that includes a list of cookies, stored user preferences and user preference controls.."
+          content="Cookies page that includes a list of cookies, stored user preferences and user preference controls."
         ></meta>
       </Head>
       <section
