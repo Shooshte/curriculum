@@ -25,17 +25,25 @@
     background-color: rgba(#d1cac2, 0.4);
     height: 1px;
     margin: 0;
+    margin-bottom: map-get($spacing-sizes, "3");
     width: 100%;
   }
 
   .tosList {
-    margin-top: map-get($spacing-sizes, "2");
+    list-style: auto;
+    margin-inline-start: map-get($spacing-sizes, '2');
     overflow: auto;
-    .tosLink {
-      @include get-text-color($accent-dark-green);
-      text-decoration: underline;
-    }
   }
+
+  .tosLi {
+    margin-top: map-get($spacing-sizes, '4');
+  }
+
+  .tosLink {
+    @include get-text-color($accent-dark-green);
+    text-decoration: underline;
+  }
+
   .tosList::-webkit-scrollbar {
     width: map-get($spacing-sizes, "4");
   }
@@ -49,5 +57,8 @@
   .tosList::-webkit-scrollbar-thumb {
     height: 15px;
     border-radius: map-get($spacing-sizes, "3");
+  }
+  .mainTosList {
+    margin-inline-start: 0;
   }
 }
