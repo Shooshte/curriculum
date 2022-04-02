@@ -10,7 +10,7 @@ import TwitterFooter from "../../components/blog/twitterFooter";
 import styles from "./post.module.scss";
 
 import { getAllPostIds, getPostData } from "../../lib/posts";
-import { slugifyPostId } from "../../lib/string";
+import { Heading, slugifyPostId } from "../../lib/string";
 
 import { PAGE_TITLE } from "../../constants";
 
@@ -31,7 +31,7 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 
-interface PostDataType {
+export interface PostDataType {
   content: string;
   data: {
     categories?: string;
@@ -43,7 +43,7 @@ interface PostDataType {
   excerpt?: string;
   id: string;
   isEmpty: boolean;
-  subheadings: string[];
+  headings: Heading[];
 }
 
 interface PropsType {
@@ -99,6 +99,11 @@ const markdownOptions: MarkdownToJSX.Options = {
         className: "list",
       },
     },
+    ol: {
+      props: {
+        className: "list",
+      },
+    },
   },
   slugify: (str) => slugifyPostId(str),
   wrapper: PostWrapper,
@@ -114,7 +119,7 @@ const Post = ({ postData }: PropsType) => {
     content,
     data: { description, imageUrl, title },
     id,
-    subheadings,
+    headings,
   } = postData;
 
   return (
@@ -139,7 +144,7 @@ const Post = ({ postData }: PropsType) => {
       </Head>
 
       <article className={styles.container}>
-        <BlogSidebar headings={subheadings} />
+        <BlogSidebar headings={headings} />
         <Markdown options={markdownOptions}>{content}</Markdown>
       </article>
     </>

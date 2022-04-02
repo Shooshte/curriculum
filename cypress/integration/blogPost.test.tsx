@@ -1,21 +1,8 @@
 /// <reference types="cypress"/>
 
 import postsData from "../fixtures/posts.json";
-
-interface PostDataType {
-  content: string;
-  data: {
-    categories?: string;
-    date?: string;
-    description?: string;
-    imageUrl?: string;
-    title?: string;
-  };
-  excerpt?: string;
-  id: string;
-  isEmpty: boolean;
-  subheadings: string[];
-}
+import { Heading } from "../../lib/string";
+import { PostDataType } from "../../pages/blog/[id]";
 
 const checkPostHead = ({
   id,
@@ -83,7 +70,7 @@ const checkPostTitle = ({ id, data: { title } }: PostDataType) => {
   cy.get('article section[data-testid="post-content"] h1').contains(title);
 };
 
-const checkPostTOS = ({ id, subheadings }: PostDataType) => {
+const checkPostTOS = ({ id, headings }: PostDataType) => {
   cy.visit(`blog/${id}`);
   cy.viewport("iphone-6");
   cy.get('[data-testid="blog-sidebar"]').should("have.css", "display", "none");
@@ -96,10 +83,22 @@ const checkPostTOS = ({ id, subheadings }: PostDataType) => {
     .next()
     .should("match", "hr");
 
-  subheadings.forEach((title, index) => {
-    cy.get('[data-testid="blog-sidebar"] ul li a').contains(
-      `${index + 1}. ${title}`
+  const checkSubheadings = (heading: Heading) => {
+    heading.chapters.forEach((currentHeading, index) => {
+      cy.get(`[data-testid="blog-sidebar-ol-${heading.text}"]`).contains(
+        `${index + 1}. ${currentHeading.text}`
+      );
+      if (currentHeading.chapters.length > 0) {
+        checkSubheadings(currentHeading);
+      }
+    });
+  };
+
+  headings.forEach((heading, index) => {
+    cy.get('[data-testid="blog-sidebar"] ol li a').contains(
+      `${index + 1}. ${heading.text}`
     );
+    checkSubheadings(heading);
   });
 };
 

@@ -39,10 +39,14 @@ html {
   line-height: map-get($line-height-sizes, "5");
   list-style: circle;
   margin-bottom: map-get($spacing-sizes, "3");
-  margin-inline-start: map-get($spacing-sizes, "3");
+  margin-inline-start: map-get($spacing-sizes, "2");
   li {
     max-width: $max-text-width;
   }
+}
+
+ol.list {
+  list-style: auto;
 }
 
 .pill {

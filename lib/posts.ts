@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-import { getSubheadings } from "./string";
+import { getHeadings } from "./string";
 
 const postsDirectory = path.join(process.cwd(), "posts");
 
@@ -63,12 +63,12 @@ export const getPostData = (id) => {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents, { delimiters: ["'''", "'''"] });
 
-  const subheadings = getSubheadings(matterResult.content);
+  const headings = getHeadings(matterResult.content);
 
   // Combine the data with the id
   return {
     id,
-    subheadings,
+    headings,
     ...matterResult,
   };
 };
