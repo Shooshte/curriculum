@@ -21,51 +21,48 @@ export interface Heading {
   text: string;
 }
 
+interface ReduceType {
+  chaptersMap?: {
+    string: Heading;
+  };
+  result: Heading[];
+}
+
 export const getHeadings = (content: string): Heading[] => {
   // extract all headings from a markdown string
   const HEADINGS_REGEX = /#{1,6}.+/g;
 
-  let headingLevel = 2;
-  let headingIndex = 0;
-  const allHeadings = content
-    .match(HEADINGS_REGEX)
-    .reduce((acc, currentHeading) => {
-      const hashTagsCount = countHastags(currentHeading);
+  const allHeadingsString = content.match(HEADINGS_REGEX);
+  const parsedHeadings: ReduceType = allHeadingsString.reduce(
+    ({ chaptersMap = {}, result }, heading) => {
+      const { flag = "", content = "$missing header content$" } =
+        /^(?<flag>#+)\s*(?<content>.*?)\s*$/.exec(heading)?.groups ?? {};
+      const nestingLevel = flag.length;
 
-      // ignore the main heading
-      if (hashTagsCount === 1) {
-        return acc;
-      }
-
-      const sanitizedHeading = currentHeading.replace(/#/g, "").trim();
-      const heading = {
-        chapters: [],
-        text: sanitizedHeading,
-      };
-
-      if (hashTagsCount === headingLevel) {
-        headingIndex = headingIndex + 1;
-      } else {
-        headingIndex = 0;
-      }
-
-      headingLevel = hashTagsCount;
-      if (hashTagsCount === 2) {
-        acc.push(heading);
-        // We only support one level of subheadings at the moment
-      } else if (hashTagsCount === 3) {
-        if (acc.length === 0) {
-          return acc;
+      // ensure a valid `heading` format.
+      if (nestingLevel > 1) {
+        let chapters;
+        if (nestingLevel === 2) {
+          chaptersMap = {};
+          chapters = result;
+        } else {
+          // create and/or access the nesting
+          // level specific `chapters` array.
+          chapters = chaptersMap[nestingLevel] ??= [];
         }
-        if (acc.length > 0) {
-          acc[acc.length - 1]["chapters"].push(heading);
-        }
-      } else {
-        acc[acc.length - 1]["chapters"][headingIndex]["chapters"].push(heading);
+        // create a new chapter item.
+        const chapterItem = { text: content, chapters: [] };
+
+        // create or reassign the next level's `chapters` array.
+        chaptersMap[nestingLevel + 1] = chapterItem.chapters;
+
+        // push new item into the correct `chapters` array.
+        chapters.push(chapterItem);
       }
-      return acc;
-    }, []);
-  // group headings by level
-  // nest headings by level and remove hashtags
-  return allHeadings;
+      return { chaptersMap, result };
+    },
+    { chaptersMap: undefined, result: [] }
+  );
+
+  return parsedHeadings.result;
 };

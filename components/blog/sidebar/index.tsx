@@ -22,7 +22,7 @@ const HeadingComponent = ({ heading, index }: HeadingProps) => {
         {`${index + 1}. ${heading.text}`}
       </a>
       {!!chapters.length && (
-        <ol className={styles.tosList} data-testid={`blog-sidebar-ol-${text}`}>
+        <ol className={styles.tosList} data-testid={`sidebar-ol-${text}`}>
           {chapters.map((heading, index) => {
             return (
               <HeadingComponent
