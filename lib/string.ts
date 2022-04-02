@@ -30,8 +30,6 @@ export const getHeadings = (content: string): Heading[] => {
   const allHeadings = content
     .match(HEADINGS_REGEX)
     .reduce((acc, currentHeading) => {
-      console.group("currentHeading");
-
       const hashTagsCount = countHastags(currentHeading);
 
       // ignore the main heading
