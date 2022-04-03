@@ -1,8 +1,7 @@
 @import "styles/_variables";
 
 .brand {
-  color: $light-text-color;
-  width: 0px;
+  display:none;
 }
 
 .headerContent {
@@ -17,9 +16,9 @@
     $max-content-width - map-get($spacing-sizes, "2") -
       map-get($spacing-sizes, "2")
   );
-  padding: map-get($spacing-sizes, "2");
+  padding: map-get($spacing-sizes, "2") map-get($spacing-sizes, "3");
   width: calc(
-    100% - map-get($spacing-sizes, "2") - map-get($spacing-sizes, "2")
+    100% - map-get($spacing-sizes, "3") - map-get($spacing-sizes, "3")
   );
 }
 
@@ -27,6 +26,7 @@
   align-items: center;
   display: flex;
   justify-content: flex-end;
+  width: 100%;
   ul {
     align-items: center;
     display: flex;
@@ -34,11 +34,18 @@
   }
 }
 
-@media only screen and (min-width: 374px) {
+@media only screen and (min-width: 424px) {
+  .headerContent {
+    padding: map-get($spacing-sizes, "2") map-get($spacing-sizes, "1");
+    width: calc(
+      100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
+    );
+  }
   .brand {
+    display: inline-block;
     @include get-text-color($light-text-color);
-    width: auto;
     font-size: map-get($font-sizes, "4");
     line-height: map-get($line-height-sizes, "4");
+    width: auto;
   }
 }

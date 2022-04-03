@@ -1,55 +1,54 @@
 @import "styles/_variables";
 
-.accent {
-  display: none;
+.container {
+  margin: 0 auto;
+  max-width: calc($max-content-width - map-get($spacing-sizes, "3") - map-get($spacing-sizes, "3"));
+  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "3");
+  width: calc(100% - map-get($spacing-sizes, "3") - map-get($spacing-sizes, "3"));
+}
+
+.pageTitle {
+  margin-bottom: map-get($spacing-sizes, "1");
+  font-weight: bold;
 }
 
 .blogItem {
-  display: grid;
-  grid-template-columns: auto 84px;
-  column-gap: map-get($spacing-sizes, "4");
-  margin: map-get($spacing-sizes, "2");
-  margin-bottom: map-get($spacing-sizes, "1");
-  margin-top: 0;
-  .blogTitle {
-    line-height: 140%;
-    margin-bottom: 0;
-  }
-}
-
-.blogText {
-  flex-direction: column;
+  @include get-text-color($background-color);
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: map-get($spacing-sizes, "1");
 }
 
-.container {
-  margin: 0 auto;
-  max-width: $max-content-width;
+.blogTitle {
+  grid-area: title;
+  line-height: 140%;
+  margin-bottom: map-get($spacing-sizes, "3");
+}
+
+.imageContainer {
+  grid-area: image;
+  height: 170px;
+  position: relative;
+  margin-bottom: map-get($spacing-sizes, '2');
+  width: 100%;
 }
 
 .categories {
+  grid-area: categories;
   font-size: map-get($font-sizes, "6");
 }
 
 .description {
-  display: none;
+  grid-area: description;
+  margin-bottom: map-get($spacing-sizes, "4");
 }
 
-.title {
-  background-color: $accent-dark-olive;
-  margin-bottom: map-get($spacing-sizes, "2");
-  margin-top: map-get($spacing-sizes, "1");
-  max-width: 100%;
-  padding-left: map-get($spacing-sizes, "2");
-  width: calc(100% - map-get($spacing-sizes, "2"));
-}
-
-.imageContainer {
-  height: 84px;
-  max-width: $max-text-width;
-  position: relative;
-  width: 84px;
+@media only screen and (min-width: 424px) {
+  .container {
+    max-width: calc($max-content-width - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1"));
+    padding: map-get($spacing-sizes, "1");
+    width: calc(100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1"));
+  }
 }
 
 @media screen and (min-width: 500px) {
@@ -70,12 +69,6 @@
 }
 
 @media screen and (min-width: 1023px) {
-  .accent {
-    background-color: $accent-dark-olive;
-    display: flex;
-    height: 100%;
-    width: 100%;
-  }
   .container {
     display: grid;
     grid-template-columns: 0.71fr 0.29fr;
