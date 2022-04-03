@@ -5,30 +5,6 @@ import Navbar from "./navbar";
 
 import styles from "./layout.module.scss";
 
-interface navigationLinkType {
-  id: number;
-  route: string;
-  text: string;
-}
-
-export const NAVIGATION_LINKS: navigationLinkType[] = [
-  {
-    id: 0,
-    route: "/curriculum",
-    text: "CV",
-  },
-  {
-    id: 1,
-    route: "/blog",
-    text: "Blog",
-  },
-  {
-    id: 2,
-    route: "/cookies",
-    text: "Cookies",
-  },
-];
-
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className={styles.container}>

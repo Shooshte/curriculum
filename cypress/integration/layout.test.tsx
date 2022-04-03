@@ -3,18 +3,11 @@
 describe("Layout Component", () => {
   describe("Navigation", () => {
     beforeEach(() => {
-      cy.visit("/curriculum");
+      cy.visit("/blog");
     });
 
     it("Shows the Miha Šušteršič heading", () => {
-      cy.get('[data-testid="navigation-bar"] h1').contains("Miha Šušteršič");
-    });
-
-    it("Has a working CV link", () => {
-      cy.get('[data-testid="navigation-bar"] a[href="/curriculum"]')
-        .contains("CV")
-        .click();
-      cy.url().should("include", "/curriculum");
+      cy.get('[data-testid="navigation-bar"] h1').contains("@shooshte");
     });
 
     it("Has a working Blog link", () => {
@@ -40,8 +33,8 @@ describe("Layout Component", () => {
       );
 
       // Active navbar link should not be underlined
-      cy.get('[data-testid="navigation-bar"] a[href="/curriculum"]')
-        .contains("CV")
+      cy.get('[data-testid="navigation-bar"] a[href="/blog"]')
+        .contains("Blog")
         .should("have.css", "text-decoration", "none solid rgb(29, 29, 29)");
 
       // Inactive navbar links should be underlined
@@ -52,21 +45,12 @@ describe("Layout Component", () => {
           "text-decoration",
           "underline solid rgb(29, 29, 29)"
         );
-
-      // Inactive navbar links should be underlined
-      cy.get('[data-testid="navigation-bar"] a[href="/blog"]')
-        .contains("Blog")
-        .should(
-          "have.css",
-          "text-decoration",
-          "underline solid rgb(29, 29, 29)"
-        );
     });
   });
 
   describe("Footer", () => {
     it("When page loads for the first time show the cookies consent banner", () => {
-      cy.visit("/curriculum");
+      cy.visit("/blog");
       cy.get("[data-testid='cookies-banner'] h4").contains("Cookies consent");
       cy.get("[data-testid='cookies-banner'] [data-testid='cookies-close']");
       cy.get("[data-testid='cookies-banner'] p").contains(
@@ -77,7 +61,7 @@ describe("Layout Component", () => {
     });
 
     it("After clicking the cookies consent banner close button the banner should show again on next page load.", () => {
-      cy.visit("/curriculum");
+      cy.visit("/blog");
       cy.get("[data-testid='cookies-close']").click();
       cy.get("[data-testid='cookies-banner']").should("not.exist");
       cy.reload();
@@ -87,7 +71,7 @@ describe("Layout Component", () => {
     });
 
     it("After clicking the cookies consent banner decline button the banner should not show the next time the page loads and the gtag track and gtag init should not be inside DOM.", () => {
-      cy.visit("/curriculum");
+      cy.visit("/blog");
       cy.get("[data-testid='cookies-banner'] h5").contains("Decline").click();
       cy.get("[data-testid='cookies-banner']").should("not.exist");
       cy.reload();
@@ -97,7 +81,7 @@ describe("Layout Component", () => {
     });
 
     it("After clicking the cookies consent banner accept button the banner should not show the next time the page loads and the gtag track and gtag init should be present inside DOM.", () => {
-      cy.visit("/curriculum");
+      cy.visit("/blog");
       cy.get("[data-testid='cookies-banner'] h5").contains("Accept").click();
       cy.get("[data-testid='cookies-banner']").should("not.exist");
       cy.reload();

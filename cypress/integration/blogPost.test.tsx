@@ -9,7 +9,7 @@ const checkPostHead = ({
   data: { description, imageUrl, title },
 }: PostDataType) => {
   cy.visit(`blog/${id}`);
-  cy.get("head title").contains(`Shooshte: ${title}`);
+  cy.get("head title").contains(`@shooshte: ${title}`);
   cy.get('head meta[name="description"]').should(
     "have.attr",
     "content",
