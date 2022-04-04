@@ -34,7 +34,7 @@
   }
 }
 
-@media only screen and (min-width: 424px) {
+@media only screen and (min-width: $mobile-large) {
   .headerContent {
     padding: map-get($spacing-sizes, "2") map-get($spacing-sizes, "1");
     width: calc(
