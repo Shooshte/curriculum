@@ -1,5 +1,3 @@
-import shave from "shave";
-import { useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
@@ -16,6 +14,7 @@ interface PostType {
   description?: string;
   id: string;
   imageUrl?: string;
+  imageDescription?: string;
   title?: string;
 }
 
@@ -28,8 +27,6 @@ const parseCategories = (categoriesString: string): string[] => {
 };
 
 const Blog = ({ allPostsData }: PropsType) => {
-  console.log("allPostsData: ", allPostsData);
-
   return (
     <>
       <Head>
@@ -39,14 +36,19 @@ const Blog = ({ allPostsData }: PropsType) => {
           content="Miha 'shooshte' Šušteršič's personal blog page. Focused on ReactJS, front-end, and software development, but may also include other topics and cat pictures."
         ></meta>
       </Head>
-      <section className={styles.container}>
+      <section className={styles.container} data-testid="blog-posts">
         <h2 className={`${styles.pageTitle} heading-2`}>Recent blog posts</h2>
         <ul>
           {allPostsData.map(
-            ({ categories, date, description, id, imageUrl, title }) => {
-              console.group(title);
-              console.log("description: ", description);
-              console.groupEnd();
+            ({
+              categories,
+              date,
+              description,
+              id,
+              imageDescription,
+              imageUrl,
+              title,
+            }) => {
               const dateText = new Date(date).toLocaleDateString("en-US", {
                 day: "numeric",
                 month: "short",
@@ -74,7 +76,7 @@ const Blog = ({ allPostsData }: PropsType) => {
                   {imageUrl ? (
                     <div className={styles.imageContainer}>
                       <Image
-                        alt={`blog post header`}
+                        alt={imageDescription}
                         layout="fill"
                         objectFit="cover"
                         src={imageUrl}

@@ -38,6 +38,7 @@ export interface PostDataType {
     date?: string;
     description?: string;
     imageUrl?: string;
+    imageDescription?: string;
     title?: string;
   };
   excerpt?: string;

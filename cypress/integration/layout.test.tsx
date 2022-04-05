@@ -35,7 +35,7 @@ describe("Layout Component", () => {
       // Active navbar link should not be underlined
       cy.get('[data-testid="navigation-bar"] a[href="/blog"]')
         .contains("Blog")
-        .should("have.css", "text-decoration", "none solid rgb(29, 29, 29)");
+        .should("have.css", "text-decoration", "none solid rgb(47, 53, 66)");
 
       // Inactive navbar links should be underlined
       cy.get('[data-testid="navigation-bar"] a[href="/cookies"]')
@@ -43,7 +43,7 @@ describe("Layout Component", () => {
         .should(
           "have.css",
           "text-decoration",
-          "underline solid rgb(29, 29, 29)"
+          "underline solid rgb(47, 53, 66)"
         );
     });
   });

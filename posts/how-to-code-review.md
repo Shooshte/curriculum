@@ -3,6 +3,7 @@ categories: "Software development;Teamwork"
 date: "2022-02-02"
 description: "Things to do before starting a code review, best practises on how to do a code review, and things to be mindful of. What to check before submitting your code review. How to avoid long discussions and conflict when doing peer review."
 imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+imageDescription: "A person taking notes on a piece of paper between two laptop screens"
 title: "How to code review"
 '''
 
