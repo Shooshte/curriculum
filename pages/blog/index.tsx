@@ -81,12 +81,17 @@ const Blog = ({ allPostsData }: PropsType) => {
                       />
                     </div>
                   ) : null}
-                  <p className={`text ${styles.description}`} id="description">
-                    {description}
-                  </p>
-                  <p className={styles.categories} id="categories">
-                    {categoriesText}
-                  </p>
+                  <div className={styles.textContainer}>
+                    <p
+                      className={`text ${styles.description}`}
+                      id="description"
+                    >
+                      {description}
+                    </p>
+                    <p className={styles.categories} id="categories">
+                      {categoriesText}
+                    </p>
+                  </div>
                 </li>
               );
             }

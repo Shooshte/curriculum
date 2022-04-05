@@ -34,13 +34,20 @@
 }
 
 .categories {
-  grid-area: categories;
   font-size: map-get($font-sizes, "6");
 }
 
 .description {
-  grid-area: description;
   margin-bottom: map-get($spacing-sizes, "4");
+}
+
+.textContainer {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  grid-area: text;
+  justify-content: flex-start;
+  height: 100%;
 }
 
 @media only screen and (min-width: $mobile-large) {
@@ -57,10 +64,9 @@
     display: grid;
     grid-template-areas: 
     "title image"
-    "description image"
-    "categories image";
+    "text image";
     grid-template-columns: auto 250px;
-    grid-template-rows: min-content;
+    grid-template-rows: minmax(55px 83px) 100%;
     column-gap: map-get($spacing-sizes, "2");
     justify-content: flex-start;
     width: 100%;
@@ -93,6 +99,7 @@
 @media screen and (min-width: $desktop) {
   .blogItem {
     grid-template-columns: auto 508px;
+    grid-template-rows: 55px 100%;
   }
   .imageContainer {
     height: 254px;
