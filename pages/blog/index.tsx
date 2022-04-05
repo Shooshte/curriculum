@@ -1,11 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
 
 import styles from "./blog.module.scss";
+import BlogImage from "../../components/image";
 
 import { getSortedPostsData } from "~/lib/posts";
-
 import { PAGE_TITLE } from "../../constants";
 
 interface PostType {
@@ -73,16 +72,11 @@ const Blog = ({ allPostsData }: PropsType) => {
                       {title}
                     </h3>
                   </Link>
-                  {imageUrl ? (
-                    <div className={styles.imageContainer}>
-                      <Image
-                        alt={imageDescription}
-                        layout="fill"
-                        objectFit="cover"
-                        src={imageUrl}
-                      />
-                    </div>
-                  ) : null}
+                  <BlogImage
+                    alt={imageDescription}
+                    containerClassName={styles.imageContainer}
+                    src={imageUrl}
+                  />
                   <div className={styles.textContainer}>
                     <p
                       className={`text ${styles.description}`}
