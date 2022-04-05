@@ -37,6 +37,10 @@
 @media only screen and (min-width: $mobile-large) {
   .headerContent {
     padding: map-get($spacing-sizes, "2") map-get($spacing-sizes, "1");
+    max-width: calc(
+      $max-content-width - map-get($spacing-sizes, "1") -
+        map-get($spacing-sizes, "1")
+    );
     width: calc(
       100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
     );
