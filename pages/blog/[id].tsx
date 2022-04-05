@@ -4,6 +4,7 @@ import javascript from "highlight.js/lib/languages/javascript";
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
 import React, { useEffect } from "react";
 
+import BlogImage from "../../components/image/";
 import BlogSidebar from "../../components/blog/sidebar";
 import TwitterFooter from "../../components/blog/twitterFooter";
 
@@ -90,9 +91,10 @@ const markdownOptions: MarkdownToJSX.Options = {
         className: "heading-6",
       },
     },
-    p: {
+    img: {
+      component: BlogImage,
       props: {
-        className: "text",
+        containerClassName: styles.imageContainer,
       },
     },
     ul: {
@@ -103,6 +105,18 @@ const markdownOptions: MarkdownToJSX.Options = {
     ol: {
       props: {
         className: "list",
+      },
+    },
+    p: {
+      props: { className: "text" },
+      component: (props) => {
+        return props.children.some(
+          (child: JSX.Element) => child.type && child.type === BlogImage
+        ) ? (
+          <>{props.children}</>
+        ) : (
+          <p {...props} />
+        );
       },
     },
   },
@@ -145,7 +159,7 @@ const Post = ({ postData }: PropsType) => {
       </Head>
 
       <article className={styles.container}>
-        <BlogSidebar headings={headings} />
+        {/* <BlogSidebar headings={headings} /> */}
         <Markdown options={markdownOptions}>{content}</Markdown>
       </article>
     </>

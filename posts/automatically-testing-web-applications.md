@@ -7,9 +7,9 @@ imageDescription: "An old man in a workshop"
 title: "Automatically testing web applications"
 '''
 
-# Automatically testing web applications
-
 ![An old man in a workshop](https://images.unsplash.com/photo-1607969891751-1374d59ab4fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80)
+
+# Automatically testing web applications
 
 ## TL;DR
 

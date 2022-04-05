@@ -34,7 +34,7 @@ const BlogImage = ({ alt, containerClassName, src }: Props) => {
     <div className={`${containerClassName} ${styles.imageContainer}`}>
       {src && !imageBroken ? (
         <>
-          <ImageLoading />
+          {imageLoading && <ImageLoading />}
           <Image
             alt={alt}
             className={imageLoading ? styles.invisible : ""}

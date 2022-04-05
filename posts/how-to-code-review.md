@@ -7,9 +7,9 @@ imageDescription: "A person taking notes on a piece of paper between two laptop 
 title: "How to code review"
 '''
 
-# How to code review
-
 ![A person taking notes on a piece of paper between two laptop screens](https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
+
+# How to code review
 
 ## TL;DR
 

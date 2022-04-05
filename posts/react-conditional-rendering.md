@@ -7,9 +7,9 @@ imageDescription: "HTML code on a computer screen"
 title: "Clean-er ReactJS Code - Conditional Rendering"
 '''
 
-# Clean-er ReactJS Code - Conditional Rendering
-
 ![HTML code on a computer screen](https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
+
+# Clean-er ReactJS Code - Conditional Rendering
 
 ## TL;DR
 
@@ -80,7 +80,6 @@ This is the inherent level of difficulty associated with a specific instructiona
 ```javascript
 const OptionsPanel = ({ user }) => {
   const { role } = user;
-
   const displayAdminOptionsPanel = React.useMemo(
     () => role !== 29 && role !== 21 && role !== 11 && role !== 30,
     [role]
@@ -117,7 +116,6 @@ const ALL_USER_ROLES = [
   5, // customer
   10, // intern
 ];
-
 const ADMIN_ROLES = [29, 21, 11, 30];
 
 const hasAdminPermissions = (userRole) => ADMIN_ROLES.includes(userRole);
