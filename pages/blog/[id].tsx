@@ -5,7 +5,7 @@ import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
 import React, { useEffect } from "react";
 
 import BlogImage from "../../components/image/";
-import BlogSidebar from "../../components/blog/sidebar";
+import TableOfContents from "../../components/blog/tableOfContents";
 import TwitterFooter from "../../components/blog/twitterFooter";
 
 import styles from "./post.module.scss";
@@ -159,8 +159,8 @@ const Post = ({ postData }: PropsType) => {
       </Head>
 
       <article className={styles.container}>
-        {/* <BlogSidebar headings={headings} /> */}
         <Markdown options={markdownOptions}>{content}</Markdown>
+        <TableOfContents headings={headings} />
       </article>
     </>
   );

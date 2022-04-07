@@ -60,9 +60,18 @@
   }
 }
 
+@media only screen and (min-width: $desktop-small) {
+  .container {
+    column-gap: 0;
+    display: grid;
+    grid-template-columns: auto 300px;
+    margin: 0 auto;
+    max-width: $max-content-width;
+  }
+}
+
 @media only screen and (min-width: $desktop) {
   .imageContainer {
     height: 400px;
-    width: $max-content-width;
   }
 }
