@@ -84,6 +84,7 @@ const checkPostTOC = ({ id, headings }: PostDataType) => {
   };
 
   cy.visit(`blog/${id}`);
+  cy.get('[data-testId="cookies-close"]').click();
   cy.viewport("iphone-6");
   cy.get('[data-testid="table-of-contents"]').should(
     "have.css",

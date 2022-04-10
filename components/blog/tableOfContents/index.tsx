@@ -14,9 +14,11 @@ interface SidebarProps {
 
 const TableOfContents = ({ headings = [] }: SidebarProps) => {
   const [hideOnMobile, setHideOnMobile] = useState<boolean>(true);
+  const [initialMount, setInitialMount] = useState<boolean>(true);
 
   const handleToggleClick = () => {
     setHideOnMobile(!hideOnMobile);
+    setInitialMount(false);
   };
 
   const onLinkClick = () => {
@@ -26,8 +28,12 @@ const TableOfContents = ({ headings = [] }: SidebarProps) => {
   return (
     <>
       <section
-        className={`${styles.container} ${
-          hideOnMobile ? styles.slideOut : styles.slideIn
+        className={`${
+          initialMount
+            ? styles.container
+            : hideOnMobile
+            ? `${styles.slideOut} ${styles.container}`
+            : `${styles.slideIn} ${styles.container}`
         }`}
         data-testid="table-of-contents"
       >

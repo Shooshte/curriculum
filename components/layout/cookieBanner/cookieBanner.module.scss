@@ -74,4 +74,5 @@
   width: calc(
     100% - map-get($spacing-sizes, "3") - map-get($spacing-sizes, "3")
   );
+  z-index: 3;
 }
