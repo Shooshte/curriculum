@@ -71,30 +71,6 @@ const checkPostTitle = ({ id, data: { title } }: PostDataType) => {
 };
 
 const checkPostTOC = ({ id, headings }: PostDataType) => {
-  cy.visit(`blog/${id}`);
-  cy.viewport("iphone-6");
-  cy.get('[data-testid="table-of-contents"]').should(
-    "have.css",
-    "display",
-    "none"
-  );
-  cy.viewport("ipad-2");
-  cy.get('[data-testid="table-of-contents"]').should(
-    "have.css",
-    "display",
-    "none"
-  );
-  cy.viewport("macbook-11");
-  cy.get('[data-testid="table-of-contents"]').should(
-    "have.css",
-    "display",
-    "flex"
-  );
-  cy.get('[data-testid="table-of-contents"] h3')
-    .contains("Table of contents")
-    .next()
-    .should("match", "hr");
-
   const checkSubheadings = (heading: Heading) => {
     heading.chapters.forEach((currentHeading, index) => {
       const href = slugifyPostId(heading.text);
@@ -106,6 +82,73 @@ const checkPostTOC = ({ id, headings }: PostDataType) => {
       }
     });
   };
+
+  cy.visit(`blog/${id}`);
+  cy.viewport("iphone-6");
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "display",
+    "none"
+  );
+  cy.get('[data-testId="toc-trigger"]').should("have.css", "display", "flex");
+  cy.get('[data-testId="toc-trigger"]').click();
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "display",
+    "flex"
+  );
+  headings.forEach((heading, index) => {
+    cy.get('[data-testid="table-of-contents"] ol li a').contains(
+      `${index + 1}. ${heading.text}`
+    );
+    checkSubheadings(heading);
+  });
+  cy.get('[data-testId="toc-trigger"]').should("have.css", "display", "flex");
+  cy.get('[data-testId="toc-trigger"]').click();
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "display",
+    "none"
+  );
+
+  cy.viewport("ipad-2");
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "display",
+    "none"
+  );
+  cy.get('[data-testId="toc-trigger"]').should("have.css", "display", "flex");
+  cy.get('[data-testId="toc-trigger"]').click();
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "display",
+    "flex"
+  );
+  headings.forEach((heading, index) => {
+    cy.get('[data-testid="table-of-contents"] ol li a').contains(
+      `${index + 1}. ${heading.text}`
+    );
+    checkSubheadings(heading);
+  });
+  cy.get('[data-testId="toc-trigger"]').should("have.css", "display", "flex");
+  cy.get('[data-testId="toc-trigger"]').click();
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "display",
+    "none"
+  );
+  // desktop
+  cy.viewport("macbook-11");
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "display",
+    "flex"
+  );
+  cy.get('[data-testId="toc-trigger"]').should("have.css", "display", "none");
+  cy.get('[data-testid="table-of-contents"] h3')
+    .contains("Table of contents")
+    .next()
+    .should("match", "hr");
 
   headings.forEach((heading, index) => {
     cy.get('[data-testid="table-of-contents"] ol li a').contains(
