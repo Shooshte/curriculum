@@ -5,7 +5,7 @@ import styles from "./twitterFooter.module.scss";
 const TwitterFooter = () => (
   <footer data-testid="blog-post-footer">
     <hr className={styles.horizontalRule} />
-    <p className={styles.footerText}>
+    <p className={`${styles.footerText} text`}>
       Thank you for reading the post. You are amazing! If you liked this post
       send some nice words my way. If you did not, let me know so I know to do
       better the time.

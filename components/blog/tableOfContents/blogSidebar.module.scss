@@ -1,0 +1,128 @@
+@import "styles/_variables";
+
+.container {
+  align-items: flex-start;
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: calc(
+    100vh - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
+  );
+  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "3");
+  position: fixed;
+  right: -100%;
+  top: 0;
+  z-index: 1;
+  width: calc(
+    100% - map-get($spacing-sizes, "3") - map-get($spacing-sizes, "3")
+  );;
+}
+
+.slideIn {
+  animation: slide-in 0.5s forwards;
+  -webkit-animation: slide-in 0.5s forwards;
+  transition: transform .5s ease;
+}
+
+.slideOut {
+  animation: slide-out 0.5s forwards;
+  -webkit-animation: slide-out 0.5s forwards;
+  transition: transform .5s ease-in-out;
+}
+  
+@keyframes slide-in {
+  0% { right: -100%; }
+  100% { right: 0; }
+}
+  
+@keyframes slide-out {
+  0% { right: 0; }
+  100% { right: -100%; }
+}
+
+.tocHorizontalRule {
+  border: none;
+  background-color: rgba(#d1cac2, 0.4);
+  height: 1px;
+  margin: 0;
+  margin-bottom: map-get($spacing-sizes, "3");
+  width: 100%;
+}
+
+.tocList {
+  list-style: auto;
+  margin-inline-start: map-get($spacing-sizes, '2');
+  overflow: auto;
+}
+
+.tocLi {
+  margin-top: map-get($spacing-sizes, '4');
+}
+
+.tocLink {
+  @include get-text-color($background-color);
+  text-decoration: underline;
+}
+
+.maintocList {
+  margin-inline-start: 0;
+}
+
+.tocTrigger {
+  @include get-text-color($primary-color);
+  align-items: center;
+  background-color: $primary-color;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  bottom: map-get($spacing-sizes, '3');
+  display: flex;
+  height: map-get($spacing-sizes, '1');
+  justify-content: center;
+  position: fixed;
+  right: map-get($spacing-sizes, '3');
+  z-index: 2;
+  width: map-get($spacing-sizes, '1');
+}
+
+@media only screen and (min-width: $mobile-large) {
+  .container {
+    padding: map-get($spacing-sizes, '1');
+    width: calc(
+      100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
+    );
+  }
+  .tocTrigger {
+    bottom: map-get($spacing-sizes, '2');
+    right: map-get($spacing-sizes, '2');
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+  .container {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    width: 33%;
+  }
+}
+
+@media only screen and (min-width: $desktop-small) {
+  .container {
+    box-shadow: none;
+    position: sticky;
+    height: calc(
+      100vh - 87px - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
+    );
+    padding: map-get($spacing-sizes, '1') map-get($spacing-sizes, '1') map-get($spacing-sizes, '1') 0;
+    transform: none;
+    width: calc(100% - map-get($spacing-sizes, '1'));
+  }
+  .slideOut, .slideIn {
+    animation: none;
+  }
+  .tocTrigger {
+    display: none;
+  }
+
+}
+

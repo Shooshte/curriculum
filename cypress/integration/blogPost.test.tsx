@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 
 import postsData from "../fixtures/posts.json";
-import { Heading } from "../../lib/string";
+import { Heading, slugifyPostId } from "../../lib/string";
 import { PostDataType } from "../../pages/blog/[id]";
 
 const checkPostHead = ({
@@ -9,7 +9,7 @@ const checkPostHead = ({
   data: { description, imageUrl, title },
 }: PostDataType) => {
   cy.visit(`blog/${id}`);
-  cy.get("head title").contains(`Shooshte: ${title}`);
+  cy.get("head title").contains(`@shooshte: ${title}`);
   cy.get('head meta[name="description"]').should(
     "have.attr",
     "content",
@@ -70,22 +70,11 @@ const checkPostTitle = ({ id, data: { title } }: PostDataType) => {
   cy.get('article section[data-testid="post-content"] h1').contains(title);
 };
 
-const checkPostTOS = ({ id, headings }: PostDataType) => {
-  cy.visit(`blog/${id}`);
-  cy.viewport("iphone-6");
-  cy.get('[data-testid="blog-sidebar"]').should("have.css", "display", "none");
-  cy.viewport("ipad-2");
-  cy.get('[data-testid="blog-sidebar"]').should("have.css", "display", "none");
-  cy.viewport("macbook-11");
-  cy.get('[data-testid="blog-sidebar"]').should("have.css", "display", "flex");
-  cy.get('[data-testid="blog-sidebar"] h3')
-    .contains("Table of contents")
-    .next()
-    .should("match", "hr");
-
+const checkPostTOC = ({ id, headings }: PostDataType) => {
   const checkSubheadings = (heading: Heading) => {
     heading.chapters.forEach((currentHeading, index) => {
-      cy.get(`[data-testid="blog-sidebar-ol-${heading.text}"]`).contains(
+      const href = slugifyPostId(heading.text);
+      cy.get(`[data-testid="blog-sidebar-ol-${href}"]`).contains(
         `${index + 1}. ${currentHeading.text}`
       );
       if (currentHeading.chapters.length > 0) {
@@ -94,8 +83,76 @@ const checkPostTOS = ({ id, headings }: PostDataType) => {
     });
   };
 
+  cy.visit(`blog/${id}`);
+  cy.get('[data-testId="cookies-close"]').click();
+  cy.viewport("iphone-6");
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "right",
+    "-375px"
+  );
+  cy.get('[data-testId="toc-trigger"]').should("have.css", "display", "flex");
+  cy.get('[data-testId="toc-trigger"]').click();
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "right",
+    "0px"
+  );
   headings.forEach((heading, index) => {
-    cy.get('[data-testid="blog-sidebar"] ol li a').contains(
+    cy.get('[data-testid="table-of-contents"] ol li a').contains(
+      `${index + 1}. ${heading.text}`
+    );
+    checkSubheadings(heading);
+  });
+  cy.get('[data-testId="toc-trigger"]').should("have.css", "display", "flex");
+  cy.get('[data-testId="toc-trigger"]').click();
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "right",
+    "-375px"
+  );
+
+  cy.viewport("ipad-2");
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "right",
+    "-768px"
+  );
+  cy.get('[data-testId="toc-trigger"]').should("have.css", "display", "flex");
+  cy.get('[data-testId="toc-trigger"]').click();
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "right",
+    "0px"
+  );
+  headings.forEach((heading, index) => {
+    cy.get('[data-testid="table-of-contents"] ol li a').contains(
+      `${index + 1}. ${heading.text}`
+    );
+    checkSubheadings(heading);
+  });
+  cy.get('[data-testId="toc-trigger"]').should("have.css", "display", "flex");
+  cy.get('[data-testId="toc-trigger"]').click();
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "right",
+    "-768px"
+  );
+  // desktop
+  cy.viewport("macbook-11");
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "display",
+    "flex"
+  );
+  cy.get('[data-testId="toc-trigger"]').should("have.css", "display", "none");
+  cy.get('[data-testid="table-of-contents"] h3')
+    .contains("Table of contents")
+    .next()
+    .should("match", "hr");
+
+  headings.forEach((heading, index) => {
+    cy.get('[data-testid="table-of-contents"] ol li a').contains(
       `${index + 1}. ${heading.text}`
     );
     checkSubheadings(heading);
@@ -121,7 +178,7 @@ describe("Blog post", () => {
         checkPostHead(postData);
       });
       it("Table of contents", () => {
-        checkPostTOS(postData);
+        checkPostTOC(postData);
       });
       it("Title", () => {
         checkPostTitle(postData);

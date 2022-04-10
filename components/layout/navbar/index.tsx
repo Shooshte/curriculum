@@ -1,36 +1,15 @@
 import NavbarLink from "./navbarLink";
 import styles from "./navbar.module.scss";
 
-interface NavigationLinkData {
-  id: number;
-  route: string;
-  text: string;
-}
-
-export const NAVIGATION_LINKS: NavigationLinkData[] = [
-  {
-    id: 0,
-    route: "/curriculum",
-    text: "CV",
-  },
-  {
-    id: 1,
-    route: "/blog",
-    text: "Blog",
-  },
-  {
-    id: 2,
-    route: "/cookies",
-    text: "Cookies",
-  },
-];
+import { NAVIGATION_LINKS } from "../../../constants/navigation";
+import { PAGE_TITLE } from "../../../constants";
 
 const Navbar = () => (
   <div className={styles.headerContent} data-testid="navigation-bar">
-    <h1 className={`${styles.brand}`}>Miha Šušteršič</h1>
+    <h1 className={`${styles.brand}`}>{PAGE_TITLE}</h1>
     <nav className={styles.navigation}>
       <ul>
-        {NAVIGATION_LINKS.map((linkData: NavigationLinkData) => (
+        {NAVIGATION_LINKS.map((linkData) => (
           <NavbarLink
             key={`nav-link-${linkData.id}`}
             text={linkData.text}
