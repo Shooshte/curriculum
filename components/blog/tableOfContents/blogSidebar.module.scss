@@ -6,12 +6,12 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  right: 0;
   height: calc(
     100vh - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
   );
   padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "3");
   position: fixed;
+  right: -100%;
   top: 0;
   z-index: 1;
   width: calc(
@@ -19,8 +19,26 @@
   );;
 }
 
-.hideOnMobile {
-  display: none;
+.slideIn {
+  animation: slide-in 0.5s forwards;
+  -webkit-animation: slide-in 0.5s forwards;
+  transition: transform .5s ease;
+}
+
+.slideOut {
+  animation: slide-out 0.5s forwards;
+  -webkit-animation: slide-out 0.5s forwards;
+  transition: transform .5s ease-in-out;
+}
+  
+@keyframes slide-in {
+  0% { right: -100%; }
+  100% { right: 0; }
+}
+  
+@keyframes slide-out {
+  0% { right: 0; }
+  100% { right: -100%; }
 }
 
 .tocHorizontalRule {
@@ -96,10 +114,11 @@
       100vh - 87px - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
     );
     padding: map-get($spacing-sizes, '1') map-get($spacing-sizes, '1') map-get($spacing-sizes, '1') 0;
+    transform: none;
     width: calc(100% - map-get($spacing-sizes, '1'));
   }
-  .hideOnMobile {
-    display: flex;
+  .slideOut, .slideIn {
+    animation: none;
   }
   .tocTrigger {
     display: none;

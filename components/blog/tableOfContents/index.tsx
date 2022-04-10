@@ -27,7 +27,7 @@ const TableOfContents = ({ headings = [] }: SidebarProps) => {
     <>
       <section
         className={`${styles.container} ${
-          hideOnMobile ? styles.hideOnMobile : ""
+          hideOnMobile ? styles.slideOut : styles.slideIn
         }`}
         data-testid="table-of-contents"
       >

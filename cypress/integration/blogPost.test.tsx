@@ -87,15 +87,15 @@ const checkPostTOC = ({ id, headings }: PostDataType) => {
   cy.viewport("iphone-6");
   cy.get('[data-testid="table-of-contents"]').should(
     "have.css",
-    "display",
-    "none"
+    "right",
+    "-375px"
   );
   cy.get('[data-testId="toc-trigger"]').should("have.css", "display", "flex");
   cy.get('[data-testId="toc-trigger"]').click();
   cy.get('[data-testid="table-of-contents"]').should(
     "have.css",
-    "display",
-    "flex"
+    "right",
+    "0px"
   );
   headings.forEach((heading, index) => {
     cy.get('[data-testid="table-of-contents"] ol li a').contains(
@@ -107,22 +107,22 @@ const checkPostTOC = ({ id, headings }: PostDataType) => {
   cy.get('[data-testId="toc-trigger"]').click();
   cy.get('[data-testid="table-of-contents"]').should(
     "have.css",
-    "display",
-    "none"
+    "right",
+    "-375px"
   );
 
   cy.viewport("ipad-2");
   cy.get('[data-testid="table-of-contents"]').should(
     "have.css",
-    "display",
-    "none"
+    "right",
+    "-768px"
   );
   cy.get('[data-testId="toc-trigger"]').should("have.css", "display", "flex");
   cy.get('[data-testId="toc-trigger"]').click();
   cy.get('[data-testid="table-of-contents"]').should(
     "have.css",
-    "display",
-    "flex"
+    "right",
+    "0px"
   );
   headings.forEach((heading, index) => {
     cy.get('[data-testid="table-of-contents"] ol li a').contains(
@@ -134,8 +134,8 @@ const checkPostTOC = ({ id, headings }: PostDataType) => {
   cy.get('[data-testId="toc-trigger"]').click();
   cy.get('[data-testid="table-of-contents"]').should(
     "have.css",
-    "display",
-    "none"
+    "right",
+    "-768px"
   );
   // desktop
   cy.viewport("macbook-11");
