@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 
 import postsData from "../fixtures/posts.json";
-import { Heading } from "../../lib/string";
+import { Heading, slugifyPostId } from "../../lib/string";
 import { PostDataType } from "../../pages/blog/[id]";
 
 const checkPostHead = ({
@@ -70,37 +70,50 @@ const checkPostTitle = ({ id, data: { title } }: PostDataType) => {
   cy.get('article section[data-testid="post-content"] h1').contains(title);
 };
 
-// const checkPostTOC = ({ id, headings }: PostDataType) => {
-//   cy.visit(`blog/${id}`);
-//   cy.viewport("iphone-6");
-//   cy.get('[data-testid="blog-sidebar"]').should("have.css", "display", "none");
-//   cy.viewport("ipad-2");
-//   cy.get('[data-testid="blog-sidebar"]').should("have.css", "display", "none");
-//   cy.viewport("macbook-11");
-//   cy.get('[data-testid="blog-sidebar"]').should("have.css", "display", "flex");
-//   cy.get('[data-testid="blog-sidebar"] h3')
-//     .contains("Table of contents")
-//     .next()
-//     .should("match", "hr");
+const checkPostTOC = ({ id, headings }: PostDataType) => {
+  cy.visit(`blog/${id}`);
+  cy.viewport("iphone-6");
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "display",
+    "none"
+  );
+  cy.viewport("ipad-2");
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "display",
+    "none"
+  );
+  cy.viewport("macbook-11");
+  cy.get('[data-testid="table-of-contents"]').should(
+    "have.css",
+    "display",
+    "flex"
+  );
+  cy.get('[data-testid="table-of-contents"] h3')
+    .contains("Table of contents")
+    .next()
+    .should("match", "hr");
 
-//   const checkSubheadings = (heading: Heading) => {
-//     heading.chapters.forEach((currentHeading, index) => {
-//       cy.get(`[data-testid="blog-sidebar-ol-${heading.text}"]`).contains(
-//         `${index + 1}. ${currentHeading.text}`
-//       );
-//       if (currentHeading.chapters.length > 0) {
-//         checkSubheadings(currentHeading);
-//       }
-//     });
-//   };
+  const checkSubheadings = (heading: Heading) => {
+    heading.chapters.forEach((currentHeading, index) => {
+      const href = slugifyPostId(heading.text);
+      cy.get(`[data-testid="blog-sidebar-ol-${href}"]`).contains(
+        `${index + 1}. ${currentHeading.text}`
+      );
+      if (currentHeading.chapters.length > 0) {
+        checkSubheadings(currentHeading);
+      }
+    });
+  };
 
-//   headings.forEach((heading, index) => {
-//     cy.get('[data-testid="blog-sidebar"] ol li a').contains(
-//       `${index + 1}. ${heading.text}`
-//     );
-//     checkSubheadings(heading);
-//   });
-// };
+  headings.forEach((heading, index) => {
+    cy.get('[data-testid="table-of-contents"] ol li a').contains(
+      `${index + 1}. ${heading.text}`
+    );
+    checkSubheadings(heading);
+  });
+};
 
 const checkPostFooter = (pathName: string) => {
   cy.visit(`blog/${pathName}`);
@@ -120,9 +133,9 @@ describe("Blog post", () => {
       it("<head>", () => {
         checkPostHead(postData);
       });
-      // it("Table of contents", () => {
-      //   checkPostTOC(postData);
-      // });
+      it("Table of contents", () => {
+        checkPostTOC(postData);
+      });
       it("Title", () => {
         checkPostTitle(postData);
       });

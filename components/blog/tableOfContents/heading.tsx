@@ -22,7 +22,7 @@ const HeadingComponent = ({ heading, index, onLinkClick }: HeadingProps) => {
         {`${index + 1}. ${heading.text}`}
       </a>
       {!!chapters.length && (
-        <ol className={styles.tocList} data-testid={`blog-sidebar-ol-${text}`}>
+        <ol className={styles.tocList} data-testid={`blog-sidebar-ol-${href}`}>
           {chapters.map((heading, index) => {
             return (
               <HeadingComponent
