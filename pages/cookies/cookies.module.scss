@@ -1,9 +1,9 @@
 @import "styles/variables";
 
 .button {
-  background-color: $accent-yellow;
+  background-color: $accent-blue;
   cursor: pointer;
-  @include get-text-color($accent-yellow);
+  @include get-text-color($accent-blue);
   display: inline-block;
   font-weight: map-get($font-weights, "bold");
   text-transform: uppercase;
@@ -19,8 +19,8 @@
 }
 
 .button:hover {
-  background-color: $accent-orange;
-  @include get-text-color($accent-orange);
+  background-color: $primary-color;
+  @include get-text-color($primary-color);
 }
 
 .button:last-child {

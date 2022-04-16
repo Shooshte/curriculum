@@ -9,7 +9,6 @@ import * as gtag from "~/lib/gtag";
 // Styles
 import "~/styles/reset.scss";
 import "~/styles/global.scss";
-import "~/styles/code.scss";
 
 import CookiesContext, { CookiesConsent } from "~/context/cookies";
 

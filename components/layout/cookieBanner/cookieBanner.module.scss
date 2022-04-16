@@ -10,8 +10,8 @@
 .close {
   cursor: pointer;
   margin-top: map-get($spacing-sizes, "6");
-  height: 18px;
-  width: 18px;
+  height: map-get($spacing-sizes, "2");
+  width: map-get($spacing-sizes, "2");
   position: relative;
 }
 
@@ -19,22 +19,12 @@
   align-items: flex-end;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   a {
-    color: $primary-color;
+    color: $dark-text-color;
     cursor: pointer;
     font-weight: map-get($font-weights, "bold");
     text-decoration: underline;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .buttonsContainer {
-    margin-bottom: map-get($spacing-sizes, "4");
-    margin-left: auto;
-  }
-  .contentContainer {
-    flex-direction: row;
   }
 }
 
@@ -44,10 +34,10 @@
   justify-content: space-between;
 }
 
-.button {
-  background-color: $accent-yellow;
+.buttonsContainer .button {
+  background-color: $accent-blue;
   cursor: pointer;
-  @include get-text-color($accent-yellow);
+  @include get-text-color($accent-blue);
   font-weight: map-get($font-weights, "bold");
   text-transform: uppercase;
   margin: 0 !important;
@@ -58,8 +48,8 @@
 }
 
 .button:hover {
-  background-color: $accent-orange;
-  @include get-text-color($accent-orange);
+  background-color: $primary-color;
+  @include get-text-color($primary-color);
 }
 
 .button:last-child {
@@ -71,8 +61,22 @@
   max-width: $max-content-width;
   padding: map-get($spacing-sizes, "4") map-get($spacing-sizes, "3");
   position: relative;
+  max-width: calc(
+    $max-content-width - map-get($spacing-sizes, "1") -
+      map-get($spacing-sizes, "1")
+  );
   width: calc(
     100% - map-get($spacing-sizes, "3") - map-get($spacing-sizes, "3")
   );
   z-index: 3;
+}
+
+@media only screen and (min-width: 768px) {
+  .buttonsContainer {
+    margin-bottom: map-get($spacing-sizes, "4");
+    margin-left: map-get($spacing-sizes, "3");
+  }
+  .contentContainer {
+    flex-direction: row;
+  }
 }
