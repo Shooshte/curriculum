@@ -35,7 +35,7 @@ const CookieBanner = () => {
   return showBanner ? (
     <section className={styles.container} data-testid="cookies-banner">
       <div className={styles.headerContainer}>
-        <h4 className="heading-4">Cookies consent</h4>
+        <h4 className="heading-3">Cookies consent</h4>
         <div
           className={styles.close}
           data-testid="cookies-close"
