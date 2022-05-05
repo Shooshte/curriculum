@@ -73,16 +73,6 @@ describe("/cookies", () => {
     cy.get('[data-testid="cookies-section"] h1').contains("Tracking cookies");
 
     cy.get('[data-testid="cookies-section"] h2')
-      .contains("List of tracking cookies")
-      .next()
-      .should("match", "p")
-      .contains(
-        "The following is a list of all the Google Analytics tracking cookies that this page would like to save. All of these are optional and will not be stored without your permission. You can review and change your settings above."
-      )
-      .next()
-      .should("match", "table")
-      .next()
-      .should("match", "h2")
       .contains("Your settings")
       .next()
       .should("match", "p")
@@ -97,20 +87,22 @@ describe("/cookies", () => {
       .contains("Decline cookies")
       .next()
       .should("match", "h5")
-      .contains("Accept cookies");
-
-    cy.get('[data-testid="cookies-table"] thead').contains("Name");
-    cy.get('[data-testid="cookies-table"] thead').contains("Provider");
-    cy.get('[data-testid="cookies-table"] thead').contains("Purpose");
-    cy.get('[data-testid="cookies-table"] thead').contains("Expiry");
-    cy.get('[data-testid="cookies-table"] thead').contains("Type");
+      .contains("Accept cookies")
+      .next()
+      .should("match", "h2")
+      .contains("List of tracking cookies")
+      .next()
+      .should("match", "p")
+      .contains(
+        "The following is a list of all the Google Analytics tracking cookies that this page would like to save. All of these are optional and will not be stored without your permission. You can review and change your settings above."
+      );
 
     COOKIES_DATA.forEach(({ name, provider, purpose, expiry, type }) => {
-      cy.get('[data-testid="cookies-table"] tbody tr').contains(name);
-      cy.get('[data-testid="cookies-table"] tbody tr').contains(provider);
-      cy.get('[data-testid="cookies-table"] tbody tr').contains(purpose);
-      cy.get('[data-testid="cookies-table"] tbody tr').contains(expiry);
-      cy.get('[data-testid="cookies-table"] tbody tr').contains(type);
+      cy.get('[data-testid="cookies-list"] ul li').contains(name);
+      cy.get('[data-testid="cookies-list"] ul li').contains(provider);
+      cy.get('[data-testid="cookies-list"] ul li').contains(purpose);
+      cy.get('[data-testid="cookies-list"] ul li').contains(expiry);
+      cy.get('[data-testid="cookies-list"] ul li').contains(type);
     });
   });
 

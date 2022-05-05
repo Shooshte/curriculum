@@ -15,12 +15,6 @@ html {
   width: 100%;
 }
 
-.content-container {
-  margin: 0 auto;
-  max-width: $max-content-width;
-  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "2");
-}
-
 .label {
   font-size: map-get($font-sizes, "6");
   line-height: map-get($line-height-sizes, "6");
