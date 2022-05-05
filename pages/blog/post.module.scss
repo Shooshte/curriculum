@@ -64,7 +64,7 @@
 @media only screen and (min-width: $desktop-small) {
   .container {
     display: grid;
-    grid-template-columns: 66% 34%;
+    grid-template-columns: 1.61803398875fr 1.38196601125fr;
     margin: 0 auto;
     max-width: $max-content-width;
   }
