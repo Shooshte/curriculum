@@ -28,37 +28,68 @@
 }
 
 .container {
-  max-width: $max-content-width;
+  margin: 0 auto;
+  max-width: $max-text-width;
+  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "3");
+  overflow: auto;
+  width: calc(
+    100% - map-get($spacing-sizes, "3") - map-get($spacing-sizes, "3")
+  );
 }
 
 .imageContainer {
-  aspect-ratio: 7/3;
+  height: 170px;
   position: relative;
-  width: 100%;
-}
-
-.table {
-  max-width: calc(
-    $max-text-width - map-get($spacing-sizes, "4") -
-      map-get($spacing-sizes, "4")
-  );
   margin-bottom: map-get($spacing-sizes, "2");
-  font-size: map-get($font-sizes, "6");
-  line-height: map-get($line-height-sizes, "6");
-  overflow: auto;
   width: 100%;
-  thead tr {
-    border-bottom: 1px solid $accent-blue;
-    font-weight: map-get($font-weights, "bold");
+}
+
+.cookieList {
+  margin-bottom: map-get($spacing-sizes, "3");
+  li {
+    border-bottom: 1px solid rgba($dark-text-color, 0.1);
+    column-gap: map-get($spacing-sizes, "1");
+    display: grid;
+    grid-template-columns: 75px calc(100% - 75px - map-get($spacing-sizes, "1"));
+    font-size: map-get($font-sizes, "5");
+    line-height: map-get($line-height-sizes, "5");
+    padding: map-get($spacing-sizes, "5") map-get($spacing-sizes, "4");
   }
-  th,
-  td {
-    padding: map-get($spacing-sizes, "4");
+  li label {
+    text-transform: uppercase;
+  }
+  li:last-child {
+    border-bottom: none;
+  }
+  .cookieName {
+    background-color: rgba($dark-text-color, 0.1);
+    border: none;
+    display: list-item;
+    font-weight: 700;
+    text-align: right;
   }
 }
 
-@media screen and (min-width: 767px) {
+@media only screen and (min-width: $mobile-large) {
+  .container {
+    padding: map-get($spacing-sizes, "1");
+    width: calc(
+      100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
+    );
+  }
+}
+
+@media screen and (min-width: $tablet) {
   .imageContainer {
-    aspect-ratio: 8/2;
+    height: 300px;
+    position: relative;
+    margin-bottom: map-get($spacing-sizes, "2");
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: $desktop) {
+  .imageContainer {
+    height: 400px;
   }
 }

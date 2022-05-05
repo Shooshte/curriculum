@@ -5,7 +5,6 @@ import styles from "./cookies.module.scss";
 import CookiesContext, { CookiesConsent } from "~/context/cookies";
 
 import CookiesImgSrc from "../../public/images/cookies/Cookies.png";
-
 import { PAGE_TITLE } from "../../constants";
 
 interface CookieData {
@@ -101,11 +100,7 @@ const Cookies = () => {
           content="Cookies page that includes a list of cookies, stored user preferences and user preference controls."
         ></meta>
       </Head>
-      <section
-        className={`content-container ${styles.container}`}
-        data-testid="cookies-section"
-      >
-        <h1 className="heading-1">Tracking cookies</h1>
+      <section className={styles.container} data-testid="cookies-section">
         <div className={styles.imageContainer}>
           <Image
             alt="a lot of colorful cookies"
@@ -114,36 +109,8 @@ const Cookies = () => {
             src={CookiesImgSrc}
           />
         </div>
-        <h2 className="heading-3 margin-top-3">List of tracking cookies</h2>
-        <p className="text margin-bottom-3">
-          The following is a list of all the Google Analytics tracking cookies
-          that this page would like to save. All of these are optional and will
-          not be stored without your permission. You can review and change your
-          settings above.
-        </p>
-        <table className={`${styles.table}`} data-testid="cookies-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Provider</th>
-              <th>Purpose</th>
-              <th>Expiry</th>
-              <th>Type</th>
-            </tr>
-          </thead>
-          <tbody>
-            {COOKIES_DATA.map(({ name, provider, purpose, expiry, type }) => (
-              <tr key={`cookie-${name}-row`}>
-                <td>{name}</td>
-                <td>{provider}</td>
-                <td>{purpose}</td>
-                <td>{expiry}</td>
-                <td>{type}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <h2 className="heading-3">Your settings</h2>
+        <h1 className="heading-1">Tracking cookies</h1>
+        <h2 className="heading-2">Your settings</h2>
         <p
           className="text"
           data-testid="cookies-settings-text"
@@ -167,6 +134,40 @@ const Cookies = () => {
         >
           Accept cookies
         </h5>
+
+        <h2 className="heading-2 margin-top-2">List of tracking cookies</h2>
+        <p className="text margin-bottom-3">
+          The following is a list of all the Google Analytics tracking cookies
+          that this page would like to save. All of these are optional and will
+          not be stored without your permission. You can review and change your
+          settings above.
+        </p>
+
+        <section data-testid="cookies-list">
+          {COOKIES_DATA.map(({ name, provider, purpose, expiry, type }) => {
+            return (
+              <ul className={styles.cookieList} key={`cookie-${name}-list`}>
+                <li className={styles.cookieName}>{name}</li>
+                <li>
+                  <label>Provider</label>
+                  <p>{provider}</p>
+                </li>
+                <li>
+                  <label>Purpose</label>
+                  <p>{purpose}</p>
+                </li>
+                <li>
+                  <label>Expiry</label>
+                  <p>{expiry}</p>
+                </li>
+                <li>
+                  <label>Type</label>
+                  <p>{type}</p>
+                </li>
+              </ul>
+            );
+          })}
+        </section>
       </section>
     </>
   );
