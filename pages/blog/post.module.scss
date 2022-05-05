@@ -5,6 +5,7 @@
     100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
   );
   margin: 0 auto;
+  max-width: $max-text-width;
   padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "3");
   width: calc(
     100% - map-get($spacing-sizes, "3") - map-get($spacing-sizes, "3")
@@ -38,7 +39,7 @@
 .imageContainer {
   height: 170px;
   position: relative;
-  margin-bottom: map-get($spacing-sizes, '2');
+  margin-bottom: map-get($spacing-sizes, "2");
   width: 100%;
 }
 
@@ -47,7 +48,7 @@
     padding: map-get($spacing-sizes, "1");
     width: calc(
       100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
-    );  
+    );
   }
 }
 
@@ -55,16 +56,15 @@
   .imageContainer {
     height: 300px;
     position: relative;
-    margin-bottom: map-get($spacing-sizes, '2');
+    margin-bottom: map-get($spacing-sizes, "2");
     width: 100%;
   }
 }
 
 @media only screen and (min-width: $desktop-small) {
   .container {
-    column-gap: 0;
     display: grid;
-    grid-template-columns: auto 300px;
+    grid-template-columns: 66% 34%;
     margin: 0 auto;
     max-width: $max-content-width;
   }
