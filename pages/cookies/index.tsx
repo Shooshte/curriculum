@@ -1,6 +1,6 @@
 import { useContext, useMemo } from "react";
 import Head from "next/head";
-import Image from "next/image";
+import ImageWithPlaceholder from "../../components/image";
 import styles from "./cookies.module.scss";
 import CookiesContext, { CookiesConsent } from "~/context/cookies";
 
@@ -101,14 +101,11 @@ const Cookies = () => {
         ></meta>
       </Head>
       <section className={styles.container} data-testid="cookies-section">
-        <div className={styles.imageContainer}>
-          <Image
-            alt="a lot of colorful cookies"
-            layout="fill"
-            objectFit="cover"
-            src={CookiesImgSrc}
-          />
-        </div>
+        <ImageWithPlaceholder
+          alt="a lot of colorful cookies"
+          containerClassName={styles.imageContainer}
+          src={CookiesImgSrc.src}
+        />
         <h1 className="heading-1">Tracking cookies</h1>
         <h2 className="heading-2">Your settings</h2>
         <p
