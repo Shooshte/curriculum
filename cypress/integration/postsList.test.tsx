@@ -35,10 +35,10 @@ const checkPostLi = ({
   cy.url().should("include", `/blog/${id}`);
 };
 
-describe("Blog posts list", () => {
+describe("/blog", () => {
   it("<head>", () => {
     cy.visit("/blog");
-    cy.get("head title").contains(`@shooshte: Blog home`);
+    cy.get("head title").contains(`shooshte: Blog home`);
     cy.get('head meta[name="description"]').should(
       "have.attr",
       "content",

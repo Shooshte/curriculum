@@ -6,9 +6,14 @@ interface NavigationLink {
 
 export const NAVIGATION_LINKS: NavigationLink[] = [
   {
+    id: 0,
+    route: "/",
+    text: "About",
+  },
+  {
     id: 1,
     route: "/blog",
-    text: "Blog",
+    text: "Blog posts",
   },
   {
     id: 2,

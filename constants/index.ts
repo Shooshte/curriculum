@@ -1,1 +1,1 @@
-export const PAGE_TITLE = "@shooshte";
+export const PAGE_TITLE = "shooshte";

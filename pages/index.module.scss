@@ -1,0 +1,34 @@
+@import "styles/variables";
+
+.container {
+  margin: 0 auto;
+  max-width: $max-text-width;
+  padding: map-get($spacing-sizes, "1") map-get($spacing-sizes, "3");
+  overflow: auto;
+  width: calc(
+    100% - map-get($spacing-sizes, "3") - map-get($spacing-sizes, "3")
+  );
+}
+
+.rainbow {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  max-height: 250px;
+  margin: 0 auto;
+  margin-bottom: map-get($spacing-sizes, "1");
+  position: relative;
+  max-width: 250px;
+  width: 100%;
+  img {
+    border-radius: 50%;
+  }
+}
+
+@media only screen and (min-width: $mobile-large) {
+  .container {
+    padding: map-get($spacing-sizes, "1");
+    width: calc(
+      100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
+    );
+  }
+}

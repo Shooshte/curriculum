@@ -1,8 +1,8 @@
 @import "styles/_variables";
 
 .activeNavbarLink {
+  margin-left: map-get($spacing-sizes, "3");
   a {
-    margin-left: map-get($spacing-sizes, "2");
     @include get-text-color($light-text-color);
     font-size: map-get($font-sizes, "4");
     text-decoration: none;
@@ -10,11 +10,16 @@
   }
 }
 
+.activeNavbarLink:first-child,
+.navbarLink:first-child {
+  margin-left: 0;
+}
+
 .navbarLink {
   @include get-text-color($light-text-color);
   cursor: pointer;
   font-size: map-get($font-sizes, "4");
-  margin-left: map-get($spacing-sizes, "2");
+  margin-left: map-get($spacing-sizes, "3");
   text-decoration: none;
   text-transform: uppercase;
   a {
@@ -23,5 +28,27 @@
     font-size: map-get($font-sizes, "4");
     text-decoration: underline;
     text-transform: uppercase;
+  }
+}
+
+@media only screen and (min-width: $mobile-large) {
+  .activeNavbarLink,
+  .navbarLink {
+    margin-left: map-get($font-sizes, "3");
+  }
+  .activeNavbarLink:first-child,
+  .navbarLink:first-child {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (min-width: $tablet) {
+  .activeNavbarLink,
+  .navbarLink {
+    margin-left: map-get($font-sizes, "2");
+  }
+  .activeNavbarLink:first-child,
+  .navbarLink:first-child {
+    margin-left: 0;
   }
 }

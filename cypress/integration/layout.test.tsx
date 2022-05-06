@@ -3,16 +3,20 @@
 describe("Layout Component", () => {
   describe("Navigation", () => {
     beforeEach(() => {
-      cy.visit("/blog");
+      cy.visit("/");
     });
 
-    it("Shows the Miha Šušteršič heading", () => {
-      cy.get('[data-testid="navigation-bar"] h1').contains("@shooshte");
+    it("Has a working about (landing) page link", () => {
+      cy.visit("/blog");
+      cy.get('[data-testid="navigation-bar"] a[href="/"]')
+        .contains("About")
+        .click();
+      cy.url().should("include", "/");
     });
 
     it("Has a working Blog link", () => {
       cy.get('[data-testid="navigation-bar"] a[href="/blog"]')
-        .contains("Blog")
+        .contains("Blog posts")
         .click();
       cy.url().should("include", "/blog");
     });
@@ -33,11 +37,19 @@ describe("Layout Component", () => {
       );
 
       // Active navbar link should not be underlined
-      cy.get('[data-testid="navigation-bar"] a[href="/blog"]')
-        .contains("Blog")
+      cy.get('[data-testid="navigation-bar"] a[href="/"]')
+        .contains("About")
         .should("have.css", "text-decoration", "none solid rgb(47, 53, 66)");
 
       // Inactive navbar links should be underlined
+      cy.get('[data-testid="navigation-bar"] a[href="/blog"]')
+        .contains("Blog posts")
+        .should(
+          "have.css",
+          "text-decoration",
+          "underline solid rgb(47, 53, 66)"
+        );
+
       cy.get('[data-testid="navigation-bar"] a[href="/cookies"]')
         .contains("Cookies")
         .should(
@@ -50,7 +62,7 @@ describe("Layout Component", () => {
 
   describe("Footer", () => {
     it("When page loads for the first time show the cookies consent banner", () => {
-      cy.visit("/blog");
+      cy.visit("/");
       cy.get("[data-testid='cookies-banner'] h4").contains("Cookies consent");
       cy.get("[data-testid='cookies-banner'] [data-testid='cookies-close']");
       cy.get("[data-testid='cookies-banner'] p").contains(
@@ -61,7 +73,7 @@ describe("Layout Component", () => {
     });
 
     it("After clicking the cookies consent banner close button the banner should show again on next page load.", () => {
-      cy.visit("/blog");
+      cy.visit("/");
       cy.get("[data-testid='cookies-close']").click();
       cy.get("[data-testid='cookies-banner']").should("not.exist");
       cy.reload();
@@ -71,7 +83,7 @@ describe("Layout Component", () => {
     });
 
     it("After clicking the cookies consent banner decline button the banner should not show the next time the page loads and the gtag track and gtag init should not be inside DOM.", () => {
-      cy.visit("/blog");
+      cy.visit("/");
       cy.get("[data-testid='cookies-banner'] h5").contains("Decline").click();
       cy.get("[data-testid='cookies-banner']").should("not.exist");
       cy.reload();
@@ -81,7 +93,7 @@ describe("Layout Component", () => {
     });
 
     it("After clicking the cookies consent banner accept button the banner should not show the next time the page loads and the gtag track and gtag init should be present inside DOM.", () => {
-      cy.visit("/blog");
+      cy.visit("/");
       cy.get("[data-testid='cookies-banner'] h5").contains("Accept").click();
       cy.get("[data-testid='cookies-banner']").should("not.exist");
       cy.reload();
