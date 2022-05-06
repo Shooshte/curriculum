@@ -63,7 +63,7 @@ describe("/cookies", () => {
   it("should render all the static data correctly", () => {
     cy.visit("/cookies");
 
-    cy.get("head title").contains("@shooshte: Cookies");
+    cy.get("head title").contains("shooshte: Cookies");
     cy.get('head meta[name="description"]').should(
       "have.attr",
       "content",

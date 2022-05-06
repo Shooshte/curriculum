@@ -9,7 +9,7 @@ const checkPostHead = ({
   data: { description, imageUrl, title },
 }: PostDataType) => {
   cy.visit(`blog/${id}`);
-  cy.get("head title").contains(`@shooshte: ${title}`);
+  cy.get("head title").contains(`shooshte: ${title}`);
   cy.get('head meta[name="description"]').should(
     "have.attr",
     "content",
@@ -163,7 +163,7 @@ const checkPostFooter = (pathName: string) => {
   cy.visit(`blog/${pathName}`);
   cy.get('[data-testid="blog-post-footer"] hr');
   cy.get('[data-testid="blog-post-footer"] p').contains(
-    "Thank you for reading the post. You are amazing! If you liked this post send some nice words my way. If you did not, let me know so I know to do better the time."
+    "Thank you for reading. You are amazing! If you liked this content send some nice words my way. If you did not, let me know so I know to do better the next time."
   );
   cy.get('[data-testid="blog-post-footer"] a')
     .should("have.attr", "href", "https://twitter.com/MihaSustersic")
@@ -171,7 +171,7 @@ const checkPostFooter = (pathName: string) => {
     .contains("@MihaSustersic");
 };
 
-describe("Blog post", () => {
+describe("/blog/:id", () => {
   postsData.forEach((postData) => {
     describe(postData.id, () => {
       it("<head>", () => {

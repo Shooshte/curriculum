@@ -1,16 +1,12 @@
 @import "styles/_variables";
 
-.brand {
-  display: none;
-}
-
-.headerContent {
-  align-items: center;
+.navigation {
   @include get-text-color($light-text-color);
+  align-items: center;
   display: flex;
   font-weight: map-get($font-weights, "bold");
   font-size: map-get($font-sizes, "4");
-  justify-content: space-between;
+  justify-content: flex-end;
   margin: 0 auto;
   max-width: calc(
     $max-content-width - map-get($spacing-sizes, "2") -
@@ -20,13 +16,6 @@
   width: calc(
     100% - map-get($spacing-sizes, "3") - map-get($spacing-sizes, "3")
   );
-}
-
-.navigation {
-  align-items: center;
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
   ul {
     align-items: center;
     display: flex;
@@ -35,7 +24,7 @@
 }
 
 @media only screen and (min-width: $mobile-large) {
-  .headerContent {
+  .navigation {
     padding: map-get($spacing-sizes, "2") map-get($spacing-sizes, "1");
     max-width: calc(
       $max-content-width - map-get($spacing-sizes, "1") -
@@ -44,12 +33,5 @@
     width: calc(
       100% - map-get($spacing-sizes, "1") - map-get($spacing-sizes, "1")
     );
-  }
-  .brand {
-    display: inline-block;
-    @include get-text-color($light-text-color);
-    font-size: map-get($font-sizes, "4");
-    line-height: map-get($line-height-sizes, "4");
-    width: auto;
   }
 }
