@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Image from "next/image";
 
@@ -6,14 +6,13 @@ import ImageBroken from "./svg/broken";
 import ImageLoading from "./svg/loading";
 
 import styles from "./image.module.scss";
-
 interface Props {
   alt?: string;
   containerClassName?: string;
   src?: string;
 }
 
-const BlogImage = ({ alt, containerClassName, src }: Props) => {
+const ImageWithPlaceholder = ({ alt, containerClassName, src }: Props) => {
   const [imageBroken, setImageBroken] = useState(false);
   const [imageLoading, setImageLoading] = useState(true);
 
@@ -53,4 +52,4 @@ const BlogImage = ({ alt, containerClassName, src }: Props) => {
   );
 };
 
-export default BlogImage;
+export default ImageWithPlaceholder;
