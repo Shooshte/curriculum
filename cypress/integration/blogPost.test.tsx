@@ -1,5 +1,7 @@
 /// <reference types="cypress"/>
 
+import { testLayout, TEST_LAYOUTS } from "./layout";
+
 import postsData from "../fixtures/posts.json";
 import { Heading, slugifyPostId } from "../../lib/string";
 import { PostDataType } from "../../pages/blog/[id]";
@@ -174,17 +176,24 @@ const checkPostFooter = (pathName: string) => {
 describe("/blog/:id", () => {
   postsData.forEach((postData) => {
     describe(postData.id, () => {
+      testLayout(`/blog/${postData.id}`);
+
       it("<head>", () => {
         checkPostHead(postData);
       });
       it("Table of contents", () => {
         checkPostTOC(postData);
       });
-      it("Title", () => {
-        checkPostTitle(postData);
-      });
-      it("<footer>", () => {
-        checkPostFooter(postData.id);
+
+      TEST_LAYOUTS.forEach((layout) => {
+        describe(layout, () => {
+          it("Title", () => {
+            checkPostTitle(postData);
+          });
+          it("<footer>", () => {
+            checkPostFooter(postData.id);
+          });
+        });
       });
     });
   });
