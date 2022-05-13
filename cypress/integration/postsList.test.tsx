@@ -1,5 +1,7 @@
 /// <reference types="cypress"/>
 
+import { testLayout, TEST_LAYOUTS } from "./layout";
+
 import postsData from "../fixtures/posts.json";
 import { PostDataType } from "../../pages/blog/[id]";
 
@@ -36,6 +38,8 @@ const checkPostLi = ({
 };
 
 describe("/blog", () => {
+  testLayout("/blog");
+
   it("<head>", () => {
     cy.visit("/blog");
     cy.get("head title").contains(`shooshte: Blog home`);
@@ -47,13 +51,17 @@ describe("/blog", () => {
   });
 
   describe("blog-posts", () => {
-    it("title", () => {
-      cy.visit("/blog");
-      cy.get('[data-testid="blog-posts"] h2').contains("Recent blog posts");
-    });
-    it("blog card", () => {
-      postsData.forEach((post, index) => {
-        checkPostLi({ post, index });
+    TEST_LAYOUTS.forEach((layout) => {
+      describe(layout, () => {
+        it("title", () => {
+          cy.visit("/blog");
+          cy.get('[data-testid="blog-posts"] h2').contains("Recent blog posts");
+        });
+        it("blog card", () => {
+          postsData.forEach((post, index) => {
+            checkPostLi({ post, index });
+          });
+        });
       });
     });
   });
