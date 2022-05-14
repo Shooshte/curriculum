@@ -26,14 +26,11 @@ const consentDateReducer = (state, consentDate: string) => {
   return consentDate;
 };
 
-const isProductionMode = process.env.NODE_ENV === "production" ? true : false;
-
-const openReplayTracker = isProductionMode
-  ? new Tracker({
-      projectKey: process.env.NEXT_PUBLIC_OPENREPLAY_ID || "",
-      revID: packageInfo.version,
-    })
-  : undefined;
+const openReplayTracker = new Tracker({
+  __DISABLE_SECURE_MODE: true,
+  projectKey: process.env.NEXT_PUBLIC_OPENREPLAY_ID || "",
+  revID: packageInfo.version,
+});
 
 // Types
 import { AppProps } from "next/app";
@@ -43,9 +40,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   // useEffect that handles starting the openReplay tracker on app first mount
   useEffect(() => {
-    if (isProductionMode) {
-      openReplayTracker?.start();
-    }
+    openReplayTracker.start().catch(() => {});
   }, []);
 
   // use Effect that handles sending analytics data if cookies consent was given on every route change
