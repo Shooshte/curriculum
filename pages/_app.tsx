@@ -10,6 +10,8 @@ import * as gtag from "~/lib/gtag";
 // Styles
 import "~/styles/reset.scss";
 import "~/styles/global.scss";
+// constants
+import packageInfo from "../package.json";
 
 import CookiesContext, { CookiesConsent } from "~/context/cookies";
 
@@ -24,9 +26,14 @@ const consentDateReducer = (state, consentDate: string) => {
   return consentDate;
 };
 
-const openReplayTracker = new Tracker({
-  projectKey: process.env.NEXT_PUBLIC_OPENREPLAY_ID,
-});
+const isProductionMode = process.env.NODE_ENV === "production" ? true : false;
+
+const openReplayTracker = isProductionMode
+  ? new Tracker({
+      projectKey: process.env.NEXT_PUBLIC_OPENREPLAY_ID || "",
+      revID: packageInfo.version,
+    })
+  : undefined;
 
 // Types
 import { AppProps } from "next/app";
@@ -36,7 +43,9 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   // useEffect that handles starting the openReplay tracker on app first mount
   useEffect(() => {
-    openReplayTracker.start();
+    if (isProductionMode) {
+      openReplayTracker?.start();
+    }
   }, []);
 
   // use Effect that handles sending analytics data if cookies consent was given on every route change
