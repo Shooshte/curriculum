@@ -11,6 +11,7 @@
     "e2e:headless": "start-server-and-test dev http://localhost:3000 cypress:headless"
   },
   "dependencies": {
+    "@openreplay/tracker": "^3.5.11",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.4.0",
     "markdown-to-jsx": "^7.1.6",
