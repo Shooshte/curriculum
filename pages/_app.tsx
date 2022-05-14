@@ -25,7 +25,7 @@ const consentDateReducer = (state, consentDate: string) => {
 };
 
 const openReplayTracker = new Tracker({
-  projectKey: "e6duUlswkUldHni4RBFW",
+  projectKey: process.env.NEXT_PUBLIC_OPENREPLAY_ID,
 });
 
 // Types
