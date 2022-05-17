@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Tracker from "@openreplay/tracker";
 // Components
 import Layout from "~/components/layout";
+import { SessionProvider } from "next-auth/react";
 // Scripts
 import * as gtag from "~/lib/gtag";
 // Styles
@@ -121,11 +122,13 @@ const App = ({ Component, pageProps }: AppProps) => {
           />
         </>
       ) : null}
-      <CookiesContext.Provider value={cookiesContextValue}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </CookiesContext.Provider>
+      <SessionProvider session={pageProps.session}>
+        <CookiesContext.Provider value={cookiesContextValue}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </CookiesContext.Provider>
+      </SessionProvider>
     </>
   );
 };
