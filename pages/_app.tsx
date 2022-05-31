@@ -2,7 +2,6 @@
 import Script from "next/script";
 import { useEffect, useMemo, useReducer } from "react";
 import { useRouter } from "next/router";
-import Tracker from "@openreplay/tracker";
 // Components
 import Layout from "~/components/layout";
 import { SessionProvider } from "next-auth/react";
@@ -27,22 +26,11 @@ const consentDateReducer = (state, consentDate: string) => {
   return consentDate;
 };
 
-const openReplayTracker = new Tracker({
-  __DISABLE_SECURE_MODE: true,
-  projectKey: process.env.NEXT_PUBLIC_OPENREPLAY_ID || "",
-  revID: packageInfo.version,
-});
-
 // Types
 import { AppProps } from "next/app";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
-
-  // useEffect that handles starting the openReplay tracker on app first mount
-  useEffect(() => {
-    openReplayTracker.start().catch(() => {});
-  }, []);
 
   // use Effect that handles sending analytics data if cookies consent was given on every route change
   useEffect(() => {
