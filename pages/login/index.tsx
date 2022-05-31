@@ -15,7 +15,7 @@ export default function Component() {
     if (status === "authenticated") {
       router.push("/");
     }
-  }, [status]);
+  }, [router, status]);
 
   return <div className={styles.container}>Loading...</div>;
 }
