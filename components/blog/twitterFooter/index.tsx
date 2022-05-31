@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import TwitterSrc from "../../../public/images/blog/Twitter.svg";
 
 import styles from "./twitterFooter.module.scss";
@@ -13,12 +15,16 @@ const TwitterFooter = () => (
     <a
       className={styles.twitterLink}
       href="https://twitter.com/MihaSustersic"
+      rel="noreferrer"
       target="_blank"
     >
-      <img
+      <Image
         alt="twitter logo"
         className={styles.twitterLogo}
+        height={19.5}
+        priority
         src={TwitterSrc.src}
+        width={24}
       />
       <p className={styles.twitterText}>@MihaSustersic</p>
     </a>

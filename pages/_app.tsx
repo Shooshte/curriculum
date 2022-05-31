@@ -31,6 +31,12 @@ import { AppProps } from "next/app";
 const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
 
+  // Local state for setting the cookies consent string
+  const [cookiesConsent, setCookiesConsent] = useReducer(
+    consentReducer,
+    undefined
+  );
+
   // use Effect that handles sending analytics data if cookies consent was given on every route change
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -42,13 +48,8 @@ const App = ({ Component, pageProps }: AppProps) => {
     return () => {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
-  }, [router.events]);
+  }, [cookiesConsent, router.events]);
 
-  // Local state for setting the cookies consent string
-  const [cookiesConsent, setCookiesConsent] = useReducer(
-    consentReducer,
-    undefined
-  );
   const [cookiesConsentDate, setCookiesConsentDate] = useReducer(
     consentDateReducer,
     undefined
