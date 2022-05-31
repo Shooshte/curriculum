@@ -11,7 +11,6 @@ import * as gtag from "~/lib/gtag";
 import "~/styles/reset.scss";
 import "~/styles/global.scss";
 // constants
-import packageInfo from "../package.json";
 
 import CookiesContext, { CookiesConsent } from "~/context/cookies";
 
