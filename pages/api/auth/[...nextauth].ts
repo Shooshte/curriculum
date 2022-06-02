@@ -32,4 +32,4 @@ const handler = NextAuth({
   },
 });
 
-export default withSentry(handler);
+export default handler;
