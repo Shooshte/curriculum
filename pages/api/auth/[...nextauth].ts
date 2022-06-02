@@ -5,7 +5,7 @@ import GoogleProvider from "next-auth/providers/google";
 
 import { withSentry } from "@sentry/nextjs";
 
-const handler = () => {
+const handler = async () => {
   const driver = neo4j.driver(
     process.env.NEO4J_URI,
     neo4j.auth.basic(process.env.NEO4J_USER, process.env.NEO4J_PASS)
