@@ -3,7 +3,7 @@ import neo4j from "neo4j-driver";
 import { Neo4jAdapter } from "@next-auth/neo4j-adapter";
 import GoogleProvider from "next-auth/providers/google";
 
-import { withSentry } from "@sentry/nextjs";
+// import { withSentry } from "@sentry/nextjs";
 
 const driver = neo4j.driver(
   process.env.NEO4J_URI,
