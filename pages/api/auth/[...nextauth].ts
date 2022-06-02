@@ -3,9 +3,9 @@ import neo4j from "neo4j-driver";
 import { Neo4jAdapter } from "@next-auth/neo4j-adapter";
 import GoogleProvider from "next-auth/providers/google";
 
-// import { withSentry } from "@sentry/nextjs";
+import { withSentry } from "@sentry/nextjs";
 
-const handler = () => {
+const handler = async () => {
   const driver = neo4j.driver(
     process.env.NEO4J_URI,
     neo4j.auth.basic(process.env.NEO4J_USER, process.env.NEO4J_PASS)
@@ -34,4 +34,4 @@ const handler = () => {
   });
 };
 
-export default handler;
+export default withSentry(handler);

@@ -39,3 +39,4 @@ cypress/fixtures/posts.json
 
 # Sentry
 .sentryclirc
+.vercel
